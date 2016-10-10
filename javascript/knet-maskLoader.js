@@ -16,7 +16,7 @@
       // If false, you will have to run the "create" function.
       //  Ex: $('body').maskLoader().create(); 
       'autoCreate':true,
-      // displayes text alert
+      // displays text alert
       'textAlert':false
      });
  }

@@ -1,12 +1,12 @@
 
 // initialize and generate the network
-function generateNetworkGraph(json_File) {
+function generateNetworkGraph(jsonFileName) {
+   var json_File= /*'/var/www/html/QTLNetMiner/KnetMaps_demo/' + */"sampleFiles/"+ jsonFileName +".json";
    console.log("Dataset file path: "+ json_File);
 
     // Include this file's contents on the page at runtime using jQuery and a callback function.
-/*   $.getScript(json_File, function() {*/
    jQuery.getScript(json_File, function() {
-     console.log(json_File +" file included...");
+     //console.log(json_File +" file included...");
      // Initialize the cytoscapeJS container for Network View.
      initializeNetworkView();
 

@@ -6,7 +6,7 @@
 */
 
 #knet-maps {
-    width: 90% ;/*98%;*/
+    width: 90%;
     height: 90%;
 	padding-left: 10px;
     /*border: 1px dashed grey;*/
@@ -18,7 +18,7 @@
  /*#knet-maps*/
  .full_screen {
   position: fixed; 
-  width: 90vw; /*90%;*/ /*900px;*/
+  width: 90%; /*90vw;*/ /*900px;*/
   height: 90%; /*550px;*/
   top: 5%; 
   left: 5vw; 
@@ -49,14 +49,9 @@
   margin-top:5px;
   height: 30px; /*25px;*/
   font-size: 15px;
-  vertical-align:top; width: 140px;
+  vertical-align:top;
  }
  
- /* The Center pane */
- .ui-layout-center {
-  overflow-y: scroll;
- }
-      
       /* CytoscapeJS "core" container */
       #cy {
         height: 85%; /*98%;*/ /*750px;*/
@@ -82,11 +77,11 @@
       #itemInfo {
        /*display:none;*/
 /*       position: fixed; background-color: white; top:100px; right:0; z-index:1; width: 350px; height:550px;*/
-       position: absolute; right: 0; z-index: 5; width: 30%; height:/*88*/90%; background-color: white; 
+       position: absolute; right: 0; z-index: 5; width: 30%; height:88%; background-color: white; 
        border: 1px dashed black;
        margin-top: 1px;
        margin-bottom: 1px;
-       resize: horizontal; max-width: 90%;
+	   resize: horizontal; max-width: 90%;
       }
 
       #itemInfo_Table {

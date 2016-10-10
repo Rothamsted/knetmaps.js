@@ -136,7 +136,8 @@ cy.boxSelectionEnabled(false); // to disable box selection & hence allow Panning
  * e.g, cy.elements('node').qtip({ }); or cy.elements('edge').qtip({ }); */
 cy.elements().qtip({
   content: function() {
-     var qtipMsg= "";
+      var qtipMsg= "";
+	  console.log("qtip...");
      try {
       if(this.isNode()) {
          qtipMsg= "Concept: "+ this.data('value') +", type: "+ this.data('conceptType') +", PID: "+ 
@@ -164,6 +165,7 @@ cy.elements().qtip({
  * Note: Specify 'node' or 'edge' to bind an event to a specific type of element.
  * e.g, cy.on('tap', 'node', function(e){ }); or cy.on('tap', 'edge', function(e){ }); */
  cy.on('tap', function(e) {
+	console.log("mouse tap...");
     var thisElement= e.cyTarget;
     var info= "";
     try {
@@ -238,8 +240,8 @@ cy.elements().qtip({
                 cy.nodes().forEach(function( ele ) {
                  if(ele.data('conceptType') === thisConceptType) {
                     //ele.hide();
-                    ele.removeClass('ShowItAll');
-                    ele.addClass('HideThis');
+			        ele.removeClass('ShowItAll');
+					ele.addClass('HideThis');
                    }
                 });
                 // Relayout the graph.
@@ -251,8 +253,8 @@ cy.elements().qtip({
                 cy.edges().forEach(function( ele ) {
                  if(ele.data('label') === thisRelationType) {
                     //ele.hide();
-                    ele.removeClass('ShowItAll');
-                    ele.addClass('HideIt');
+			        ele.removeClass('ShowItAll');
+					ele.addClass('HideIt');
                    }
                 });
                 // Relayout the graph.
