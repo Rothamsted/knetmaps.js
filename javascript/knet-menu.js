@@ -12,58 +12,15 @@ function onHover(thisBtn) {
 
    // Go to Help docs.
   function openKnetHelpPage() {
-   var helpURL = 'https://github.com/KeywanHP/QTLNetMiner/wiki/New-QTLNetMiner-Network-Viewer';
+   var helpURL = 'https://github.com/Rothamsted/knetmaps.js/wiki/KnetMaps.js';
    window.open(helpURL, '_blank');
   }
 
   // Reset: Re-position the network graph.
   function resetGraph() {
-   //console.log("resetGraph...");
-   /*cy*/$('#cy').cytoscape('get').reset().fit(); // reset the graph's zooming & panning properties.
-//   /*cy*/$('#cy').cytoscape('get').fit();
+   $('#cy').cytoscape('get').reset().fit(); // reset the graph's zooming & panning properties.
   }
   
-  // Open advanced KnetMaps (using Twitter Bootstrap) menu.
-  
-  // Layouts dropdown: onChange
-  /*$("#layouts_dropdown").selectmenu({
-	change: function( event, data ) {
-         console.log("layouts_dropdown:"+ data.item.value);
-		 rerunLayout();
-       }
-   });
-  
-  // Label visibility  dropdown: onChange
-  $("#changeLabelVisibility").selectmenu();
-  $("#changeLabelVisibility").on( "selectmenuchange", function( event, data ) {console.log("changeLabelVisibility:"+ data.item.value);
-		 showHideLabels(this.value);} );
-
-  // Label font dropdown: onChange
-  $("#changeLabelFont").selectmenu({
-	change: function( event, data ) {
-         console.log("changeLabelFont:"+ data.item.value);
-		 changeLabelFontSize(this.value);
-       }
-   });*/
-
-   // Search the graph for a concept using BFS: breadthfirst search
-  function findConcept(conceptName) {
-   console.log("Search for concept value: "+ conceptName);
-   var foundID;
-   var cy= $('#cy').cytoscape('get');
-   cy.nodes().forEach(function( ele ) {
-       if(ele.data('conceptDisplay') === 'element') {
-          if(ele.data('value').indexOf(conceptName) > -1) {
-             console.log("Search found: "+ ele.data('value'));
-             foundID= ele.id(); // the found node
-
-             // select the matched concept.
-             cy.$('#'+foundID).select();
-            }
-        }
-      });
-  }
-
  // Export the graph as a JSON object in a new Tab and allow users to save it.
   function exportAsJson() {
    var cy= $('#cy').cytoscape('get'); // now we have a global reference to `cy`
@@ -166,34 +123,6 @@ function onHover(thisBtn) {
           console.log("Error occurred while altering label font size. \n"+"Error Details: "+ err.stack);
          }
   }
-
-/*
-  // Show all node labels.
-  function showConceptLabels() {
-   var cy= $('#cy').cytoscape('get'); // reference to `cy`
-   if(document.getElementById("show_ConceptLabels").checked) {
-      console.log("Show Concept labels...");
-      cy.nodes().style({'text-opacity': '1'});
-     }
-   else {
-      console.log("Hide Concept labels...");
-      cy.nodes().style({'text-opacity': '0'});
-     }
-  }
-
-  // Show all edge labels.
-  function showRelationLabels() {
-   var cy= $('#cy').cytoscape('get'); // reference to `cy`
-   if(document.getElementById("show_RelationLabels").checked) {
-      console.log("Show Relation labels...");
-      cy.edges().style({'text-opacity': '1'});
-     }
-   else {
-      console.log("Hide Relation labels...");
-      cy.edges().style({'text-opacity': '0'});
-     }
-  }
-*/
 
   // Show/ Hide labels for concepts and relations.
   function showHideLabels(val) {

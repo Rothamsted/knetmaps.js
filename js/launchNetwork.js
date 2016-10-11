@@ -1,14 +1,9 @@
 /*
- * Generates a lightweight Network graph, using cytoscapeJS and jQuery.
+ * Generates a lightweight Network graph, using cytoscapeJS, jQuery and jQuery UI.
  * @author: Ajit Singh.
  */
-
-function activateButton(option){
-$('.resultViewer:visible').fadeOut(0,function(){
-		$('.button_off').attr('class','button_on');
-		$('#'+option).fadeIn();
-		$('#'+option+'_button').attr('class','button_off');
-	});
+window.onload= function() {
+ launchNetwork($('#dataset_dropdown').val());
 }
 
 function launchNetwork(jsonFileName) {
@@ -16,11 +11,9 @@ function launchNetwork(jsonFileName) {
     $("#loadingNetworkDiv").html("Loading, please wait...");
 
     var jsonFile= jsonFileName; // the JSON file received from index.html.
-    console.log("generateCyJSNetwork>> input dataset: "+ jsonFile);
+	console.log("generateCyJSNetwork>> input dataset: "+ jsonFile);
 
     try {
-        $(/*"#knetmaps-menu"*/"#knet-maps").css("display","block"); // show the KNETviewer menubar.
-
         // Show maskloader.
         showNetworkLoader();
 
@@ -31,7 +24,7 @@ function launchNetwork(jsonFileName) {
         removeNetworkLoader();
 
         // Remove the preloader message for the new Network Viewer
-	$("#loadingNetworkDiv").replaceWith('<div id="loadingNetworkDiv"></div>');
+	    $("#loadingNetworkDiv").replaceWith('<div id="loadingNetworkDiv"></div>');
         
         activateButton('NetworkCanvas');
        }

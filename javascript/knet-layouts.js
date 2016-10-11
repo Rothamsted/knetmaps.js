@@ -1,20 +1,10 @@
 /**
- * @name Network View layouts
- * @description code for Network View using CytoscapeJS layouts such as breadthfirst, grid, cose, circle 
- * & concentric & third party layout algorithms such as WebCola, arbor, springy, spread & dagre (tree).
+ * @name KnetMaps layouts
+ * @description code for Network View using CytoscapeJS layouts such as CoSE, Circle & Concentric & 
+ * third party layout algorithms such as nGraph-force & CoSE-Bilkent.
  * @returns
  **/
    var animate_layout= true; // global variable for layout animation setting (default: true).
-
-   function setLayoutAnimationSetting() { // Toggle layout animation On/ Off.
-    if(document.getElementById("animateLayout").checked) {
-       animate_layout= true;
-      }
-    else {
-     animate_layout= false;
-    }
-    console.log("setLayoutAnimationSetting()>> checkbox checked: "+ document.getElementById("animateLayout").checked +" --> animate_layout= "+ animate_layout);
-   }
 
   // Set Cose layout.
   /* Useful for larger networks with clustering. */
