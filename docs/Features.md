@@ -1,10 +1,10 @@
-The new Network View for QTLNetMiner, called **KNETviewer**, uses cytoscapeJS and jQuery instead of the old Ondex Web Java applet for visualizing the network graphs. It is now up and running on all QTLNetMiner instances using the following simple steps:
+**KnetMaps** uses cytoscapeJS and jQuery instead of the old Ondex Web Java applet for visualizing the network graphs. It is now up and running on all QTLNetMiner instances using the following simple steps:
 
 1. Search the species-specific _knowledge network_ using any query terms (Use ? for example queries)
 2. Scroll down to the results (Gene View) and use check boxes to select one or more genes (do not click on a gene since this opens the old network viewer)
-3. Click on the ì_New Network Viewer_î button underneath of the table which will open the new Network Viewer in a new _pop-up_ window (Note: _allow pop-ups in your browser_).
+3. Click on the ‚Äú_New Network Viewer_‚Äù button underneath of the table which will open the new Network Viewer in a new _pop-up_ window (Note: _allow pop-ups in your browser_).
 
-_Note: If the ìNew Network Viewerî button is not visible, users should **empty the cache** in their web browser and reload (F5) the QTLNetMiner webpage._
+_Note: If the ‚ÄúNew Network Viewer‚Äù button is not visible, users should **empty the cache** in their web browser and reload (F5) the QTLNetMiner webpage._
 
 **1. Search...**
 
@@ -29,7 +29,7 @@ KNETviewer improves on the performance and rendering capabilities of the old Jav
 
 * Users can left-click a concept or relation to view some more information about them or drag them (click and hold) to move them around. Users can also drag the entire network around by dragging the background viewport.
 
-* **Labels** on concepts and relations are disabled by default. These can however be enabled if the user wants. Userís search query terms, if found in these labels, are _highlighted_ as well.
+* **Labels** on concepts and relations are disabled by default. These can however be enabled if the user wants. User‚Äôs search query terms, if found in these labels, are _highlighted_ as well.
 
 * Concept sizes and Relation widths depend upon their importance in accordance with the user's original query terms.
 
@@ -38,7 +38,7 @@ KNETviewer improves on the performance and rendering capabilities of the old Jav
 * **Update concept name**: There are also <b><i>eye</i></b> icons next to concept <i>synonyms</i> and <i>accessions</i> in the Item Info. table. Clicking on such an icon updates the concept label in the network graph with this new value. This is useful in case users want to use their preferred names (from the synonyms or accessions) for concepts.
 
 * There are **Sliding panels** on the top, right and bottom of the Network Viewer pop-up window which you can click to open or close and drag/ slide to re-size. The top panel allows users to: 
-    1. Change the graphís **Layout** using force-directed layout algorithms. Some of the useful layout options are the default (WebCola), CoSE, circular, Cose-Bilkent, Arbor, Grid and Concentric.
+    1. Change the graph‚Äôs **Layout** using force-directed layout algorithms. Some of the useful layout options are the default (WebCola), CoSE, circular, Cose-Bilkent, Arbor, Grid and Concentric.
     1. **Re-layout** the entire graph.
     1. Enable/ disable layout animation (useful for very large graphs to improve performance).
     1. **Search** by concept name (or part of concept name).
@@ -47,8 +47,8 @@ KNETviewer improves on the performance and rendering capabilities of the old Jav
     1. Reset the graph viewport.
     1. Make **labels** visible on concepts and relations, via checkboxes.
 
-* **Item Info.** panel: The panel on the right is to display relevant information related to the selected concept or relation. It automatically slides open if users right-click a concept or relation and select ìItem Infoî option. The panel is similar to the Item Info window in the old version and displays information such as concept/ relation Type, value, PID, relation label, relation source (from), relation target (to), _Annotations, Attributes_ (such as publication abstracts, title, authors, amino-acid sequence, TAX ID, etc.) and _Accessions_ (with links to TAIR, Ensembl, UniProtKB, PubMed, KEGG, IPRO, PFAM, etc., where relevant). Userís search query terms, where found, are _highlighted_ in this Item Info. panel.
+* **Item Info.** panel: The panel on the right is to display relevant information related to the selected concept or relation. It automatically slides open if users right-click a concept or relation and select ‚ÄúItem Info‚Äù option. The panel is similar to the Item Info window in the old version and displays information such as concept/ relation Type, value, PID, relation label, relation source (from), relation target (to), _Annotations, Attributes_ (such as publication abstracts, title, authors, amino-acid sequence, TAX ID, etc.) and _Accessions_ (with links to TAIR, Ensembl, UniProtKB, PubMed, KEGG, IPRO, PFAM, etc., where relevant). User‚Äôs search query terms, where found, are _highlighted_ in this Item Info. panel.
 
-* **Show Links**: Some concepts have a blur effect which denotes that they have hidden concepts connected to them. These can be displayed by right-clicking on a blurred concept and selecting ìShow Linksî. This displays the hidden neighbourhood for the selected concept.
+* **Show Links**: Some concepts have a blur effect which denotes that they have hidden concepts connected to them. These can be displayed by right-clicking on a blurred concept and selecting ‚ÄúShow Links‚Äù. This displays the hidden neighbourhood for the selected concept.
 
 **_Note:_** While this new Network Viewer is stable, it is still under development and more features will be added to it in the near future and it will soon be _live_ on all the various QTLNetMiner instances.
