@@ -7,12 +7,8 @@ window.onload= function() {
 }
 
 function launchNetwork(jsonFileName) {
-    // Add notification to the loading div.
-    $("#loadingNetworkDiv").html("Loading, please wait...");
-
-    var jsonFile= jsonFileName; // the JSON file received from index.html.
-	console.log("generateCyJSNetwork>> input dataset: "+ jsonFile);
-
+    var jsonFile= jsonFileName; // the JSON file selected by the user.
+	//console.log("generateCyJSNetwork>> input dataset: "+ jsonFile);
     try {
         // Show maskloader.
         showNetworkLoader();
@@ -22,11 +18,6 @@ function launchNetwork(jsonFileName) {
         
         // Remove maskloader.
         removeNetworkLoader();
-
-        // Remove the preloader message for the new Network Viewer
-	    $("#loadingNetworkDiv").replaceWith('<div id="loadingNetworkDiv"></div>');
-        
-        activateButton('NetworkCanvas');
        }
     catch(err) {
           var errorMsg= err.stack;

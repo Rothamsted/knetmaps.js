@@ -2,7 +2,7 @@
 // initialize and generate the network
 function generateNetworkGraph(jsonFileName) {
    var json_File= "sampleFiles/"+ jsonFileName +".json";
-   console.log("Dataset file path: "+ json_File);
+   //console.log("Dataset file path: "+ json_File);
 
     // Include this file's contents on the page at runtime using jQuery and a callback function.
    jQuery.getScript(json_File, function() {
@@ -23,8 +23,6 @@ function generateNetworkGraph(jsonFileName) {
 // initialize the network
 function initializeNetworkView() {
    var networkJSON= graphJSON; // using the dynamically included graphJSON object directly.
-   // modify for networkJSON to read JSON object from file and retain contents from "elements" section for nodes and edges info.
-//   var metadataJSON= allGraphData; // using the dynamically included metadata JSON object directly.
 
    // Define the stylesheet to be used for nodes & edges in the cytoscape.js container.
    var networkStylesheet= cytoscape.stylesheet()
