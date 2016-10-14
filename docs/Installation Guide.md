@@ -54,10 +54,11 @@ The simplest way to have **KnetMaps** on your webpage is as shown in ```index.ht
 ```
 
 ### KnetMaps components
-Menubar
-cytoscapeJS container
-ItemInfo
-Counts legend
+
+* Menubar
+* cytoscapeJS container
+* ItemInfo
+* Counts legend
 
 ### Input JSON Dataset
 
@@ -82,12 +83,14 @@ var graphJSON= { "nodes": [
 ```
 
 The basic required attributes for most networks using cytoscapeJS are:
-nodes: id, type, value
-edges: id, source (from), target (to), label
+
+* nodes: id, type, value
+* edges: id, source (from), target (to), label
 
 For **KnetMaps** used in QTLNetMiner, we use a few additional visual attributes as well to ensure that all nodes and edges have distinctive visual attributes depending on the type of node or edge. In general, all network in QTLNetMiner have the following attributes in the dataset:
-nodes: id, type, value, flagged, color, shape, size, annotation, pid, display (in cytoscapeJS: element= show, none= hide)
-edges: id, source, target, label, color, size, display
+
+* nodes: id, type, value, flagged, color, shape, size, annotation, pid, display (in cytoscapeJS: element= show, none= hide)
+* edges: id, source, target, label, color, size, display
 
 In QTLNetMiner, the dataset generated also provides an additional JSON object: ```var allGraphData``` that provides additional metadata about nodes (synonyms, accessions, evidences) and edges (scores for weighted edges, e.g, p-value, BLAST scores, etc). This information is displayed in a sliding overlay panel called **ItemInfo** when a node or edge is clicked within the network.
 
