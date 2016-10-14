@@ -1,48 +1,89 @@
-**KnetMaps** uses cytoscapeJS, jQuery and other javascript libraries to visualize network graphs and allow users to interact with them.
+**KnetMaps** is a web application that uses cytoscapeJS, jQuery and other javascript libraries to visualize network graphs and allow users to interact with them.
 
-To use **KnetMaps** out-of-the-box in your web application, all you need to provide is a JSON dataset containing information about the nodes and edges in the network and visual attributes for them, such as labels, concept size,
+It accepts a JSON dataset from the user as input and visualizes it within a container on your web page.
 
-````var graphJSON= { 
-"nodes": [
-{ "data": { "annotation": "", "conceptDisplay": "element", "conceptColor": "orange", "flagged": "false", "conceptType": "Publication", "pid": "22251317;PMID: 22251317", "conceptSize": "22px", "id": "1", "value": "22251317", "conceptShape": "rectangle"} , "group": "nodes"} , 
-{ "data": { "annotation": "", "conceptDisplay": "element", "conceptColor": "greenYellow", "flagged": "false", "conceptType": "Trait", "pid": "", "conceptSize": "22px", "id": "2", "value": "leaf water potential", "conceptShape": "triangle"} , "group": "nodes"} , 
-{ "data": { "annotation": "A seed anatomy and morphology trait (TO: 0000184) which is associated with the <span style=\"background-color: yellow\"><b>size<\/b><\/span> of a seed (PO: 0009010). ( Reference:  GR: pj ICIS: 1302 PO: 0009010 TO: cooperl )", "conceptDisplay": "element", "conceptColor": "greenYellow", "flagged": "false", "conceptType": "Trait Ontology", "pid": "TO: 0000391", "conceptSize": "22px", "id": "3", "value": "seed size", "conceptShape": "pentagon"} , "group": "nodes"} , 
-{ "data": { "annotation": "", "conceptDisplay": "element", "conceptColor": "red", "flagged": "false", "conceptType": "Quantitative Trait Locus", "pid": "", "conceptSize": "22px", "id": "4", "value": "AQDE021", "conceptShape": "triangle"} , "group": "nodes"} , 
-{ "data": { "annotation": "", "conceptDisplay": "element", "conceptColor": "lightBlue", "flagged": "false", "conceptType": "Gene", "pid": "AT2G37260;locus: 2049852", "conceptSize": "22px", "id": "5", "value": "TTG2", "conceptShape": "triangle"} , "group": "nodes"} , 
-{ "data": { "annotation": "Created:  2007-12-04; Modified:  2014-05-14; Version:  52", "conceptDisplay": "element", "conceptColor": "red", "flagged": "false", "conceptType": "Protein", "pid": "A8MRJ2;AT2G37260.2", "conceptSize": "22px", "id": "6", "value": "AT2G37260.2", "conceptShape": "ellipse"} , "group": "nodes"} , 
-{ "data": { "annotation": "", "conceptDisplay": "element", "conceptColor": "orange", "flagged": "false", "conceptType": "Publication", "pid": "15598800;PMID: 15598800", "conceptSize": "22px", "id": "7", "value": "15598800", "conceptShape": "rectangle"} , "group": "nodes"} , 
-{ "data": { "annotation": "", "conceptDisplay": "element", "conceptColor": "lightGrey", "flagged": "false", "conceptType": "Protein Domain", "pid": "", "conceptSize": "22px", "id": "8", "value": "DNA-binding WRKY", "conceptShape": "pentagon"} , "group": "nodes"} , 
-{ "data": { "annotation": "The process whose specific outcome is the progression of the seed coat over time,  from its formation to the mature structure. ( Reference:  GOC: go_curators )", "conceptDisplay": "element", "conceptColor": "teal", "flagged": "false", "conceptType": "Biological_Process", "pid": "GO: 0010214", "conceptSize": "22px", "id": "9", "value": "seed coat development", "conceptShape": "pentagon"} , "group": "nodes"} , 
-{ "data": { "annotation": "The process in which a cell becomes capable of differentiating autonomously into an epidermal cell in an environment that is neutral with respect to the developmental pathway; upon specification,  the cell fate can be reversed. ( Reference:  GOC: mtg_sensu GOC: sm )", "conceptDisplay": "element", "conceptColor": "teal", "flagged": "false", "conceptType": "Biological_Process", "pid": "GO: 0009957", "conceptSize": "22px", "id": "10", "value": "epidermal cell fate specification", "conceptShape": "pentagon"} , "group": "nodes"} , 
-{ "data": { "annotation": "", "conceptDisplay": "element", "conceptColor": "greenYellow", "flagged": "false", "conceptType": "Trait", "pid": "", "conceptSize": "22px", "id": "11", "value": "seed width", "conceptShape": "triangle"} , "group": "nodes"} , 
-{ "data": { "annotation": "", "conceptDisplay": "element", "conceptColor": "greenYellow", "flagged": "false", "conceptType": "Phenotype", "pid": "", "conceptSize": "22px", "id": "12", "value": "Smaller seeds...", "conceptShape": "rectangle"} , "group": "nodes"} , 
-{ "data": { "annotation": "Created:  2003-04-11; Modified:  2014-05-14; Version:  98", "conceptDisplay": "element", "conceptColor": "red", "flagged": "false", "conceptType": "Protein", "pid": "AT2G37260.1;Q9ZUU0", "conceptSize": "22px", "id": "13", "value": "AT2G37260.1", "conceptShape": "ellipse"} , "group": "nodes"} , 
-{ "data": { "annotation": "", "conceptDisplay": "element", "conceptColor": "lightGrey", "flagged": "false", "conceptType": "Protein Domain", "pid": "", "conceptSize": "22px", "id": "14", "value": "PF03106", "conceptShape": "pentagon"} , "group": "nodes"} , 
-{ "data": { "annotation": "", "conceptDisplay": "element", "conceptColor": "red", "flagged": "false", "conceptType": "Quantitative Trait Locus", "pid": "", "conceptSize": "22px", "id": "15", "value": "AQDE029", "conceptShape": "triangle"} , "group": "nodes"} , 
-{ "data": { "annotation": "", "conceptDisplay": "element", "conceptColor": "red", "flagged": "false", "conceptType": "Quantitative Trait Locus", "pid": "", "conceptSize": "22px", "id": "16", "value": "AQDE028", "conceptShape": "triangle"} , "group": "nodes"} , 
-{ "data": { "annotation": "", "conceptDisplay": "element", "conceptColor": "red", "flagged": "false", "conceptType": "Quantitative Trait Locus", "pid": "", "conceptSize": "22px", "id": "17", "value": "AQGZ019", "conceptShape": "triangle"} , "group": "nodes"} , 
-{ "data": { "annotation": "", "conceptDisplay": "element", "conceptColor": "red", "flagged": "false", "conceptType": "Protein", "pid": "MLOC_10687.2", "conceptSize": "22px", "id": "18", "value": "MLOC_10687.2", "conceptShape": "ellipse"} , "group": "nodes"} , 
-{ "data": { "annotation": "", "conceptDisplay": "element", "conceptColor": "lightBlue", "flagged": "false", "conceptType": "Gene", "pid": "MLOC_10687.2", "conceptSize": "22px", "id": "19", "value": "MLOC_10687.2", "conceptShape": "triangle"} , "group": "nodes"} 
-], 
+The simplest way to have **KnetMaps** on your webpage is as shown in ```index.html```, i.e., using the code snippet below. This will create the KnetMaps menubar, the cytoscapeJS core container, ItemInfo panel and a legend (listing the number of total and visible nodes/ edges in the network):
+```
+<!-- KnetMaps -->
+   <div id="knet-maps">
+				<div id="itemInfo" class="infoDiv" style="display:none;"><!-- Item Info pane -->
+                    <table id="itemInfo_Table" class="infoTable" cellspacing=1>
+                    <thead><th>Item Info:</th><th><button id="btnCloseItemInfoPane" onclick="closeItemInfoPane();">Close</button></th></thead><tbody></tbody></table>
+                </div>
+         <!-- KnetMaps Menubar -->
+         <div id="knetmaps-menu">
+                    <input type="image" id="maximizeOverlay" src="image/maximizeOverlay.png" title="Toggle full screen" onclick="OnMaximizeClick();" onmouseover="onHover($(this));" onmouseout="offHover($(this));">
+                    <input type="image" id="showAll" src="image/showAll.png" onclick="showAll();" title="Show all the concept & relations in the Network" onmouseover="onHover($(this));" onmouseout="offHover($(this));">
+                    <input type="image" id="relayoutNetwork" src="image/relayoutNetwork.png" onclick="rerunLayout();" title="Re-run the Layout" onmouseover="onHover($(this));" onmouseout="offHover($(this));">
+                    <span class="knet-dropdowns">
+                        <select id="layouts_dropdown" class="knet-dropdowns" onChange="rerunLayout();" title="Select network layout">
+                            <option value="Cose_layout" selected="selected" title="using CoSE layout algorithm (useful for larger networks with clustering)">CoSE layout</option>
+                            <option value="ngraph_force_layout" title="using ngraph_force layout (works well on planar graphs)">Force layout</option>
+                            <option value="Circle_layout">Circular layout</option>
+                            <option value="Concentric_layout">Concentric layout</option>
+                            <option value="Cose_Bilkent_layout" title="using CoSE-Bilkent layout (with node clustering, but performance-intensive for larger networks)">CoSE-Bilkent layout</option>
+                        </select>
+                        <select id="changeLabelVisibility" class="knet-dropdowns" onChange="showHideLabels(this.value);" title="Select label visibility">
+                            <option value="None" selected="selected">Labels: None</option>
+                            <option value="Concepts">Labels: Concepts</option>
+                            <option value="Relations">Labels: Relations</option>
+                            <option value="Both">Labels: Both</option>
+                        </select>
+                        <select id="changeLabelFont" class="knet-dropdowns" onChange="changeLabelFontSize(this.value);" title="Select label font size">
+                            <option value="8">Label size: 8px</option>
+                            <option value="12">Label size: 12px</option>
+                            <option value="16" selected="selected">Label size: 16px</option>
+                            <option value="20">Label size: 20px</option>
+                            <option value="24">Label size: 24px</option>
+                            <option value="28">Label size: 28px</option>
+                            <option value="32">Label size: 32px</option>
+                            <option value="36">Label size: 36px</option>
+                            <option value="40">Label size: 40px</option>
+                        </select>
+			        </span>
+                    <input type="image" id="resetNetwork" src="image/resetNetwork.png" onclick="resetGraph();" title="Reposition (reset and re-fit) the graph" onmouseover="onHover($(this));" onmouseout="offHover($(this));">
+                    <input type="image" id="savePNG" src="image/savePNG.png" onclick="exportAsImage();" title="Export the network as a .png image" onmouseover="onHover($(this));" onmouseout="offHover($(this));">
+                    <input type="image" id="helpURL" src="image/help.png" onclick="openKnetHelpPage();" title="Go to help documentation" onmouseover="onHover($(this));" onmouseout="offHover($(this));">
+                    <input type="image" id="saveJSON" src="image/saveJSON.png" onclick="exportAsJson();" title="Export the network in JSON format" onmouseover="onHover($(this));" onmouseout="offHover($(this));">
+			    </div>
+                <!-- The core cytoscapeJS container -->
+                <div id="cy"></div>
+                <br/>
+			    <div id="countsLegend"><span>KnetMaps</span></div><!-- legend -->
+                <div id="infoDialog"></div><!-- popup dialog -->
+            </div>
+```
 
-"edges": [
-{ "data": { "relationDisplay": "element", "relationSize": "2px", "id": "e1", "source": "15", "label": "control", "relationColor": "lightGrey", "target": "11"} , "group": "edges"} , 
-{ "data": { "relationDisplay": "element", "relationSize": "2px", "id": "e2", "source": "16", "label": "control", "relationColor": "lightGrey", "target": "11"} , "group": "edges"} , 
-{ "data": { "relationDisplay": "element", "relationSize": "3px", "id": "e3", "source": "18", "label": "orthologue", "relationColor": "red", "target": "13"} , "group": "edges"} , 
-{ "data": { "relationDisplay": "element", "relationSize": "1px", "id": "e4", "source": "18", "label": "has_protein_domain", "relationColor": "crimson", "target": "14"} , "group": "edges"} , 
-{ "data": { "relationDisplay": "element", "relationSize": "2px", "id": "e5", "source": "19", "label": "is_p", "relationColor": "darkGrey", "target": "17"} , "group": "edges"} , 
-{ "data": { "relationDisplay": "element", "relationSize": "1px", "id": "e6", "source": "5", "label": "participates_in", "relationColor": "teal", "target": "9"} , "group": "edges"} , 
-{ "data": { "relationDisplay": "element", "relationSize": "1px", "id": "e7", "source": "5", "label": "participates_in", "relationColor": "teal", "target": "10"} , "group": "edges"} , 
-{ "data": { "relationDisplay": "element", "relationSize": "3px", "id": "e8", "source": "5", "label": "encodes", "relationColor": "grey", "target": "13"} , "group": "edges"} , 
-{ "data": { "relationDisplay": "element", "relationSize": "3px", "id": "e9", "source": "3", "label": "cooccurs_with", "relationColor": "blue", "target": "5"} , "group": "edges"} , 
-{ "data": { "relationDisplay": "element", "relationSize": "2px", "id": "e10", "source": "19", "label": "is_p", "relationColor": "darkGrey", "target": "4"} , "group": "edges"} , 
-{ "data": { "relationDisplay": "element", "relationSize": "2px", "id": "e11", "source": "17", "label": "control", "relationColor": "lightGrey", "target": "2"} , "group": "edges"} , 
-{ "data": { "relationDisplay": "element", "relationSize": "3px", "id": "e12", "source": "5", "label": "published_in", "relationColor": "orange", "target": "7"} , "group": "edges"} , 
-{ "data": { "relationDisplay": "element", "relationSize": "3px", "id": "e13", "source": "19", "label": "encodes", "relationColor": "grey", "target": "18"} , "group": "edges"} , 
-{ "data": { "relationDisplay": "element", "relationSize": "1px", "id": "e14", "source": "18", "label": "has_protein_domain", "relationColor": "crimson", "target": "8"} , "group": "edges"} , 
-{ "data": { "relationDisplay": "element", "relationSize": "2px", "id": "e15", "source": "4", "label": "control", "relationColor": "lightGrey", "target": "11"} , "group": "edges"} , 
-{ "data": { "relationDisplay": "element", "relationSize": "3px", "id": "e16", "source": "5", "label": "encodes", "relationColor": "grey", "target": "6"} , "group": "edges"} , 
-{ "data": { "relationDisplay": "element", "relationSize": "3px", "id": "e17", "source": "18", "label": "has_similar_sequence", "relationColor": "fireBrick", "target": "6"} , "group": "edges"} , 
-{ "data": { "relationDisplay": "element", "relationSize": "3px", "id": "e18", "source": "5", "label": "published_in", "relationColor": "orange", "target": "1"} , "group": "edges"} , 
-{ "data": { "relationDisplay": "element", "relationSize": "1px", "id": "e19", "source": "5", "label": "has_observed_phenotype", "relationColor": "greenYellow", "target": "12"} , "group": "edges"} 
-]};````
+JSON Dataset
+
+To use **KnetMaps** out-of-the-box in your web application, all you need to provide is a JSON dataset (with a nested JSON syntax as shown below) containing information about the nodes and edges in the network and (optional) visual attributes for them:
+```
+var graphJSON= { "nodes": [
+        { "data": { "id": "1", "conceptType": "Gene", "flagged": "true", "conceptColor": "lightBlue", "annotation": "", "conceptSize": "26px", "value": "c1", "pid": "c1", "conceptDisplay": "element", "conceptShape": "triangle"} , "group": "nodes"} , 
+        { "data": { "id": "2", "conceptType": "Protein", "flagged": "false","conceptColor": "red", "annotation": "",  "conceptSize": "22px", "value": "POTRI.002G046500", "pid": "POTRI.002G046500.1", "conceptDisplay": "element", "conceptShape": "ellipse"} , "group": "nodes"} , 
+		{ "data": { "id": "3", "conceptType": "Protein", "flagged": "false", "conceptColor": "red", "annotation": "Version:  55", "conceptSize": "26px", "value": "AT1G03055", "pid": "AT1G03055.1;Q7XA78", "conceptDisplay": "element", "conceptShape": "ellipse"} , "group": "nodes"} , 
+		{ "data": { "id": "4", "conceptType": "Publication", "flagged": "false", "conceptColor": "orange", "annotation": "", "conceptSize": "26px", "value": "PMID: 22623516", "pid": "22623516;PMID: 22623516", "conceptDisplay": "element", "conceptShape": "rectangle"} , "group": "nodes"} , 
+		{ "data": { "id": "5", "conceptType": "Molecular_Function", "flagged": "false", "conceptColor": "purple", "annotation": "Elemental activities...", "conceptSize": "18px", "value": "molecular function", "pid": "GO: 0003674", "conceptDisplay": "none", "conceptShape": "pentagon"} , "group": "nodes"} , 
+		{ "data": { "id": "6", "conceptType": "Cellular_Component", "flagged": "false", "conceptColor": "springGreen", "annotation": "common type", "conceptSize": "18px", "value": "plastid", "pid": "GO: 0009536", "conceptDisplay": "none", "conceptShape": "pentagon"} , "group": "nodes"} 
+		],
+    "edges": [
+        { "data": { "id": "e1", "source": "1", "relationColor": "grey", "relationSize": "3px", "relationDisplay": "element", "target": "2", "label": "encodes"} , "group": "edges"} , 
+        { "data": { "id": "e2", "source": "2", "relationColor": "red", "relationSize": "3px", "relationDisplay": "element", "target": "3", "label": "has_similar_sequence"} , "group": "edges"} , 
+        { "data": { "id": "e3", "source": "4", "relationColor": "grey", "relationSize": "3px", "relationDisplay": "element", "target": "3", "label": "encodes"} , "group": "edges"} , 
+        { "data": { "id": "e5", "source": "4", "relationColor": "orange", "relationSize": "3px", "relationDisplay": "element", "target": "5", "label": "published_in"} , "group": "edges"} , 
+        { "data": { "id": "e6", "source": "1", "relationColor": "teal", "relationSize": "3px", "relationDisplay": "element", "target": "6", "label": "participates_in"} , "group": "edges"} , 
+        { "data": { "id": "e8", "source": "4", "relationColor": "springGreen", "relationSize": "1px", "relationDisplay": "none", "target": "6", "label": "located_in"} , "group": "edges"} 
+		]};
+```
+
+The basic required attributes for most networks using cytoscapeJS are:
+nodes: id, type, value
+edges: id, source (from), target (to), label
+
+For **KnetMaps** used in QTLNetMiner, we use a few additional visual attributes as well to ensure that all nodes and edges have distinctive visual attributes depending on the type of node or edge. In general, all network in QTLNetMiner have the following attributes in the dataset:
+nodes: id, type, value, flagged, color, shape, size, annotation, pid, display (in cytoscapeJS: element= show, none= hide)
+edges: id, source, target, label, color, size, display
+
+In QTLNetMiner, the dataset generated also provides an additional JSON object: ```var allGraphData``` that provides additional metadata about nodes (synonyms, accessions, evidences) and edges (scores for weighted edges, e.g, p-value, BLAST scores, etc). This information is displayed in a sliding overlay panel called **ItemInfo** when a node or edge is clicked within the network.
+
+
