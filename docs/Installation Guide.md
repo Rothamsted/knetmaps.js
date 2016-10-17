@@ -1,14 +1,10 @@
 # Installation Guide
 
-# pending
-
-**KnetMaps** is a web application that uses cytoscapeJS, jQuery and other javascript libraries to visualize network graphs and allow users to interact with them.
-
-It accepts a JSON dataset from the user as input and visualizes it within a container on your web page.
+**KnetMaps** is a web application that uses cytoscapeJS, jQuery and other javascript libraries to visualize network graphs and allow users to interact with them. It accepts a JSON dataset from the user as input and visualizes it within a container on your web page.
 
 ### Using KnetMaps in your web application
 
-A simple way to have **KnetMaps** on your webpage is shown in `index.html`, i.e., using the code snippet below. This will create the KnetMaps menubar, the cytoscapeJS core container, ItemInfo panel and a legend (listing the number of total and visible nodes/ edges in the network):
+A simple way to have **KnetMaps** on your web application is shown in `index.html`, i.e., using the code snippet below. This code in the `<body>` of the page will create the KnetMaps menubar, the cytoscapeJS core container, ItemInfo panel and a counts legend (listing the number of total and visible nodes/ edges in the network):
 ```
 <!-- KnetMaps -->
    <div id="knet-maps">
