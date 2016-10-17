@@ -80,7 +80,7 @@ Follow the 6 simple steps below to try out **KnetMaps** out-of-the-box in a stat
 
 - Now simply copy the javascript, css, libs, sampleFiles, image (for KnetMaps menu), js and config (for **ItemInfo**) folders in your web page's root directory.
 
-- Note: By default the code in `javascript/knet-generator.js` looks to include datasets at runtime using jQuery and a callback function. You will need to disable it for a static demo using files on your local har drive as `getScript` is blocked on browsers when accessing local drives due to security concerns. You can disable it by simply commenting out the `.getScript()` function call but include the methods within it, as shown below:
+- Bear in mind, by default the code in `javascript/knet-generator.js` works to include datasets at runtime using jQuery and a callback function. You will need to disable it for a static demo (i.e., when using a dataset and html page on your local hard drive) as `getScript` is blocked on most browsers when accessing local drives due to security concerns. You can disable it by simply commenting out the `.getScript()` function call but include the methods within it, as shown below:
 ```
 //jQuery.getScript(json_File, function() {
      // Initialize the cytoscapeJS container for Network View.
