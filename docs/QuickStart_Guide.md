@@ -4,9 +4,10 @@
 
 All KnetMaps requires is a JSON dataset (in a nested JSON format) as input and it then visualizes it within an embedded container on your web page.
 
-### Using KnetMaps out-of-the-box in a static web page
+### Getting started with KnetMaps:
 
-1. Use a JSON network dataset, containing information about the nodes and edges in a network and (optional) visual attributes for them, in your html page by including it in `<head>`:
+Follow the 6 simple steps below to try out **KnetMaps** out-of-the-box in a static web page:
+- Use a JSON network dataset, containing information about the nodes and edges in a network and (optional) visual attributes for them, in your html page by including it in `<head>`:
 ```
     <head>
         <link href="css/index-style.css" rel="stylesheet" /> <!-- page stylesheet -->
@@ -50,9 +51,9 @@ All KnetMaps requires is a JSON dataset (in a nested JSON format) as input and i
     </head>
 ```
 
-2. Here, we use the example dataset `ara1.json` provided in the `sampleFiles/` folder.
+- Here, we use the example dataset `ara1.json` provided in the `sampleFiles/` folder.
 
-3. Include **KnetMaps** in your web page's `<body>` as shown below:
+- Include **KnetMaps** in your web page's `<body>` as shown below:
 ```
 <!-- KnetMaps -->
    <div id="knet-maps">
@@ -98,9 +99,9 @@ All KnetMaps requires is a JSON dataset (in a nested JSON format) as input and i
   </div>
 ```
 
-4. Now simply copy the javascript, css, libs, sampleFiles, image (for KnetMaps menu), js and config (for **ItemInfo**) folders in your web page's root directory.
+- Now simply copy the javascript, css, libs, sampleFiles, image (for KnetMaps menu), js and config (for **ItemInfo**) folders in your web page's root directory.
 
-5. Note: By default the code in `javascript/knet-generator.js` looks to include datasets at runtime using jQuery and a callback function. You can disable it for this static example demo by simply commenting out the `.getScript()` function call but include the methiods within it, as shown below:
+- Note: By default the code in `javascript/knet-generator.js` looks to include datasets at runtime using jQuery and a callback function. You can disable it for this static example demo by simply commenting out the `.getScript()` function call but include the methiods within it, as shown below:
 ```
    //jQuery.getScript(json_File, function() {
      //console.log(json_File +" file included...");
@@ -115,4 +116,4 @@ All KnetMaps requires is a JSON dataset (in a nested JSON format) as input and i
   // });
 ```
 
-6. Now, simply open your html web page in any browser to visualize the network.
+- Now, simply open your html web page in any browser to visualize the network.
