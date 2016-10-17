@@ -12,7 +12,6 @@ Use a JSON network dataset, containing information about the nodes and edges in 
         <link href="css/index-style.css" rel="stylesheet" /> <!-- page stylesheet -->
         <link href="css/knet-style.css" rel="stylesheet" /> <!-- Network Viewer stylesheet -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
-        <!-- jQuery Ajax MaskLoader: CSS for Loader overlay -->
         <link href="css/maskloader.css" rel="stylesheet">
 
         <meta charset=utf-8 />
@@ -31,7 +30,7 @@ Use a JSON network dataset, containing information about the nodes and edges in 
         <script type="text/javascript" src="config/url_mappings.json"></script>
 
 	    <!-- JSON dataset for static example -->
-        <script src="sampleFiles/simpleDataset1.json"></script>
+        <script src="sampleFiles/ara1.json"></script>
         
   		<!-- KnetMaps code -->
         <script src="javascript/knet-maskLoader.js"></script>
@@ -51,27 +50,7 @@ Use a JSON network dataset, containing information about the nodes and edges in 
     </head>
 ```
 
-You can use the following example JSON dataset:
-```
-var graphJSON= { "nodes": [
-        { "data": { "id": "1", "conceptType": "Gene", "flagged": "true", "conceptColor": "lightBlue", "annotation": "", "conceptSize": "26px", "value": "c1", "pid": "c1", "conceptDisplay": "element", "conceptShape": "triangle"} , "group": "nodes"} , 
-        { "data": { "id": "2", "conceptType": "Protein", "flagged": "false","conceptColor": "red", "annotation": "",  "conceptSize": "22px", "value": "POTRI.002G046500", "pid": "POTRI.002G046500.1", "conceptDisplay": "element", "conceptShape": "ellipse"} , "group": "nodes"} , 
-		{ "data": { "id": "3", "conceptType": "Protein", "flagged": "false", "conceptColor": "red", "annotation": "Version:  55", "conceptSize": "26px", "value": "AT1G03055", "pid": "AT1G03055.1;Q7XA78", "conceptDisplay": "element", "conceptShape": "ellipse"} , "group": "nodes"} , 
-		{ "data": { "id": "4", "conceptType": "Publication", "flagged": "false", "conceptColor": "orange", "annotation": "", "conceptSize": "26px", "value": "PMID: 22623516", "pid": "22623516;PMID: 22623516", "conceptDisplay": "element", "conceptShape": "rectangle"} , "group": "nodes"} , 
-		{ "data": { "id": "5", "conceptType": "Molecular_Function", "flagged": "false", "conceptColor": "purple", "annotation": "Elemental activities...", "conceptSize": "18px", "value": "molecular function", "pid": "GO: 0003674", "conceptDisplay": "none", "conceptShape": "pentagon"} , "group": "nodes"} , 
-		{ "data": { "id": "6", "conceptType": "Cellular_Component", "flagged": "false", "conceptColor": "springGreen", "annotation": "common type", "conceptSize": "18px", "value": "plastid", "pid": "GO: 0009536", "conceptDisplay": "none", "conceptShape": "pentagon"} , "group": "nodes"} 
-		],
-    "edges": [
-        { "data": { "id": "e1", "source": "1", "relationColor": "grey", "relationSize": "3px", "relationDisplay": "element", "target": "2", "label": "encodes"} , "group": "edges"} , 
-        { "data": { "id": "e2", "source": "2", "relationColor": "red", "relationSize": "3px", "relationDisplay": "element", "target": "3", "label": "has_similar_sequence"} , "group": "edges"} , 
-        { "data": { "id": "e3", "source": "4", "relationColor": "grey", "relationSize": "3px", "relationDisplay": "element", "target": "3", "label": "encodes"} , "group": "edges"} , 
-        { "data": { "id": "e5", "source": "4", "relationColor": "orange", "relationSize": "3px", "relationDisplay": "element", "target": "5", "label": "published_in"} , "group": "edges"} , 
-        { "data": { "id": "e6", "source": "1", "relationColor": "teal", "relationSize": "3px", "relationDisplay": "element", "target": "6", "label": "participates_in"} , "group": "edges"} , 
-        { "data": { "id": "e8", "source": "4", "relationColor": "springGreen", "relationSize": "1px", "relationDisplay": "none", "target": "6", "label": "located_in"} , "group": "edges"} 
-		]};
-```
-
-Note: In QTLNetMiner, the dataset file has 2 JSON objects within it a `graphJSON` containing the network information and also an additional JSON object: ```allGraphData``` that provides additional metadata about nodes (synonyms, accessions, evidences) and edges (scores for weighted edges, e.g, p-value, BLAST scores, etc). This information is displayed in a sliding overlay panel called **ItemInfo** when a node or edge is clicked within the network.
+Use the example dataset `ara1.json` provided in the `sampleFiles/` folder.
 
 Include **KnetMaps** in your web page's `<body>` as shown below:
 ```
@@ -121,4 +100,19 @@ Include **KnetMaps** in your web page's `<body>` as shown below:
 
 Now simply copy the javascript, css, libs, sampleFiles, image (for KnetMaps menu), js and config (for **ItemInfo**) folders in your web page's root directory.
 
-By default the `js/launchNetwork.js` file works on launching a network when receiving a JSON dataset from the user. This can , modify the window.onload function code to in your simple way to have **KnetMaps** on your webpage is shown in `index.html`, i.e., using the code snippet below. This will create the KnetMaps menubar, the cytoscapeJS core container, ItemInfo panel and a legend (listing the number of total and visible nodes/ edges in the network):
+By default the code in `javascript/knet-generator.js` looks to include datasets at runtime using jQuery and a callback function. You can disable it for this static example demo by simply commenting out the `.getScript()` function call but include the methiods within it, as shown below:
+```
+   //jQuery.getScript(json_File, function() {
+     //console.log(json_File +" file included...");
+     // Initialize the cytoscapeJS container for Network View.
+     initializeNetworkView();
+
+     // Highlight nodes with hidden, connected nodes using Shadowing.
+     blurNodesWithHiddenNeighborhood();
+
+     // update "cy" legend with some stats.
+     updateCyLegend();
+  // });
+```
+
+Now, simply open your html web page in any browser to visualize the network.
