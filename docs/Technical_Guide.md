@@ -270,8 +270,4 @@ Examples of **network stylesheet** customization to define attributes for nodes 
         });
 ```
 
-### Context menu
-
-### Item Info
-
 ### Layouts
