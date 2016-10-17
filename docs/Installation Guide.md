@@ -2,47 +2,26 @@
 
 **KnetMaps** is a web application that uses cytoscapeJS, jQuery and other javascript libraries to visualize network graphs and allow users to interact with them. It accepts a JSON dataset from the user as input and visualizes it within a container on your web page.
 
+### KnetMaps components
+
+* Menubar: A menubar that combines a host of useful features to filter, toggle, re-layout, export and interact with the network
+* cytoscapeJS container: A core cytoscapeJS container to visualize animated, inter-connected nodes and edges as a network graph.
+* ItemInfo: A sliding overlay panel to display additional (optional) metadata associated with nodes and edges.
+* Counts legend: A nifty legend to list the number of total and visible nodes (and edges) within the currently visualized network.
+
 ### Using KnetMaps in your web application
 
-A simple way to have **KnetMaps** on your web application is shown in `index.html`, i.e., using the code snippet below. This code in the `<body>` of the page will create the KnetMaps menubar, the cytoscapeJS core container, ItemInfo panel and a counts legend (listing the number of total and visible nodes/ edges in the network):
+A simple way to have **KnetMaps** on your web application (hosted via Apache, Tomcat, etc) is shown in `index.html`, i.e., using the code snippet below. This code in the `<body>` of the `index.html` page will create the KnetMaps menubar, the cytoscapeJS core container, ItemInfo panel and a counts legend:
 ```
 <!-- KnetMaps -->
    <div id="knet-maps">
 	<div id="itemInfo" class="infoDiv" style="display:none;"><!-- Item Info pane -->
-          <table id="itemInfo_Table" class="infoTable" cellspacing=1><thead><th>Item Info:</th><th><button id="btnCloseItemInfoPane" onclick="closeItemInfoPane();">Close</button></th></thead><tbody></tbody></table>
+          <table id="itemInfo_Table" class="infoTable" cellspacing=1>
+	        <thead><th>Item Info:</th><th><button id="btnCloseItemInfoPane" onclick="closeItemInfoPane();">Close</button>
+		</th></thead><tbody></tbody></table>
          </div>
          <!-- KnetMaps Menubar -->
-         <div id="knetmaps-menu">
-              <input type="image" id="maximizeOverlay" src="image/maximizeOverlay.png" title="Toggle full screen" onclick="OnMaximizeClick();" onmouseover="onHover($(this));" onmouseout="offHover($(this));">
-              <input type="image" id="showAll" src="image/showAll.png" onclick="showAll();" title="Show all" onmouseover="onHover($(this));" onmouseout="offHover($(this));">
-              <input type="image" id="relayoutNetwork" src="image/relayoutNetwork.png" onclick="rerunLayout();" title="Relayout" onmouseover="onHover($(this));" onmouseout="offHover($(this));">
-              <span class="knet-dropdowns">
-	        <select id="layouts_dropdown" class="knet-dropdowns" onChange="rerunLayout();" title="Select network layout">
-                    <option value="Cose_layout" selected="selected">CoSE layout</option>
-                    <option value="ngraph_force_layout">Force layout</option>
-                    <option value="Circle_layout">Circular layout</option>
-                    <option value="Concentric_layout">Concentric layout</option>
-                    <option value="Cose_Bilkent_layout">CoSE-Bilkent layout</option>
-                 </select>
-                 <select id="changeLabelVisibility" class="knet-dropdowns" onChange="showHideLabels(this.value);" title="label visibility">
-                     <option value="None" selected="selected">Labels: None</option>
-                     <option value="Concepts">Labels: Concepts</option>
-                     <option value="Relations">Labels: Relations</option>
-                     <option value="Both">Labels: Both</option>
-                  </select>
-                 <select id="changeLabelFont" class="knet-dropdowns" onChange="changeLabelFontSize(this.value);" title="label font size">
-                    <option value="12">Label size: 12px</option>
-                    <option value="16" selected="selected">Label size: 16px</option>
-                    <option value="20">Label size: 20px</option>
-                    <option value="24">Label size: 24px</option>
-                    <option value="28">Label size: 28px</option>
-                    <option value="32">Label size: 32px</option>
-                 </select></span>
-            <input type="image" id="resetNetwork" src="image/resetNetwork.png" onclick="resetGraph();" title="Reposition" onmouseover="onHover($(this));" onmouseout="offHover($(this));">
-            <input type="image" id="savePNG" src="image/savePNG.png" onclick="exportAsImage();" title="Export png" onmouseover="onHover($(this));" onmouseout="offHover($(this));">
-            <input type="image" id="helpURL" src="image/help.png" onclick="openKnetHelpPage();" onmouseover="onHover($(this));" onmouseout="offHover($(this));">
-            <input type="image" id="saveJSON" src="image/saveJSON.png" onclick="exportAsJson();" title="Export JSON" onmouseover="onHover($(this));" onmouseout="offHover($(this));">
-	</div>
+         <div id="knetmaps-menu"></div>
         <!-- The core cytoscapeJS container -->
         <div id="cy"></div><br/>
 	<div id="countsLegend"><span>KnetMaps</span></div><!-- legend -->
@@ -50,14 +29,7 @@ A simple way to have **KnetMaps** on your web application is shown in `index.htm
   </div>
 ```
 
-In the example page: `index.html`, KnetMaps is launched when users select a dataset to visualize from the dropdown menu (via an `onchange` event). The `launchNetwork(datasetName)` method in `launchNetwork.js` loads the JSON dataset object and initializes the cytoscapeJS container.
-
-### KnetMaps components
-
-* cytoscapeJS container: A core cytoscapeJS container to visualize animated, inter-connected nodes and edges as a network graph.
-* Menubar: A javascript menubar that combines a host of useful features to filter, toggle, re-layout and interact with the network
-* ItemInfo: A sliding overlay panel to display additional (optional) metadata associated with nodes and edges.
-* Counts legend: A handy legend to list the number of total and visible nodes (and edges) within the currently visualized network.
+In the example page: `index.html`, KnetMaps is launched by default when the page loads using a dataset selected from the dropdown menu and is later invoked whenever users select a new dataset to visualize from the dropdown menu (invoked via the `onchange` event of the dropdown menu). The `launchNetwork(datasetName)` method in `launchNetwork.js` populates the menubar, loads the JSON dataset object and initializes the cytoscapeJS container.
 
 ### Input JSON Dataset
 
@@ -95,7 +67,7 @@ In QTLNetMiner, the dataset generated also provides an additional JSON object: `
 
 ### Initializing the network
 
-The network initialization and rendering code uses `knet-container.js` and `knet-generator.js`. The network is first invoked via the `generateNetworkGraph(jsonFile)` method within `knet-generator.js`. This method is provided with the server-side path to the file and it reads the file's contents before invoking the `initializeNetworkView()` method which defines the dataset and stylesheet for the nwtork as shown below:
+The network initialization and rendering code is done in `knet-container.js` and `knet-generator.js`. The network is first invoked via the `generateNetworkGraph(jsonFile)` method within `knet-generator.js`. This method is provided with the server-side path/ url to the file and it reads the file's contents via a JQuery `.getScript()` and callback function before invoking the `initializeNetworkView()` method which defines the dataset and stylesheet for the network as shown below:
 ```
 function initializeNetworkView() {
    var networkJSON= graphJSON; // JSON dataset
@@ -104,17 +76,17 @@ function initializeNetworkView() {
       .selector('node')
         .css({
           'content': 'data(displayValue)',
-          'text-background-color': 'data(conceptTextBGcolor)',//'black',
+          'text-background-color': 'data(conceptTextBGcolor)',
           'text-background-opacity': 'data(conceptTextBGopacity)', // default: '0' (disabled).
           'text-wrap': 'wrap', // for manual and/or autowrapping the label text.
           'border-style': 'data(conceptBorderStyle)', // node border, can be 'solid', 'dotted', 'dashed' or 'double'.
           'border-width': 'data(conceptBorderWidth)',
           'border-color': 'data(conceptBorderColor)',
           'font-size': '16px', // '8px',
-          'shape': 'data(conceptShape)', // 'triangle'
-          'width': 'data(conceptSize)', // '18px',
-          'height': 'data(conceptSize)', // '18px',
-          'background-color': 'data(conceptColor)', // 'gray'
+          'shape': 'data(conceptShape)',
+          'width': 'data(conceptSize)',
+          'height': 'data(conceptSize)',
+          'background-color': 'data(conceptColor)',
           /** Using 'data(conceptColor)' leads to a "null" mapping error if that attribute is not defined 
            * in cytoscapeJS. Using 'data[conceptColor]' is hence preferred as it limits the scope of 
            * assigning a property value only if it is defined in cytoscapeJS as well. */
@@ -123,13 +95,13 @@ function initializeNetworkView() {
          })
       .selector('edge')
         .css({
-          'content': 'data(label)', // label for edges (arrows).
+          'content': 'data(label)', // label for edges.
           'font-size': '16px',
-          'curve-style': 'unbundled-bezier', /* options: bezier (curved) (default), unbundled-bezier (curved with manual control points), haystack (straight edges) */
-          'control-point-step-size': '10px', // specifies the distance between successive bezier edges.
-          'control-point-distance': '20px', /* overrides control-point-step-size to curves single edges as well, in addition to parallele edges */
-          'control-point-weight': '50', // '0': curve towards source node, '1': curve towards target node.
-          'width': 'data(relationSize)', // 'mapData(relationSize, 70, 100, 2, 6)',
+          'curve-style': 'unbundled-bezier',
+          'control-point-step-size': '10px',
+          'control-point-distance': '20px',
+          'control-point-weight': '50',
+          'width': 'data(relationSize)',
           'line-color': 'data(relationColor)',
           'line-style': 'solid', // 'solid' or 'dotted' or 'dashed'
           'target-arrow-shape': 'triangle',
@@ -160,10 +132,146 @@ $(function() { // on dom ready
 }
 ```
 
-As seen above, the network stylesheet can be as fine-grained as required by the user and can either use visual attributes from the JSON dataset or simply use standard shapes, sizes and colors for all attributes. `Selector` classes can be added for advanced visual rendering such as blurring certain nodes, showing/ hiding nodes and edges, etc.
+As seen above, the **network stylesheet** can be as fine-grained as required by the user and can either use visual attributes from the JSON dataset or simply use standard shapes, sizes and colors for all attributes or even use function callbacks. `Selector` classes can be added for advanced visual rendering such as blurring certain nodes, showing/ hiding nodes and edges, etc.
 
 The above code, upon completion, moves to `knet-container.js` to initialize the core cytopscapeJS container (`cy`) with this specific dataset and network stylesheet.
 
-*Note:* This code has been modularized to ensure network styles are retained when toggling between full screen and tab mode.
+**Note:** This code has been modularized to ensure network styles are retained when toggling between full screen and tab mode.
 
+### Customizing the network stylesheet
 
+Examples of **network stylesheet** customization to define attributes for nodes and edges can be done in 3 different ways:
+
+- Using fixed attributes hard-coded in the network stylesheet:
+```
+   var networkStylesheet= cytoscape.stylesheet().selector('node').css({
+          'content': 'demo_NodeLabel',
+          'text-wrap': 'wrap',
+          'border-style': 'dashed', // node border, can be 'solid', 'dotted', 'dashed' or 'double'.
+          'border-width': '1px',
+          'border-color': 'black',
+          'font-size': '16px',
+          'shape': 'ellipse',
+          'width': '3px',
+          'height': '3px',
+          'background-color': 'red',
+          'display': 'element', // 'element' (show) or 'none' (hide).
+          'text-opacity': '0' // to make the label invisible by default.
+         })
+      .selector('edge')
+        .css({
+          'content': 'demo_EdgeLabel', // label for edges.
+          'font-size': '16px',
+          'curve-style': 'unbundled-bezier',
+          'control-point-step-size': '10px',
+          'control-point-distance': '20px',
+          'control-point-weight': '50',
+          'width': 'data(relationSize)',
+          'line-color': 'red',
+          'line-style': 'solid', // 'solid' or 'dotted' or 'dashed'
+          'target-arrow-shape': 'triangle',
+          'target-arrow-color': 'gray',
+          'display': 'element', // 'element' (show) or 'none' (hide).
+          'text-opacity': '0' // to make the label invisible by default.
+        });
+```
+
+- Using attributes from the JSON dataset via `data()` assignment in the network stylesheet:
+```
+   var networkStylesheet= cytoscape.stylesheet().selector('node').css({
+          'content': 'data(displayValue)', // node label from JSON dataset
+          'text-wrap': 'wrap',
+          'border-style': 'data(conceptBorderStyle)',
+          'border-width': 'data(conceptBorderWidth)',
+          'border-color': 'data(conceptBorderColor)',
+          'font-size': '16px',
+          'shape': 'data(conceptShape)',
+          'width': 'data(conceptSize)',
+          'height': 'data(conceptSize)',
+          'background-color': 'data(conceptColor)',
+          'display': 'data(conceptDisplay)',
+          'text-opacity': '0' // to make the label invisible by default.
+         })
+      .selector('edge')
+        .css({
+          'content': 'data(label)', // edge label from JSON dataset
+          'font-size': '16px',
+          'curve-style': 'unbundled-bezier',
+          'control-point-step-size': '10px',
+          'control-point-distance': '20px',
+          'control-point-weight': '50',
+          'width': 'data(relationSize)',
+          'line-color': 'data(relationColor)',
+          'line-style': 'solid', // 'solid' or 'dotted' or 'dashed'
+          'target-arrow-shape': 'triangle',
+          'target-arrow-color': 'gray',
+          'display': 'data(relationDisplay)',
+          'text-opacity': '0' // to make the label invisible by default.
+        });
+```
+
+- Using functions in the network stylesheet:
+```
+   var networkStylesheet= cytoscape.stylesheet().selector('node').css({
+          'content': function(ele) {
+                      var label= ele.data('value');
+                      // Trim the label's length.
+                      if(label.length> 30) { label= label.substr(0,29)+'...'; }
+                      return label;
+                     },
+          'text-wrap': 'wrap',
+          'border-style': function(ele) {
+                              var node_borderStyle= 'solid';
+                              // Check if the node was flagged or not
+                              if(ele.data('flagged') === "true") {
+                                 node_borderStyle= 'double';
+                                }
+                              return node_borderStyle;
+                          },
+          'border-width': function(ele) {
+                              var node_borderWidth= '1px';
+                              // Check if the node was flagged or not
+                              if(ele.data('flagged') === "true") {
+                                 node_borderWidth= '3px';
+                                }
+                              return node_borderWidth;
+                          },
+          'border-color': function(ele) {
+                              var node_borderColor= 'black';
+                              // Check if the node was flagged or not
+                              if(ele.data('flagged') === "true") {
+                                 node_borderColor= 'navy';
+                                }
+                              return node_borderColor;
+                           },
+          'font-size': '16px',
+          'shape': 'data(conceptShape)',
+          'width': 'data(conceptSize)',
+          'height': 'data(conceptSize)',
+          'background-color': 'data(conceptColor)',
+          'display': 'data(conceptDisplay)', // 'element' (show) or 'none' (hide).
+          'text-opacity': '0' // to make the label invisible by default.
+         })
+      .selector('edge')
+        .css({
+          'content': 'data(label)',
+          'font-size': '16px',
+          'curve-style': 'unbundled-bezier',
+          'control-point-step-size': '10px',
+          'control-point-distance': '20px',
+          'control-point-weight': '50',
+          'width': 'data(relationSize)',
+          'line-color': 'data(relationColor)',
+          'line-style': 'solid', // 'solid' or 'dotted' or 'dashed'
+          'target-arrow-shape': 'triangle',
+          'target-arrow-color': 'gray',
+          'display': 'data(relationDisplay)', // 'element' (show) or 'none' (hide).
+          'text-opacity': '0' // to make the label invisible by default.
+        });
+```
+
+### Context menu
+
+### Item Info
+
+### Layouts
