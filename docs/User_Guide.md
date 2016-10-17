@@ -17,6 +17,8 @@
 
 * **Context menu**: Right-clicking a concept or relation opens a circular context menu with features like **Item Info.** (to display specific information about the selected concept or relation), **Show Links** (to show hidden elements in its neighbourhood), **Hide** (to hide the selected concept or relation), **Hide by Type** (to hide all the concepts or relations of a particular type, i.e., the same type as the selected concept or relation), **Label on/ off** (to toggle the visibility of the Label on/ off for the selected concept or relation) and **Label on/ off by Type** (to toggle the visibility of Labels on/ off for all concepts or relations of a particular Type). 
 
+![KnetMaps](https://ondex.rothamsted.ac.uk/QTLNetMiner/NewNetworkViewer.png)
+
 * **Update concept name**: There are also <b><i>eye</i></b> icons next to concept <i>synonyms</i> and <i>accessions</i> in the Item Info. table. Clicking on such an icon updates the concept label in the network graph with this new value. This is useful in case users want to use their preferred names (from the synonyms or accessions) for concepts.
 
 * There are **Sliding panels** on the top, right and bottom of the Network Viewer pop-up window which you can click to open or close and drag/ slide to re-size. The top panel allows users to: 
