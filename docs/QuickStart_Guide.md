@@ -8,7 +8,8 @@ All KnetMaps requires is a JSON dataset (in a nested JSON format) as input and i
 
 Follow the 6 simple steps below to try out **KnetMaps** out-of-the-box in a static web page:
 - Use a JSON network dataset, containing information about the nodes and edges in a network and (optional) visual attributes for them, in your html page by including it in `<head>`:
-``` <head>
+```
+<head>
         <link href="css/index-style.css" rel="stylesheet" /> <!-- page stylesheet -->
         <link href="css/knet-style.css" rel="stylesheet" /> <!-- Network Viewer stylesheet -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
@@ -53,7 +54,8 @@ Follow the 6 simple steps below to try out **KnetMaps** out-of-the-box in a stat
 - Here, we use the example dataset `ara2.json` provided in the `sampleFiles/` folder.
 
 - Include **KnetMaps** in your web page's `<body>` as shown below:
-``` <!-- KnetMaps -->
+```
+<!-- KnetMaps -->
    <body> <!-- KnetMaps -->
             <div id="knet-maps">
 				<div id="itemInfo" class="infoDiv" style="display:none;"><!-- Item Info pane -->
@@ -79,7 +81,8 @@ Follow the 6 simple steps below to try out **KnetMaps** out-of-the-box in a stat
 - Now simply copy the javascript, css, libs, sampleFiles, image (for KnetMaps menu), js and config (for **ItemInfo**) folders in your web page's root directory.
 
 - Note: By default the code in `javascript/knet-generator.js` looks to include datasets at runtime using jQuery and a callback function. You will need to disable it for a static demo using files on your local har drive as `getScript` is blocked on browsers when accessing local drives due to security concerns. You can disable it by simply commenting out the `.getScript()` function call but include the methods within it, as shown below:
-``` //jQuery.getScript(json_File, function() {
+```
+//jQuery.getScript(json_File, function() {
      // Initialize the cytoscapeJS container for Network View.
      initializeNetworkView();
 
