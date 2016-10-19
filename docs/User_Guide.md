@@ -1,4 +1,4 @@
-#User Guide
+# User Guide
 
 **KnetMaps** uses cytoscapeJS and jQuery for visualizing the network graphs. Some of its features are detailed below to help new users get familiarised with it:
 
