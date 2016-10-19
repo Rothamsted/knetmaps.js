@@ -278,6 +278,8 @@ Examples of **network stylesheet** customization to define attributes for nodes 
 - Concentric
 - Cose-Bilkent
 
+![KnetMaps_menu](https://ondex.rothamsted.ac.uk/QTLNetMiner/KnetMaps_menu.png)
+
 The layouts are configured in `javascript/knet-layouts-defaultParams.js` and implemented in `javascript/knet-layouts.js`. The configuration can be modified by altering the various parameters, which varies based on the complexity of the layout. For example, the `circle` layout uses relatively simple configuration as shown below:
 ```
 var circleNetworkLayout= {
@@ -352,5 +354,3 @@ While `Cose` layout uses a wider range of complex parameters which can be set as
   useMultitasking: true
  };
 ```
-
-![KnetMaps_menu](https://ondex.rothamsted.ac.uk/QTLNetMiner/KnetMaps_menu.png)
