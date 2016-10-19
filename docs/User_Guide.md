@@ -14,7 +14,9 @@
 
 * Concept sizes and Relation widths can vary based on user's dataset. **Note:** In QTLNetMiner, these sizes depend upon the concept's importance in accordance with the user's original search query terms.
 
+
 ### KnetMaps menubar
+
 The KnetMaps menubar allows users to: 
     1. Change the graph’s **Layout** using force-directed layout algorithms. The layouts supported in the current release of KnetMaps are CoSE (default), circular, nraph-Force, CoSE-Bilkent and Concentric.
     1. **Re-layout** the network.
@@ -25,14 +27,18 @@ The KnetMaps menubar allows users to:
 
 ![KnetMaps_menu](https://ondex.rothamsted.ac.uk/QTLNetMiner/KnetMaps_menu.png)
 
+
 ### Item Info
+
 The sliding overlay panel on the right is to display relevant information related to the selected concept or relation. It automatically slides open if users right-click a concept or relation and select “Item Info” option. The panel displays information such as concept/ relation Type, pid, concept value, relation label, relation source (from), relation target (to), _Annotations, Attributes_ (such as publication abstracts, title, authors, amino-acid sequence, TAX ID, etc.) and _Accessions_ (with links to TAIR, Ensembl, UniProtKB, PubMed, KEGG, IPRO, PFAM, etc., where relevant). User’s search query terms, where found, are _highlighted_ in this Item Info. panel.
 
-**Alter concept name**: There are also <i>eye</i> icons next to concept <i>synonyms</i> & <i>accessions</i> in the Item Info. table. Clicking on such an icon updates the concept label in the network with this new label. This is useful in case users want to use their preferred names (from the synonyms or accessions) for concepts.
+**Alter concept name**: There are also <i>eye</i> icons next to concept <i>synonyms</i> and <i>accessions</i> in the Item Info. table. Clicking on such an icon updates the concept label in the network with this new label. This is useful in case users want to use their preferred names (from the synonyms or accessions) for concepts.
 
 ![KnetMaps_ItemInfo](https://ondex.rothamsted.ac.uk/QTLNetMiner/KnetMaps_cxtitem.png)
 
+
 ### Context menu:
+
 Right-clicking a concept or relation opens a circular context menu with features like **Item Info.** (to display specific information about the selected concept or relation), **Show Links** (to show hidden elements in its neighbourhood), **Hide** (to hide the selected concept or relation), **Hide by Type** (to hide all the concepts or relations of a particular type, i.e., the same type as the selected concept or relation), **Label on/ off** (to toggle the visibility of the Label on/ off for the selected concept or relation) and **Label on/ off by Type** (to toggle the visibility of Labels on/ off for all concepts or relations of a particular Type). 
 
 **Show Links**: Some concepts have a blur effect which denotes that they have hidden concepts connected to them. These can be displayed by right-clicking on a blurred concept and selecting “Show Links”. This displays the hidden neighbourhood for the selected concept.
