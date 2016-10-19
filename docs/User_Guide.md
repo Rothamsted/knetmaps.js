@@ -4,17 +4,15 @@
 
 * **Concepts** (nodes) are displayed using different labels, shapes and colours (detailed in the legend below the network graph). **Relations** (edges) too use various colours and labels depending on the type of concept.
 
+* Users can left-click a concept or relation to view some more information about them or drag them (click and hold) to move them around. Users can also reposition the entire network by dragging the background viewport.
+
 * **Touch gestures**: KnetMaps can also be used with tough devices. Touch gestures such as tap (click), hold, drag, etc. have been incorporated within KnetMaps to enable interactive exploration of network graphs.
 
-* Users can left-click a concept or relation to view some more information about them or drag them (click and hold) to move them around. Users can also drag the entire network around by dragging the background viewport.
+* **Labels** on concepts and relations are disabled by default. These can however be enabled if the user wants. User’s search query terms in QTLNetMiner, if found in these labels, are _highlighted_ as well.
 
-* **Flagged genes**: All the genes are displayed as blue triangles but the gene(s) originally selected for viewing in the network window have a double border to visually distinguish them from other genes. These were shown in the old version with a blue flag next to them. 
+* **Flagged** concepts: Certain concepts are rendered with a double border to highlight their imporantce. **Note:** In QTLNetMiner, this is used to highlight genes selected for visualization in KnetMaps. 
 
-* **Labels** on concepts and relations are disabled by default. These can however be enabled if the user wants. User’s search query terms, if found in these labels, are _highlighted_ as well.
-
-* Concept sizes and Relation widths depend upon their importance in accordance with the user's original query terms.
-
-* **Alter concept name**: There are also <b><i>eye</i></b> icons next to concept <i>synonyms</i> and <i>accessions</i> in the Item Info. table. Clicking on such an icon updates the concept label in the network graph with this new value. This is useful in case users want to use their preferred names (from the synonyms or accessions) for concepts.
+* Concept sizes and Relation widths can vary based on user's dataset. **Note:** In QTLNetMiner, these sizes depend upon the concept's importance in accordance with the user's original search query terms.
 
 ![KnetMaps_screenshot](https://ondex.rothamsted.ac.uk/QTLNetMiner/KnetMaps_demo.png)
 
@@ -27,8 +25,14 @@ The KnetMaps menubar allows users to:
     1. Reset the graph viewport.
     1. Make **labels** visible on concepts and relations, via checkboxes.
 
+![KnetMaps_menubar](https://ondex.rothamsted.ac.uk/QTLNetMiner/KnetMaps_manuBar.png)
+
 ### Item Info
 The sliding overlay panel on the right is to display relevant information related to the selected concept or relation. It automatically slides open if users right-click a concept or relation and select “Item Info” option. The panel displays information such as concept/ relation Type, pid, concept value, relation label, relation source (from), relation target (to), _Annotations, Attributes_ (such as publication abstracts, title, authors, amino-acid sequence, TAX ID, etc.) and _Accessions_ (with links to TAIR, Ensembl, UniProtKB, PubMed, KEGG, IPRO, PFAM, etc., where relevant). User’s search query terms, where found, are _highlighted_ in this Item Info. panel.
+
+![KnetMaps_ItemInfo](https://ondex.rothamsted.ac.uk/QTLNetMiner/KnetMaps_itemInfo.png)
+
+**Alter concept name**: There are also <i>eye</i> icons next to concept <i>synonyms</i> and <i>accessions</i> in the Item Info. table. Clicking on such an icon updates the concept label in the network with this new label. This is useful in case users want to use their preferred names (from the synonyms or accessions) for concepts.
 
 ### Context menu:
 Right-clicking a concept or relation opens a circular context menu with features like **Item Info.** (to display specific information about the selected concept or relation), **Show Links** (to show hidden elements in its neighbourhood), **Hide** (to hide the selected concept or relation), **Hide by Type** (to hide all the concepts or relations of a particular type, i.e., the same type as the selected concept or relation), **Label on/ off** (to toggle the visibility of the Label on/ off for the selected concept or relation) and **Label on/ off by Type** (to toggle the visibility of Labels on/ off for all concepts or relations of a particular Type). 
