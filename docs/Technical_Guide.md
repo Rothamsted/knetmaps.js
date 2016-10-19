@@ -353,4 +353,4 @@ While `Cose` layout uses a wider range of complex parameters which can be set as
  };
 ```
 
-![KnetMaps_ItemInfo](https://ondex.rothamsted.ac.uk/QTLNetMiner/KnetMaps_cxtmenu_iteminfo.png)
+![KnetMaps_menu](https://ondex.rothamsted.ac.uk/QTLNetMiner/KnetMaps_menu.png)
