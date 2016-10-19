@@ -25,7 +25,7 @@ The KnetMaps menubar allows users to:
     1. Reset the graph viewport.
     1. Make **labels** visible on concepts and relations, via checkboxes.
 
-![KnetMaps_menubar](https://ondex.rothamsted.ac.uk/QTLNetMiner/KnetMaps_manuBar.png)
+![KnetMaps_menubar](https://ondex.rothamsted.ac.uk/QTLNetMiner/KnetMaps_menuBar.png)
 
 ### Item Info
 The sliding overlay panel on the right is to display relevant information related to the selected concept or relation. It automatically slides open if users right-click a concept or relation and select “Item Info” option. The panel displays information such as concept/ relation Type, pid, concept value, relation label, relation source (from), relation target (to), _Annotations, Attributes_ (such as publication abstracts, title, authors, amino-acid sequence, TAX ID, etc.) and _Accessions_ (with links to TAIR, Ensembl, UniProtKB, PubMed, KEGG, IPRO, PFAM, etc., where relevant). User’s search query terms, where found, are _highlighted_ in this Item Info. panel.
