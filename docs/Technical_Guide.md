@@ -352,3 +352,5 @@ While `Cose` layout uses a wider range of complex parameters which can be set as
   useMultitasking: true
  };
 ```
+
+![KnetMaps_ItemInfo](https://ondex.rothamsted.ac.uk/QTLNetMiner/KnetMaps_cxtmenu_iteminfo.png)
