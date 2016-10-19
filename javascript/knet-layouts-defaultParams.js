@@ -117,7 +117,7 @@
 
    // Circular layout.
    var circleNetworkLayout= {
-      name: 'circle', // Circle layout (Ondex Web: Circular)
+      name: 'circle', // Circle layout
       padding: 10/*30*/, avoidOverlap: true, boundingBox: undefined, handleDisconnected: true,
       animate: animate_layout, fit: true, counterclockwise: false,
       radius: 3 /*undefined*/,
