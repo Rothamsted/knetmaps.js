@@ -4,6 +4,7 @@
         <link href="css/knet-style.css" rel="stylesheet" /> <!-- Network Viewer stylesheet -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
         <link href="css/maskloader.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Kanit|Play" rel="stylesheet">
 
         <meta charset=utf-8 />
         <script src="libs/jquery-1.11.2.min.js"></script>
@@ -35,8 +36,15 @@
 
         <title>KnetMaps.js demo</title>
     </head>
+ 
     <body>
-            <div>Select dataset: <select id="dataset_dropdown" onchange="launchNetwork($('#dataset_dropdown').val());">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">	  
+    	<a href="http://knetminer.rothamsted.ac.uk/"><img class="logo-top" src="image/knetmaps.jpg" height="48" alt="Logo"></a>   
+ 	</nav>  <!-- end navbar -->
+ 
+ 
+ <div id="content">
+            <div>Select dataset: <select id="dataset_dropdown" onChange="launchNetwork($('#dataset_dropdown').val());">
                     <option value="ara1" title="ara1">Dataset 1</option>
                     <option value="ara2" title="ara2">Dataset 2</option>
                     <option value="ara5_dormancy" selected="selected" title="ara5_dormancy">Dataset 3</option>
@@ -48,12 +56,13 @@
                 </select>
             </div><br/>
             <!-- KnetMaps -->
+            
             <div id="knet-maps">
 		<div id="itemInfo" class="infoDiv" style="display:none;"><!-- Item Info pane -->
                     <table id="itemInfo_Table" class="infoTable" cellspacing=1>
                         <thead><th>Info box:</th>
                             <!-- <th><button id="btnCloseItemInfoPane" onclick="closeItemInfoPane();">Close</button></th> -->
-                            <th><input type="image" id="btnCloseItemInfoPane" src="html/KnetMaps/image/close-icon.png" onclick="closeItemInfoPane();"></th>
+                            <th><input type="image" id="btnCloseItemInfoPane" src="html/KnetMaps/image/close-icon.png" onClick="closeItemInfoPane();"></th>
                         </thead><tbody></tbody></table>
                 </div>
                 <!-- KnetMaps Menubar -->
@@ -107,6 +116,12 @@
                     </tr>
                 </table>
             </div><br/><br/>
+            </div>  <!-- content -->
+           
+       <div class="contact-footer"> 
+      	<img class="knetminer-logo" src="image/knetmaps.jpg" alt="Logo" with="201.5" height="66.3">
+        <p id="text-logo">Supported by BBSRC SABR and TRDF awards BB/F006039/1 and BB/I023860/1</p> 
+       </div> 
     </body>
 </html>
 
