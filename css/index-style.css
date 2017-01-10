@@ -33,6 +33,21 @@ body {
 	margin-bottom:40px;
 	width:100%;
 	}
+	ul.nav {
+	float:right;
+	list-style:none;
+	}
+	ul {
+	font-size:19px;
+	}
+	.nav a {
+		color: white;
+		text-decoration: none;
+		padding-right: 30px;
+		}
+	.nav a:hover{
+		color: darkorange;
+		}
 	/*Footer*/
 .contact-footer {
 	background-color:#2A2A2A;
