@@ -25,7 +25,7 @@ The KnetMaps menubar allows users to:
     1. Reset the graph viewport.
     1. Make **labels** visible on concepts and relations, via checkboxes.
 
-![KnetMaps_menu](https://ondex.rothamsted.ac.uk/QTLNetMiner/KnetMaps_menu.png)
+![KnetMaps_menu](KnetMaps_menu.png)
 
 
 ### Context menu:
@@ -41,7 +41,7 @@ The sliding overlay panel on the right is to display relevant information relate
 
 **Alter concept name**: There are also <i>eye</i> icons next to concept <i>synonyms</i> and <i>accessions</i> in the Item Info. table. Clicking on such an icon updates the concept label in the network with this new label. This is useful in case users want to use their preferred names (from the synonyms or accessions) for concepts.
 
-![KnetMaps_ItemInfo](https://ondex.rothamsted.ac.uk/QTLNetMiner/KnetMaps_item.png)
+![KnetMaps_ItemInfo](KnetMaps_item.png)
 
 
 
