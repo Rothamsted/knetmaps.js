@@ -8,7 +8,7 @@
 /*    console.log("Display Item Info. for id: "+ selectedElement.id() +", isNode ?= "+ 
             selectedElement.isNode() +", isEdge ?= "+ selectedElement.isEdge());*/
     try {
-		 var cy= $('#cy').cytoscape('get');
+         var cy= $('#cy').cytoscape('get');
          // Display the Item Info table in its parent div.
          document.getElementById("itemInfo_Table").style.display= "inline";
          // Display item information in the itemInfo <div> in a <table>.
@@ -176,7 +176,7 @@
                 cell1.innerHTML= "From:";
             //    cell2.innerHTML= selectedElement.data('source'); // relation source ('fromConcept').
                 var fromID= selectedElement.data('source'); // relation source ('fromConcept').
-                cell2.innerHTML= "("+ cy.$('#'+fromID).data('conceptType').toLowerCase() +") "+ cy.$('#'+fromID).data('value'); // relation source ('fromConcept').
+                cell2.innerHTML= cy.$('#'+fromID).data('value') +" ("+ cy.$('#'+fromID).data('conceptType').toLowerCase() +")"; // relation source ('fromConcept').
                 // Relation 'target'.
                 row= table.insertRow(2);
                 cell1= row.insertCell(0);
@@ -184,7 +184,7 @@
                 cell1.innerHTML= "To:";
 //                cell2.innerHTML= selectedElement.data('target'); // relation target ('toConcept').
                 var toID= selectedElement.data('target'); // relation source ('toConcept').
-                cell2.innerHTML= "("+ cy.$('#'+toID).data('conceptType').toLowerCase() +") "+ cy.$('#'+toID).data('value'); // relation source ('toConcept').
+                cell2.innerHTML= cy.$('#'+toID).data('value') +" ("+ cy.$('#'+toID).data('conceptType').toLowerCase() +")"; // relation source ('toConcept').
                 // Get all metadata for this relation from the metadataJSON variable.
                 for(var j=0; j < metadataJSON.ondexmetadata.relations.length; j++) {
                     if(selectedElement.id() === metadataJSON.ondexmetadata.relations[j].id) {
@@ -250,8 +250,7 @@
  });*/
  
  function closeItemInfoPane() {
-     console.log("Close ItemInfo pane...");
-     $("#itemInfo").hide();
+  $("#itemInfo").hide();
  }
 
   // Remove shadow effect from nodes, if it exists.
