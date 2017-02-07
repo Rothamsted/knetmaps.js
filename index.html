@@ -65,19 +65,19 @@
             <!-- KnetMaps -->
             
             <div id="knet-maps">
-		<div id="itemInfo" class="infoDiv" style="display:none;"><!-- Item Info pane -->
+                <!-- KnetMaps Menubar -->
+                <div id="knetmaps-menu"></div>
+			    <div id="itemInfo" class="infoDiv" style="display:none;"><!-- Item Info pane -->
                     <table id="itemInfo_Table" class="infoTable" cellspacing=1>
                         <thead><th>Info box:</th>
                             <!-- <th><button id="btnCloseItemInfoPane" onclick="closeItemInfoPane();">Close</button></th> -->
                             <th><input type="image" id="btnCloseItemInfoPane" src="image/close-icon.png" onClick="closeItemInfoPane();"></th>
                         </thead><tbody></tbody></table>
                 </div>
-                <!-- KnetMaps Menubar -->
-                <div id="knetmaps-menu"></div>
                 <!-- The core cytoscapeJS container -->
                 <div id="cy"></div><br/>
                 <!-- dynamically updated Legend to show number of shown/ hidden concepts; and by type -->
-		<div id="countsLegend" style="width: 350px; margin: auto;"><span>KnetMaps</span></div>
+				<div id="countsLegend" style="width: 350px; margin: auto;"><span>KnetMaps</span></div>
                 <!-- popup dialog -->
                 <div id="infoDialog"></div>
             </div>
