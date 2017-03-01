@@ -15,13 +15,13 @@ window.onload= function() {
                             "<option value='Circle_layout'>Circular layout</option>"+
                             "<option value='Concentric_layout'>Concentric layout</option>"+
                             "<option value='Cose_Bilkent_layout' title='using CoSE-Bilkent layout (with node clustering, but performance-intensive for larger networks)'>CoSE-Bilkent layout</option>"+
-                        "</select>"+
+                        "</select>&nbsp;"+
                         "<select id='changeLabelVisibility' class='knet-dropdowns' onChange='showHideLabels(this.value);' title='Select label visibility'>"+
                             "<option value='None' selected='selected'>Labels: None</option>"+
                             "<option value='Concepts'>Labels: Concepts</option>"+
                             "<option value='Relations'>Labels: Relations</option>"+
                             "<option value='Both'>Labels: Both</option>"+
-                        "</select>"+
+                        "</select>&nbsp;"+
                         "<select id='changeLabelFont' class='knet-dropdowns' onChange='changeLabelFontSize(this.value);' title='Select label font size'>"+
                             "<option value='8'>Label size: 8px</option>"+
                             "<option value='12'>Label size: 12px</option>"+
