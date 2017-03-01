@@ -169,14 +169,14 @@ cy.elements().qtip({
     var info= "";
     try {
     if(thisElement.isNode()) {
-       info= "<b>Concept:</b> "+ thisElement.data('value') +", <b>Type:</b> "+ thisElement.data('conceptType');
+       info= "<b>Concept:</b> "+ thisElement.data('value') +"<br/><b>Type:</b> "+ thisElement.data('conceptType');
       }
       else if(thisElement.isEdge()) {
               info= "<b>Relation:</b> "+ this.data('label');
               var fromID= this.data('source'); // relation source ('fromConcept')
-              info= info +", <b>From:</b> "+ cy.$('#'+fromID).data('value') +" ("+ cy.$('#'+fromID).data('conceptType').toLowerCase() +"), ";
+              info= info +"<br/><b>From:</b> "+ cy.$('#'+fromID).data('value') +" ("+ cy.$('#'+fromID).data('conceptType').toLowerCase();
               var toID= this.data('target'); // relation source ('toConcept')
-              info= info +"<b>To:</b> "+ cy.$('#'+toID).data('value') +" ("+ cy.$('#'+toID).data('conceptType').toLowerCase() +")";
+              info= info +"<br/><b>To:</b> "+ cy.$('#'+toID).data('value') +" ("+ cy.$('#'+toID).data('conceptType').toLowerCase() +")";
              }
       }
       catch(err) { info= "Selected element is neither a Concept nor a Relation"; }
