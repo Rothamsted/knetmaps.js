@@ -41,7 +41,7 @@ window.onload= function() {
  $('#knetmaps-menu').html(knet_menu);
 
  launchNetwork($('#dataset_dropdown').val());
-}
+};
 
 function launchNetwork(jsonFileName) {
     var jsonFile= jsonFileName; // the JSON file selected by the user.

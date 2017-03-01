@@ -1,5 +1,5 @@
 /* 
-    Created on : 03-Oct-2016
+    Last Modified on : 27-Feb-2017
     Author     : Ajit Singh
     Description:
         CSS for the Network Viewer, in tab.
@@ -54,8 +54,8 @@
  
       /* CytoscapeJS "core" container */
       #cy {
-        height: 85%; /*98%;*/ /*750px;*/
-        width: /*98*/95%; /*450px;*/
+        height: 80%/*85%*/; /*750px;*/
+        width: 95%/*98*/; /*450px;*/
         position: relative;
         background: white;
         border: 1px solid black;
@@ -64,10 +64,10 @@
         /*margin-top: 10px;*/
        }
 
-   #countsLegend {
+   #statsLegend {
      height: 20px;
      /*overflow-y: auto;*/
-     font-size: 12px;
+     font-size: 14px;
 	 font-weight: bold;
 	 color: darkBlue;
      /*margin-bottom: 25px;
@@ -186,4 +186,12 @@
        font-size: 12px;
       }
 
+/* Interactive Legend */
+#knetLegend {
+    border: 1px dotted gray;
+    width: 90%; margin: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+	background: white;
+}
       

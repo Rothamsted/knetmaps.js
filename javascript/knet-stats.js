@@ -1,6 +1,5 @@
-
-  // Refresh network legend whenever nodes are hidden individually or in group or in case of "Show All" or "Show Links".
-  function updateCyLegend() {
+  // Refresh network stats <div> whenever nodes are hidden individually or in group or in case of "Show All" or "Show Links".
+  function updateKnetStats() {
 	var cy= $('#cy').cytoscape('get');
 	var totalNodes= cy.nodes().size();
 	var nodes_shown= cy.$(':visible').nodes().size();
@@ -11,5 +10,5 @@
 	cyLegend= cyLegend +"; Relations: "+ edges_shown +" ("+ totalEdges +")";
 
 //	console.log(cyLegend);
-	$('#countsLegend span').text(cyLegend); // update
+	$('#statsLegend span').text(cyLegend); // update
    }

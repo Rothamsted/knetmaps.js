@@ -1,0 +1,286 @@
+var graphJSON= { 
+"edges": [
+{ "data": { "id": "e1", "source": "3", "relationColor": "grey", "relationSize": "3px", "relationDisplay": "element", "target": "5", "label": "encodes"} , "group": "edges"} , 
+{ "data": { "id": "e2", "source": "5", "relationColor": "fireBrick", "relationSize": "3px", "relationDisplay": "element", "target": "8", "label": "has_similar_sequence"} , "group": "edges"} , 
+{ "data": { "id": "e3", "source": "5", "relationColor": "fireBrick", "relationSize": "3px", "relationDisplay": "element", "target": "7", "label": "has_similar_sequence"} , "group": "edges"} , 
+{ "data": { "id": "e4", "source": "5", "relationColor": "fireBrick", "relationSize": "3px", "relationDisplay": "element", "target": "9", "label": "has_similar_sequence"} , "group": "edges"} , 
+{ "data": { "id": "e5", "source": "8", "relationColor": "purple", "relationSize": "3px", "relationDisplay": "element", "target": "12", "label": "has_function"} , "group": "edges"} , 
+{ "data": { "id": "e6", "source": "5", "relationColor": "fireBrick", "relationSize": "3px", "relationDisplay": "element", "target": "6", "label": "has_similar_sequence"} , "group": "edges"} , 
+{ "data": { "id": "e7", "source": "9", "relationColor": "orange", "relationSize": "3px", "relationDisplay": "element", "target": "2", "label": "published_in"} , "group": "edges"} , 
+{ "data": { "id": "e8", "source": "8", "relationColor": "teal", "relationSize": "3px", "relationDisplay": "element", "target": "11", "label": "participates_in"} , "group": "edges"} , 
+{ "data": { "id": "e9", "source": "7", "relationColor": "orange", "relationSize": "3px", "relationDisplay": "element", "target": "4", "label": "published_in"} , "group": "edges"} , 
+{ "data": { "id": "e10", "source": "7", "relationColor": "purple", "relationSize": "3px", "relationDisplay": "element", "target": "15", "label": "has_function"} , "group": "edges"} , 
+{ "data": { "id": "e11", "source": "6", "relationColor": "orange", "relationSize": "3px", "relationDisplay": "element", "target": "10", "label": "published_in"} , "group": "edges"} , 
+{ "data": { "id": "e12", "source": "8", "relationColor": "orange", "relationSize": "3px", "relationDisplay": "element", "target": "14", "label": "published_in"} , "group": "edges"} , 
+{ "data": { "id": "e13", "source": "9", "relationColor": "purple", "relationSize": "3px", "relationDisplay": "element", "target": "1", "label": "has_function"} , "group": "edges"} , 
+{ "data": { "id": "e14", "source": "8", "relationColor": "orange", "relationSize": "3px", "relationDisplay": "element", "target": "13", "label": "published_in"} , "group": "edges"} , 
+{ "data": { "id": "e15", "source": "6", "relationColor": "teal", "relationSize": "3px", "relationDisplay": "element", "target": "11", "label": "participates_in"} , "group": "edges"} ], 
+"nodes": [
+{ "data": { "conceptType": "Molecular_Function", "flagged": "false", "conceptSize": "26px", "conceptBorderStyle": "solid", "pid": "GO: 0047183", "conceptBorderColor": "black", "displayValue": "hydroxycinnamoyl-CoA: anthocya...", "conceptBorderWidth": "1px", "id": "1", "annotation": "Catalysis of the reaction:  anthocyanidin-3, 5-diglucoside + hydroxycinnamoyl-CoA = anthocyanidin 3-glucoside-5-hydroxycinnamoylglucoside + CoA. ( Reference:  EC: 2.3.1.153 MetaCyc: 2.3.1.153-RXN )", "conceptColor": "purple", "value": "hydroxycinnamoyl-CoA: anthocyanidin 3, 5-diglucoside 5-O-glucoside-6'''-O-hydroxycinnamoyltransferase", "conceptTextBGcolor": "black", "conceptShape": "pentagon", "conceptDisplay": "element", "conceptTextBGopacity": "0"} , "group": "nodes"} , 
+{ "data": { "conceptType": "Publication", "flagged": "false", "conceptSize": "26px", "conceptBorderStyle": "solid", "pid": "9881162", "conceptBorderColor": "black", "displayValue": "PMID: 9881162", "conceptBorderWidth": "1px", "id": "2", "annotation": "[NUCLEOTIDE SEQUENCE [MRNA],  PROTEIN SEQUENCE OF 68-89; 249-262; 395-404 AND 442-459,  CHARACTERIZATION,  TISSUE SPECIFICITY,  DEVELOPMENTAL STAGE,  SUBCELLULAR LOCATION]", "conceptColor": "orange", "value": "PMID: 9881162", "conceptTextBGcolor": "black", "conceptShape": "rectangle", "conceptDisplay": "element", "conceptTextBGopacity": "0"} , "group": "nodes"} , 
+{ "data": { "conceptType": "Gene", "flagged": "true", "conceptSize": "26px", "conceptBorderStyle": "double", "pid": "AT5G39080;locus: 2177197", "conceptBorderColor": "navy", "displayValue": "PMAT1", "conceptBorderWidth": "3px", "id": "3", "annotation": "protein_coding", "conceptColor": "lightBlue", "value": "PMAT1", "conceptTextBGcolor": "black", "conceptShape": "triangle", "conceptDisplay": "element", "conceptTextBGopacity": "0"} , "group": "nodes"} , 
+{ "data": { "conceptType": "Publication", "flagged": "false", "conceptSize": "26px", "conceptBorderStyle": "solid", "pid": "12481098", "conceptBorderColor": "black", "displayValue": "PMID: 12481098", "conceptBorderWidth": "1px", "id": "4", "annotation": "[NUCLEOTIDE SEQUENCE [MRNA],  FUNCTION,  CATALYTIC ACTIVITY,  ENZYME REGULATION,  BIOPHYSICOCHEMICAL PROPERTIES,  DEVELOPMENTAL STAGE]", "conceptColor": "orange", "value": "PMID: 12481098", "conceptTextBGcolor": "black", "conceptShape": "rectangle", "conceptDisplay": "element", "conceptTextBGopacity": "0"} , "group": "nodes"} , 
+{ "data": { "conceptType": "Protein", "flagged": "false", "conceptSize": "22px", "conceptBorderStyle": "solid", "pid": "AT5G39080.1", "conceptBorderColor": "black", "displayValue": "AT5G39080.1", "conceptBorderWidth": "1px", "id": "5", "annotation": "", "conceptColor": "red", "value": "AT5G39080.1", "conceptTextBGcolor": "black", "conceptShape": "ellipse", "conceptDisplay": "element", "conceptTextBGopacity": "0"} , "group": "nodes"} , 
+{ "data": { "conceptType": "Protein", "flagged": "false", "conceptSize": "22px", "conceptBorderStyle": "solid", "pid": "Q9MBC1", "conceptBorderColor": "black", "displayValue": "Anthocyanidin 3-O-glucoside 6...", "conceptBorderWidth": "1px", "id": "6", "annotation": "Created:  2013-05-29; Modified:  2016-04-13; Version:  38", "conceptColor": "red", "value": "Anthocyanidin 3-O-glucoside 6''-O-acyltransferase", "conceptTextBGcolor": "black", "conceptShape": "ellipse", "conceptDisplay": "element", "conceptTextBGopacity": "0"} , "group": "nodes"} , 
+{ "data": { "conceptType": "Protein", "flagged": "false", "conceptSize": "26px", "conceptBorderStyle": "solid", "pid": "Q8GSN8", "conceptBorderColor": "black", "displayValue": "Malonyl-coenzyme A: anthocyani...", "conceptBorderWidth": "1px", "id": "7", "annotation": "Created:  2011-02-08; Modified:  2016-10-05; Version:  36", "conceptColor": "red", "value": "Malonyl-coenzyme A: <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 3-O-glucoside-6''-O-malonyltransferase", "conceptTextBGcolor": "gold", "conceptShape": "ellipse", "conceptDisplay": "element", "conceptTextBGopacity": "1"} , "group": "nodes"} , 
+{ "data": { "conceptType": "Protein", "flagged": "false", "conceptSize": "26px", "conceptBorderStyle": "solid", "pid": "Q8W1W9", "conceptBorderColor": "black", "displayValue": "Malonyl-coenzyme: anthocyanin ...", "conceptBorderWidth": "1px", "id": "8", "annotation": "Created:  2011-02-08; Modified:  2015-12-09; Version:  42", "conceptColor": "red", "value": "Malonyl-coenzyme: <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 5-O-glucoside-6'''-O-malonyltransferase", "conceptTextBGcolor": "gold", "conceptShape": "ellipse", "conceptDisplay": "element", "conceptTextBGopacity": "1"} , "group": "nodes"} , 
+{ "data": { "conceptType": "Protein", "flagged": "false", "conceptSize": "26px", "conceptBorderStyle": "solid", "pid": "Q9ZWR8", "conceptBorderColor": "black", "displayValue": "Anthocyanin 5-aromatic acyltr...", "conceptBorderWidth": "1px", "id": "9", "annotation": "Created:  2003-11-21; Modified:  2015-12-09; Version:  60", "conceptColor": "red", "value": "<span style=\"background-color: yellow\"><b>Anthocyanin<\/b><\/span> 5-aromatic acyltransferase", "conceptTextBGcolor": "gold", "conceptShape": "ellipse", "conceptDisplay": "element", "conceptTextBGopacity": "1"} , "group": "nodes"} , 
+{ "data": { "conceptType": "Publication", "flagged": "false", "conceptSize": "26px", "conceptBorderStyle": "solid", "pid": "10845463", "conceptBorderColor": "black", "displayValue": "PMID: 10845463", "conceptBorderWidth": "1px", "id": "10", "annotation": "[NUCLEOTIDE SEQUENCE [MRNA],  FUNCTION,  CATALYTIC ACTIVITY,  PATHWAY,  TISSUE SPECIFICITY]", "conceptColor": "orange", "value": "PMID: 10845463", "conceptTextBGcolor": "black", "conceptShape": "rectangle", "conceptDisplay": "element", "conceptTextBGopacity": "0"} , "group": "nodes"} , 
+{ "data": { "conceptType": "Biological_Process", "flagged": "false", "conceptSize": "26px", "conceptBorderStyle": "solid", "pid": "GO: 0009718", "conceptBorderColor": "black", "displayValue": "anthocyanin formation", "conceptBorderWidth": "1px", "id": "11", "annotation": "The chemical reactions and pathways resulting in the formation of <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span>s,  any member of a group of intensely colored soluble glycosides of anthocyanidins. ( Reference:  GOC: ai )", "conceptColor": "teal", "value": "<span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> formation", "conceptTextBGcolor": "gold", "conceptShape": "pentagon", "conceptDisplay": "element", "conceptTextBGopacity": "1"} , "group": "nodes"} , 
+{ "data": { "conceptType": "Molecular_Function", "flagged": "false", "conceptSize": "26px", "conceptBorderStyle": "solid", "pid": "GO: 0033810", "conceptBorderColor": "black", "displayValue": "malonyl-CoA: pelargonidin-3-O-...", "conceptBorderWidth": "1px", "id": "12", "annotation": "Catalysis of the reaction:  malonyl-CoA + pelargonidin 3-O-(6-caffeoyl-beta-D-glucoside) 5-O-beta-D-glucoside = CoA + 4'''-demalonylsalvianin. ( Reference:  EC: 2.3.1.172 )", "conceptColor": "purple", "value": "malonyl-CoA: pelargonidin-3-O-(6-caffeoyl-beta-D-glucoside)-5-O-beta-D-glucoside 6'''-O-malonyltransferase", "conceptTextBGcolor": "black", "conceptShape": "pentagon", "conceptDisplay": "element", "conceptTextBGopacity": "0"} , "group": "nodes"} , 
+{ "data": { "conceptType": "Publication", "flagged": "false", "conceptSize": "26px", "conceptBorderStyle": "solid", "pid": "11598135", "conceptBorderColor": "black", "displayValue": "PMID: 11598135", "conceptBorderWidth": "1px", "id": "13", "annotation": "[NUCLEOTIDE SEQUENCE [MRNA],  FUNCTION,  CATALYTIC ACTIVITY,  ENZYME REGULATION,  BIOPHYSICOCHEMICAL PROPERTIES,  TISSUE SPECIFICITY,  DEVELOPMENTAL STAGE]", "conceptColor": "orange", "value": "PMID: 11598135", "conceptTextBGcolor": "black", "conceptShape": "rectangle", "conceptDisplay": "element", "conceptTextBGopacity": "0"} , "group": "nodes"} , 
+{ "data": { "conceptType": "Publication", "flagged": "false", "conceptSize": "26px", "conceptBorderStyle": "solid", "pid": "12578391", "conceptBorderColor": "black", "displayValue": "PMID: 12578391", "conceptBorderWidth": "1px", "id": "14", "annotation": "[MUTAGENESIS OF TYR-45; GLN-150; HIS-166; HIS-167; CYS-168; ASP-171; LYS-258; ARG-301; ASN-315 AND ASP-390,  PROPOSED ENZYME MECHANISM,  ACTIVE SITE]", "conceptColor": "orange", "value": "PMID: 12578391", "conceptTextBGcolor": "black", "conceptShape": "rectangle", "conceptDisplay": "element", "conceptTextBGopacity": "0"} , "group": "nodes"} , 
+{ "data": { "conceptType": "Molecular_Function", "flagged": "false", "conceptSize": "26px", "conceptBorderStyle": "solid", "pid": "GO: 0033809", "conceptBorderColor": "black", "displayValue": "malonyl-CoA: anthocyanidin-3-O...", "conceptBorderWidth": "1px", "id": "15", "annotation": "Catalysis of the reaction:  malonyl-CoA + an anthocyanidin 3-O-beta-D-glucoside = CoA + an anthocyanidin 3-O-(6-O-malonyl-beta-D-glucoside). ( Reference:  EC: 2.3.1.171 )", "conceptColor": "purple", "value": "malonyl-CoA: anthocyanidin-3-O-beta-D-glucoside 6''-O-malonyltransferase", "conceptTextBGcolor": "black", "conceptShape": "pentagon", "conceptDisplay": "element", "conceptTextBGopacity": "0"} , "group": "nodes"} 
+]};
+
+var allGraphData= { "ondexmetadata": 
+{ "relations": [
+{ "id": "e1", "ofType": "encodes", "contexts": { } , "toConcept": "5", "attributes": [{ "value": "true", "attrname": "visible"} , 
+{ "value": "5", "attrname": "size"} ], "fromConcept": "3", "evidences": ["Imported from database"]} , 
+
+{ "id": "e2", "ofType": "has_similar_sequence", "contexts": { } , "toConcept": "8", "attributes": [
+{ "value": "true", "attrname": "visible"} , { "value": "407.0", "attrname": "SCORE"} , { "value": "30.0", "attrname": "PERCENTQUERY"} , 
+{ "value": "2.7E-48", "attrname": "E-VALUE"} , { "value": "450.0", "attrname": "QUERYEND"} , { "value": "Smith-Waterman", "attrname": "ALGORITHM"} , 
+{ "value": "1.0", "attrname": "QUERYSTART"} , { "value": "5", "attrname": "size"} , { "value": "29.0", "attrname": "PERCENTALIGNMENT"} , 
+{ "value": "30.0", "attrname": "PERCENTTARGET"} , { "value": "1.0", "attrname": "TARGETSTART"} , { "value": "462.0", "attrname": "TARGETLENGTH"} , 
+{ "value": "434.0", "attrname": "TARGETEND"} , { "value": "463.0", "attrname": "QUERYLENGTH"} ], "fromConcept": "5", 
+"evidences": ["Imported from database", "Decypher-SW"]} , 
+
+{ "id": "e3", "ofType": "has_similar_sequence", "contexts": { } , "toConcept": "7", "attributes": [
+{ "value": "true", "attrname": "visible"} , { "value": "428.0", "attrname": "SCORE"} , { "value": "31.0", "attrname": "PERCENTQUERY"} , 
+{ "value": "3.4E-51", "attrname": "E-VALUE"} , { "value": "451.0", "attrname": "QUERYEND"} , { "value": "Smith-Waterman", "attrname": "ALGORITHM"} , 
+{ "value": "2.0", "attrname": "QUERYSTART"} , { "value": "5", "attrname": "size"} , { "value": "30.0", "attrname": "PERCENTALIGNMENT"} , 
+{ "value": "31.0", "attrname": "PERCENTTARGET"} , { "value": "4.0", "attrname": "TARGETSTART"} , { "value": "460.0", "attrname": "TARGETLENGTH"} , 
+{ "value": "444.0", "attrname": "TARGETEND"} , { "value": "463.0", "attrname": "QUERYLENGTH"} ], "fromConcept": "5", 
+"evidences": ["Imported from database", "Decypher-SW"]} , 
+
+{ "id": "e4", "ofType": "has_similar_sequence", "contexts": { } , "toConcept": "9", "attributes": [
+{ "value": "true", "attrname": "visible"} , { "value": "506.0", "attrname": "SCORE"} , { "value": "31.0", "attrname": "PERCENTQUERY"} , 
+{ "value": "6.0E-62", "attrname": "E-VALUE"} , { "value": "451.0", "attrname": "QUERYEND"} , { "value": "Smith-Waterman", "attrname": "ALGORITHM"} , 
+{ "value": "2.0", "attrname": "QUERYSTART"} , { "value": "5", "attrname": "size"} , { "value": "30.0", "attrname": "PERCENTALIGNMENT"} , 
+{ "value": "31.0", "attrname": "PERCENTTARGET"} , { "value": "4.0", "attrname": "TARGETSTART"} , { "value": "469.0", "attrname": "TARGETLENGTH"} , 
+{ "value": "455.0", "attrname": "TARGETEND"} , { "value": "463.0", "attrname": "QUERYLENGTH"} ], "fromConcept": "5", 
+"evidences": ["Imported from database", "Decypher-SW"]} , 
+
+{ "id": "e5", "ofType": "has_function", "contexts": { } , "toConcept": "12", "attributes": [{ "value": "true", "attrname": "visible"} , 
+{ "value": "5", "attrname": "size"} ], "fromConcept": "8", "evidences": ["ECO: 0000314"]} , 
+
+{ "id": "e6", "ofType": "has_similar_sequence", "contexts": { } , "toConcept": "6", "attributes": [
+{ "value": "true", "attrname": "visible"} , { "value": "430.0", "attrname": "SCORE"} , { "value": "29.0", "attrname": "PERCENTQUERY"} , 
+{ "value": "1.8E-51", "attrname": "E-VALUE"} , { "value": "451.0", "attrname": "QUERYEND"} , { "value": "Smith-Waterman", "attrname": "ALGORITHM"} , 
+{ "value": "7.0", "attrname": "QUERYSTART"} , { "value": "5", "attrname": "size"} , { "value": "29.0", "attrname": "PERCENTALIGNMENT"} , 
+{ "value": "30.0", "attrname": "PERCENTTARGET"} , { "value": "1.0", "attrname": "TARGETSTART"} , { "value": "446.0", "attrname": "TARGETLENGTH"} , 
+{ "value": "434.0", "attrname": "TARGETEND"} , { "value": "463.0", "attrname": "QUERYLENGTH"} ], "fromConcept": "5", 
+"evidences": ["Imported from database", "Decypher-SW"]} , 
+
+{ "id": "e7", "ofType": "published_in", "contexts": { } , "toConcept": "2", "attributes": [{ "value": "true", "attrname": "visible"} , 
+{ "value": "5", "attrname": "size"} ], "fromConcept": "9", "evidences": ["Imported from database"]} , 
+
+{ "id": "e8", "ofType": "participates_in", "contexts": { } , "toConcept": "11", "attributes": [{ "value": "true", "attrname": "visible"} , 
+{ "value": "5", "attrname": "size"} ], "fromConcept": "8", "evidences": ["ECO: 0000501"]} , 
+
+{ "id": "e9", "ofType": "published_in", "contexts": { } , "toConcept": "4", "attributes": [{ "value": "true", "attrname": "visible"} , 
+{ "value": "5", "attrname": "size"} ], "fromConcept": "7", "evidences": ["Imported from database"]} , 
+
+{ "id": "e10", "ofType": "has_function", "contexts": { } , "toConcept": "15", "attributes": [{ "value": "true", "attrname": "visible"} , 
+{ "value": "5", "attrname": "size"} ], "fromConcept": "7", "evidences": ["ECO: 0000314"]} , 
+
+{ "id": "e11", "ofType": "published_in", "contexts": { } , "toConcept": "10", "attributes": [{ "value": "true", "attrname": "visible"} , 
+{ "value": "5", "attrname": "size"} ], "fromConcept": "6", "evidences": ["Imported from database"]} , 
+
+{ "id": "e12", "ofType": "published_in", "contexts": { } , "toConcept": "14", "attributes": [{ "value": "true", "attrname": "visible"} , 
+{ "value": "5", "attrname": "size"} ], "fromConcept": "8", "evidences": ["Imported from database"]} , 
+
+{ "id": "e13", "ofType": "has_function", "contexts": { } , "toConcept": "1", "attributes": [{ "value": "true", "attrname": "visible"} , 
+{ "value": "5", "attrname": "size"} ], "fromConcept": "9", "evidences": ["ECO: 0000501"]} , 
+
+{ "id": "e14", "ofType": "published_in", "contexts": { } , "toConcept": "13", "attributes": [{ "value": "true", "attrname": "visible"} , 
+{ "value": "5", "attrname": "size"} ], "fromConcept": "8", "evidences": ["Imported from database"]} , 
+
+{ "id": "e15", "ofType": "participates_in", "contexts": { } , "toConcept": "11", "attributes": [{ "value": "true", "attrname": "visible"} , 
+{ "value": "5", "attrname": "size"} ], "fromConcept": "6", "evidences": ["ECO: 0000501"]} ], 
+
+"graphName": "FilteredGraphUnconnected", "numberOfConcepts": 15, "numberOfRelations": 15, 
+"concepts": [
+{ "annotation": "Catalysis of the reaction:  anthocyanidin-3, 5-diglucoside + hydroxycinnamoyl-CoA = anthocyanidin 3-glucoside-5-hydroxycinnamoylglucoside + CoA. ( Reference:  EC: 2.3.1.153 MetaCyc: 2.3.1.153-RXN )", 
+"id": "1", "conames": [
+{ "isPreferred": "true", "name": "<span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 5-aromatic acyltransferase activity"} , 
+{ "isPreferred": "true", "name": "hydroxycinnamoyl-CoA: anthocyanidin 3, 5-diglucoside 5-O-glucoside-6'''-O-hydroxycinnamoyltransferase"} ], 
+"description": "", "ofType": "Molecular_Function", "coaccessions": [{ "elementOf": "EC", "accession": "2.3.1.153"} , 
+{ "elementOf": "GO", "accession": "GO: 0047183"} , { "elementOf": "MC", "accession": "RXN-7945"} ], "elementOf": "GO: UNIPROTKB", 
+"value": "hydroxycinnamoyl-CoA: anthocyanidin 3, 5-diglucoside 5-O-glucoside-6'''-O-hydroxycinnamoyltransferase", "contexts": { } , 
+"pid": "GO: 0047183", "attributes": [{ "value": "true", "attrname": "visible"} , { "value": "70", "attrname": "size"} ], 
+"evidences": ["Imported from database"]} , 
+
+{ "annotation": "[NUCLEOTIDE SEQUENCE [MRNA],  PROTEIN SEQUENCE OF 68-89; 249-262; 395-404 AND 442-459,  CHARACTERIZATION,  TISSUE SPECIFICITY,  DEVELOPMENTAL STAGE,  SUBCELLULAR LOCATION]", 
+"id": "2", "conames": [{ "isPreferred": "true", "name": "PMID: 9881162"} ], "description": "", "ofType": "Publication", 
+"coaccessions": [{ "elementOf": "NLM", "accession": "9881162"} , { "elementOf": "DOI", "accession": "10.1046\/J.1365-313X.1998.00312.X"} ], 
+"elementOf": "NLM: UNIPROTKB", "value": "PMID: 9881162", "contexts": { } , "pid": "9881162", "attributes": [
+{ "value": "[H Fujiwara,  Y Tanaka,  K Yonekura-Sakakibara,  M Fukuchi-Mizutani,  M Nakao,  Y Fukui,  M Yamaguchi,  T Ashikari,  T Kusumi]", "attrname": "AUTHORS"} , 
+{ "value": "true", "attrname": "visible"} , 
+{ "value": "cDNA cloning,  gene expression and subcellular localization of <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 5-aromatic acyltransferase from Gentiana triflora.", "attrname": "AbstractHeader"} , 
+{ "value": "[NUCLEOTIDE SEQUENCE [MRNA],  PROTEIN SEQUENCE OF 68-89; 249-262; 395-404 AND 442-459,  CHARACTERIZATION,  TISSUE SPECIFICITY,  DEVELOPMENTAL STAGE,  SUBCELLULAR LOCATION]", "attrname": "PUB_TYPE"} , 
+{ "value": "The Plant journal :  for cell and molecular biology", "attrname": "JOURNAL_REF"} , { "value": "1999", "attrname": "YEAR"} , 
+{ "value": "[<span style=\"background-color: yellow\"><b>Anthocyanin<\/b><\/span>s,  Recombinant Proteins,  Open Reading Frames,  Subcellular Fractions,  Plant Stems,  Amino Acid Sequence,  Cloning,  Molecular,  DNA,  Complementary,  Antibodies,  Base Sequence,  Conserved Sequence,  Kinetics,  Plants,  Molecular Sequence Data,  Acyltransferases,  Arabidopsis,  Consensus Sequence]", "attrname": "MeSH"} , 
+{ "value": "[<span style=\"background-color: yellow\"><b>Anthocyanin<\/b><\/span>s,  DNA,  Complementary,  Antibodies,  EC 2.3.1.- hydroxycinnamoyl-CoA anthocyanidin 3, 5-diglucoside 5-O-glucoside-6'''-O-hydroxycinnamoyltransferase,  Recombinant Proteins,  EC 2.3.- Acyltransferases]", "attrname": "Chemical"} , 
+{ "value": "70", "attrname": "size"} , 
+{ "value": "Acylation of <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span>s with hydroxycinnamic acid derivatives is one of the most important and less under-stood modification reactions during <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> biosynthesis. <span style=\"background-color: yellow\"><b>Anthocyanin<\/b><\/span> aromatic acyltransferase catalyses the transfer of hydroxycinnamic acid moieties from their CoA esters to the glycosyl groups of <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span>s. A full-length cDNA encoding the <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 5-aromatic acyltransferase (5AT) (EC 2.3.1.153) that acylates the glucose bound at the 5-position of anthocyanidin 3, 5-diglucoside was isolated from petals of Gentiana triflora on the basis of the amino acid sequence of the purified enzyme. The isolated full-length cDNA had an open reading frame of 469 amino acids and the calculated molecular weight was 52, 736. The deduced amino acid sequence contains consensus motifs that are conserved among the putative acyl CoA-mediated acyltransferases,  and this indicates that 5AT is a member of a proposed superfamily of multi-functional acyltransferases (St-Pierre et al. (1998) Plant J. 14,  703-713). The cDNA was expressed in Escherichia coli and yeast,  and confirmed to encode 5AT. The enzymatic characteristics of the recombinant 5AT were consistent with those of the native gentian 5AT. Immunoblot analysis using specific antibodies to 5AT showed that the 5AT protein is present in petals,  but not in sepals,  stems or leaves of G. triflora. RNA blot analysis showed that the 5AT gene is expressed only in petals and that its expression is temporally regulated during flower development coordinately with other <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> biosynthetic genes. Immunohistochemical analysis demonstrated that the 5AT protein is specifically expressed in the outer epidermal cells of gentian petals and that it is localized mainly in the cytosol. ", "attrname": "Abstract"} ], 
+"evidences": ["Imported from database"]} , 
+
+{ "annotation": "protein_coding", "id": "3", "conames": [{ "isPreferred": "false", "name": "MXF12.90"} , 
+{ "isPreferred": "true", "name": "PMAT1"} , { "isPreferred": "false", "name": "MXF12_90"} , { "isPreferred": "true", "name": "AT5G39080"} ], 
+"description": "", "ofType": "Gene", "coaccessions": [{ "elementOf": "TAIR", "accession": "locus: 2177197"} , 
+{ "elementOf": "TAIR", "accession": "AT5G39080"} ], "elementOf": "ENSEMBL: TAIR", "value": "PMAT1", "contexts": { } , 
+"pid": "AT5G39080;locus: 2177197", "attributes": [{ "value": "true", "attrname": "visible"} , { "value": "true", "attrname": "flagged"} , 
+{ "value": "5", "attrname": "Chromosome"} , { "value": "15643161", "attrname": "END"} , { "value": "3702", "attrname": "TAXID"} , 
+{ "value": "15641658", "attrname": "BEGIN"} , { "value": "1", "attrname": "CitNum"} , { "value": "70", "attrname": "size"} ], 
+"evidences": ["Imported from database"]} , 
+
+{ "annotation": "[NUCLEOTIDE SEQUENCE [MRNA],  FUNCTION,  CATALYTIC ACTIVITY,  ENZYME REGULATION,  BIOPHYSICOCHEMICAL PROPERTIES,  DEVELOPMENTAL STAGE]", 
+"id": "4", "conames": [{ "isPreferred": "true", "name": "PMID: 12481098"} ], "description": "", "ofType": "Publication", 
+"coaccessions": [{ "elementOf": "DOI", "accession": "10.1104\/PP.010447"} , { "elementOf": "NLM", "accession": "12481098"} ], 
+"elementOf": "NLM: UNIPROTKB", "value": "PMID: 12481098", "contexts": { } , "pid": "12481098", "attributes": [
+{ "value": "[Hirokazu Suzuki,  Toru Nakayama,  Keiko Yonekura-Sakakibara,  Yuko Fukui,  Noriko Nakamura,  Masa-Atsu Yamaguchi,  Yoshikazu Tanaka,  Takaaki Kusumi,  Tokuzo Nishino]", "attrname": "AUTHORS"} , 
+{ "value": "true", "attrname": "visible"} , { "value": "cDNA cloning,  heterologous expressions,  and functional characterization of malonyl-coenzyme a: anthocyanidin 3-o-glucoside-6\"-o-malonyltransferase from dahlia flowers.", "attrname": "AbstractHeader"} , 
+{ "value": "[NUCLEOTIDE SEQUENCE [MRNA],  FUNCTION,  CATALYTIC ACTIVITY,  ENZYME REGULATION,  BIOPHYSICOCHEMICAL PROPERTIES,  DEVELOPMENTAL STAGE]", "attrname": "PUB_TYPE"} , 
+{ "value": "Plant physiology", "attrname": "JOURNAL_REF"} , { "value": "2002", "attrname": "YEAR"} , 
+{ "value": "[<span style=\"background-color: yellow\"><b>Anthocyanin<\/b><\/span>s,  Flowers,  Plants,  Genetically Modified,  Dahlia,  Amino Acid Sequence,  Sequence Analysis,  DNA,  Cloning,  Molecular,  Polymerase Chain Reaction,  DNA,  Complementary,  Gene Expression Regulation,  Enzymologic,  Petunia,  Escherichia coli,  Molecular Sequence Data,  Acyltransferases,  Substrate Specificity,  Gene Expression Regulation,  Plant,  Sequence Homology,  Amino Acid]", "attrname": "MeSH"} , 
+{ "value": "[<span style=\"background-color: yellow\"><b>Anthocyanin<\/b><\/span>s,  DNA,  Complementary,  EC 2.3.1.- malonyl-coenzyme A anthocyanidin 3-O-glucoside-6''-O-malonyltransferase,  EC 2.3.- Acyltransferases]", "attrname": "Chemical"} , { "value": "70", "attrname": "size"} , 
+{ "value": "In the flowers of important ornamental Compositae plants,  <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span>s generally carry malonyl group(s) at their 3-glucosyl moiety. In this study,  for the first time to our knowledge,  we have identified a cDNA coding for this 3-glucoside-specific malonyltransferase for <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span>s,  i.e. malonyl-coenzyme A: anthocyanidin 3-O-glucoside-6\"-O-malonyltransferase,  from dahlia (Dahlia variabilis) flowers. We isolated a full-length cDNA (Dv3MaT) on the basis of amino acid sequences specifically conserved among <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> acyltransferases of the versatile plant acyltransferase family. Dv3MaT coded for a protein of 460 amino acids. Quantitative real-time PCR analyses of Dv3MaT showed that the transcript was present in accordance with the distribution of 3MaT activities and the <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> accumulation pattern in the dahlia plant. The Dv3MaT cDNA was expressed in Escherichia coli,  and the recombinant enzyme was purified to homogeneity and characterized. The recombinant Dv3MaT catalyzed the regiospecific transfer of the malonyl group from malonyl-coenzyme A (K(m),  18.8 microM) to pelargonidin 3-O-glucoside (K(m),  46.7 microM) to produce pelargonidin 3-O-6\"-O-malonylglucoside with a k(cat) value of 7.3 s(-1). The other enzymatic profiles of the recombinant Dv3MaT were closely related to those of native <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> malonyltransferase activity in the extracts of dahlia flowers. Dv3MaT cDNA was introduced into petunia (Petunia hybrida) plants whose red floral color is exclusively provided by cyanidin 3-O-glucoside and 3, 5-O-diglucoside. Thirteen transgenic lines of petunia were found to produce malonylated products of these <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span>s (11-63 mol % of total <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span>s in the flower). The spectral stability of cyanidin 3-O-6\"-O-malonylglucoside at the pHs of intracellular milieus of flowers was significantly higher than that of cyanidin 3-O-glucoside. Moreover,  6\"-O-malonylation of cyanidin 3-O-glucoside effectively prevented the <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> from attack of beta-glucosidase. These results suggest that malonylation should serve as a strategy for pigment stabilization in the flowers. ", "attrname": "Abstract"} ], 
+"evidences": ["Imported from database"]} , 
+
+{ "annotation": "", "id": "5", "conames": [{ "isPreferred": "true", "name": "AT5G39080.1"} ], "description": "", "ofType": "Protein", 
+"coaccessions": [{ "elementOf": "TAIR", "accession": "AT5G39080.1"} ], "elementOf": "Decypher: ENSEMBL", "value": "AT5G39080.1", 
+"contexts": { } , "pid": "AT5G39080.1", "attributes": [
+{ "value": "MVSSLNIIEVARVTPSNSDSAESLSLPLTYFDLIYYKLRAVERVIFYRITNVTRPFFDSVIVPNLKTSLSSCLSHYLPLAGKLIWEPLDHKPTIVYSQNDDVSFSVAETNADFSSLSGNEPFPSTELYPLVPALQSSDDSASIVSFQVTLFPNQGFCIGVSAHHAVLDGKTTTMFLKSWAHICKHQDFSLPQDLIPTYDRTVIKSPTDSENKVLNEWRSFTKILAGGKEPANPKSLKLNPSFEIGPDVVRYTLQLTREDIQTLRERLKREVSSSSSSTSSSKELRLSTFVIVYSYVLVCIIRARGGEPHRPVGYAFSVDCRSLMNPPTPNYFGNCIAGCSRMMLTAKMFMGEEGLLAAATMVSDSIEEWDESFAWKIPDFVAYATLPPETQLILVSGSNRFGVYELDFGWGRPDKVMVVSISPGNGISMAESRDQNGSVEIGFSLKKHEMDTLIDLLHCELTI", "attrname": "AA"} , 
+{ "value": "true", "attrname": "visible"} , { "value": "3702", "attrname": "TAXID"} , { "value": "30", "attrname": "size"} ], 
+"evidences": ["Imported from database"]} , { "annotation": "Created:  2013-05-29; Modified:  2016-04-13; Version:  38", "id": "6", 
+"conames": [{ "isPreferred": "true", "name": "Anthocyanidin 3-O-glucoside 6''-O-acyltransferase"} , 
+{ "isPreferred": "false", "name": "3AT"} ], "description": "", "ofType": "Protein", "coaccessions": [
+{ "elementOf": "EMBL", "accession": "BAA93475.1"} , { "elementOf": "EMBL", "accession": "AB029340"} , 
+{ "elementOf": "UNIPROTKB", "accession": "Q9MBC1"} , { "elementOf": "KEGG", "accession": "AG: BAA93475"} , 
+{ "elementOf": "PFAM", "accession": "PF02458"} , { "elementOf": "IPRO", "accession": "IPR023213"} , 
+{ "elementOf": "IPRO", "accession": "IPR003480"} ], "elementOf": "Decypher: UNIPROTKB-SwissProt", 
+"value": "Anthocyanidin 3-O-glucoside 6''-O-acyltransferase", "contexts": { } , "pid": "Q9MBC1", "attributes": [
+{ "value": "true", "attrname": "visible"} , { "value": "48386", "attrname": "TAXID"} , { "value": "30", "attrname": "size"} ], 
+"evidences": ["Imported from database"]} , 
+
+{ "annotation": "Created:  2011-02-08; Modified:  2016-10-05; Version:  36", "id": "7", "conames": [
+{ "isPreferred": "false", "name": "3MAT"} , { "isPreferred": "false", "name": "Dv3MaT"} , 
+{ "isPreferred": "true", "name": "Malonyl-coenzyme A: <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 3-O-glucoside-6''-O-malonyltransferase"} , 
+{ "isPreferred": "false", "name": "Malonyl CoA: <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 3-O-glucoside-6''-O-malonyltransferase"} ], 
+"description": "", "ofType": "Protein", "coaccessions": [{ "elementOf": "EMBL", "accession": "AAO12206.1"} , 
+{ "elementOf": "EMBL", "accession": "AF489108"} , { "elementOf": "UNIPROTKB", "accession": "Q8GSN8"} , 
+{ "elementOf": "KEGG", "accession": "AG: AAO12206"} , { "elementOf": "PFAM", "accession": "PF02458"} , 
+{ "elementOf": "IPRO", "accession": "IPR023213"} , { "elementOf": "IPRO", "accession": "IPR003480"} ], 
+"elementOf": "Decypher: UNIPROTKB-SwissProt", 
+"value": "Malonyl-coenzyme A: <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 3-O-glucoside-6''-O-malonyltransferase", 
+"contexts": { } , "pid": "Q8GSN8", "attributes": [{ "value": "true", "attrname": "visible"} , { "value": "101596", "attrname": "TAXID"} , 
+{ "value": "70", "attrname": "size"} ], "evidences": ["Imported from database"]} , 
+
+{ "annotation": "Created:  2011-02-08; Modified:  2015-12-09; Version:  42", "id": "8", "conames": [
+{ "isPreferred": "false", "name": "Malonyl CoA: <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 5-O-glucoside-6'''-O-malonyltransferase"} , 
+{ "isPreferred": "true", "name": "Malonyl-coenzyme: <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 5-O-glucoside-6'''-O-malonyltransferase"} , 
+{ "isPreferred": "false", "name": "5MAT1"} , { "isPreferred": "false", "name": "Ss5MaT1"} ], "description": "", "ofType": "Protein", 
+"coaccessions": [{ "elementOf": "KEGG", "accession": "AG: AAL50566"} , { "elementOf": "EMBL", "accession": "AF405707"} , 
+{ "elementOf": "EMBL", "accession": "AAL50566.1"} , { "elementOf": "PFAM", "accession": "PF02458"} , 
+{ "elementOf": "IPRO", "accession": "IPR023213"} , { "elementOf": "IPRO", "accession": "IPR003480"} , 
+{ "elementOf": "UNIPROTKB", "accession": "Q8W1W9"} ], "elementOf": "Decypher: UNIPROTKB-SwissProt", 
+"value": "Malonyl-coenzyme: <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 5-O-glucoside-6'''-O-malonyltransferase", 
+"contexts": { } , "pid": "Q8W1W9", "attributes": [{ "value": "true", "attrname": "visible"} , { "value": "180675", "attrname": "TAXID"} , 
+{ "value": "70", "attrname": "size"} ], "evidences": ["Imported from database"]} , 
+
+{ "annotation": "Created:  2003-11-21; Modified:  2015-12-09; Version:  60", "id": "9", "conames": [
+{ "isPreferred": "false", "name": "5AT"} , 
+{ "isPreferred": "true", "name": "<span style=\"background-color: yellow\"><b>Anthocyanin<\/b><\/span> 5-aromatic acyltransferase"} ], 
+"description": "", "ofType": "Protein", "coaccessions": [{ "elementOf": "EMBL", "accession": "BAA74428.1"} , 
+{ "elementOf": "KEGG", "accession": "AG: BAA74428"} , { "elementOf": "EMBL", "accession": "AB010708"} , 
+{ "elementOf": "PFAM", "accession": "PF02458"} , { "elementOf": "IPRO", "accession": "IPR023213"} , 
+{ "elementOf": "UNIPROTKB", "accession": "Q9ZWR8"} , { "elementOf": "IPRO", "accession": "IPR003480"} ], 
+"elementOf": "Decypher: UNIPROTKB-SwissProt", 
+"value": "<span style=\"background-color: yellow\"><b>Anthocyanin<\/b><\/span> 5-aromatic acyltransferase", "contexts": { } , 
+"pid": "Q9ZWR8", "attributes": [{ "value": "true", "attrname": "visible"} , { "value": "55190", "attrname": "TAXID"} , 
+{ "value": "70", "attrname": "size"} ], "evidences": ["Imported from database"]} , 
+
+{ "annotation": "[NUCLEOTIDE SEQUENCE [MRNA],  FUNCTION,  CATALYTIC ACTIVITY,  PATHWAY,  TISSUE SPECIFICITY]", "id": "10", "conames": [
+{ "isPreferred": "true", "name": "PMID: 10845463"} ], "description": "", "ofType": "Publication", "coaccessions": [
+{ "elementOf": "NLM", "accession": "10845463"} , { "elementOf": "DOI", "accession": "10.1093\/PCP\/41.4.495"} ], 
+"elementOf": "NLM: UNIPROTKB", "value": "PMID: 10845463", "contexts": { } , "pid": "10845463", "attributes": [
+{ "value": "[K Yonekura-Sakakibara,  Y Tanaka,  M Fukuchi-Mizutani,  H Fujiwara,  Y Fukui,  T Ashikari,  Y Murakami,  M Yamaguchi,  T Kusumi]", "attrname": "AUTHORS"} , 
+{ "value": "true", "attrname": "visible"} , 
+{ "value": "Molecular and biochemical characterization of a novel hydroxycinnamoyl-CoA:  <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 3-O-glucoside-6\"-O-acyltransferase from Perilla frutescens.", "attrname": "AbstractHeader"} , 
+{ "value": "[NUCLEOTIDE SEQUENCE [MRNA],  FUNCTION,  CATALYTIC ACTIVITY,  PATHWAY,  TISSUE SPECIFICITY]", "attrname": "PUB_TYPE"} , 
+{ "value": "Plant & cell physiology", "attrname": "JOURNAL_REF"} , { "value": "2000", "attrname": "YEAR"} , 
+{ "value": "[<span style=\"background-color: yellow\"><b>Anthocyanin<\/b><\/span>s,  Recombinant Proteins,  Lamiaceae,  Coumaric Acids,  Amino Acid Sequence,  Acyl Coenzyme A,  Glucosides,  Cloning,  Molecular,  Ethylmaleimide,  Conserved Sequence,  Diethyl Pyrocarbonate,  Molecular Sequence Data,  Acyltransferases,  Substrate Specificity,  Sequence Homology,  Amino Acid]", "attrname": "MeSH"} , 
+{ "value": "[<span style=\"background-color: yellow\"><b>Anthocyanin<\/b><\/span>s,  LMR3LZG146 Diethyl Pyrocarbonate,  EC 2.3.1.- hydroxycinnamoyl-CoA anthocyanidin 3, 5-diglucoside 5-O-glucoside-6'''-O-hydroxycinnamoyltransferase,  Recombinant Proteins,  Coumaric Acids,  7084-24-4 cyanidin 3-O-glucoside,  EC 2.3.1.- hydroxycinnamoyl-CoA - <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 3-O-glucoside-6''-O-acyltransferase,  O3C74ACM9V Ethylmaleimide,  EC 2.3.- Acyltransferases,  Acyl Coenzyme A,  4-hydroxycinnamoyl-CoA,  Glucosides]", "attrname": "Chemical"} , 
+{ "value": "70", "attrname": "size"} , 
+{ "value": "We have isolated and characterized a cDNA,  PfAT208,  encoding hydroxycinnamoyl-CoA:  <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 3-O-glucoside-6\"-O-acyltransferase (3AT) from Perilla frutescens. The identity of the cDNA was established by determination of the reaction products with recombinant enzyme overexpressed in Escherichia coli. The deduced amino acid sequence has a few regions that are conserved in a CoA-dependent acyltransferase family. The recombinant enzyme produced in yeast could utilize cyanidin 3-glucoside and cyanidin 3, 5-diglucoside,  putative substrates in vivo,  as well as other <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span>s. The inhibitory effects of diethyl pyrocarbonate and N-ethylmaleimide on the recombinant 3AT activities suggest that histidine and cysteine residues are important for their catalytic function. These properties are in common with <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 5-O-glucoside-6\"-O-acyltransferase (5AT). In Northern analysis,  a transcript of PfAT208 was detected in the young leaves of perilla red forma. The properties of other cDNAs,  gentian GAT106 and petunia PhAT48,  isolated during the above cloning procedure are also described. ", "attrname": "Abstract"} ], 
+"evidences": ["Imported from database"]} , 
+
+{ "annotation": "The chemical reactions and pathways resulting in the formation of <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span>s,  any member of a group of intensely colored soluble glycosides of anthocyanidins. ( Reference:  GOC: ai )", 
+"id": "11", "conames": [
+{ "isPreferred": "true", "name": "<span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span>-containing compound biosynthetic process"} , 
+{ "isPreferred": "true", "name": "<span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> biosynthesis"} , 
+{ "isPreferred": "true", "name": "<span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> synthesis"} , 
+{ "isPreferred": "false", "name": "GO: 0009718"} , 
+{ "isPreferred": "true", "name": "<span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> biosynthetic process"} , 
+{ "isPreferred": "true", "name": "<span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> anabolism"} , 
+{ "isPreferred": "true", "name": "<span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> formation"} ], "description": "", 
+"ofType": "Biological_Process", "coaccessions": [{ "elementOf": "GO", "accession": "GO: 0009718"} ], 
+"elementOf": "GO: TAIR: UNIPROTKB", 
+"value": "<span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> formation", "contexts": { } , "pid": "GO: 0009718", 
+"attributes": [{ "value": "true", "attrname": "visible"} , { "value": "70", "attrname": "size"} ], 
+"evidences": ["Imported from database"]} , 
+
+{ "annotation": "Catalysis of the reaction:  malonyl-CoA + pelargonidin 3-O-(6-caffeoyl-beta-D-glucoside) 5-O-beta-D-glucoside = CoA + 4'''-demalonylsalvianin. ( Reference:  EC: 2.3.1.172 )", 
+"id": "12", "conames": [
+{ "isPreferred": "true", "name": "malonyl-CoA: pelargonidin-3-O-(6-caffeoyl-beta-D-glucoside)-5-O-beta-D-glucoside 6'''-O-malonyltransferase"} , 
+{ "isPreferred": "true", "name": "<span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 5-O-glucoside 6'''-O-malonyltransferase activity"} , 
+{ "isPreferred": "false", "name": "Ss5MaT1"} ], "description": "", "ofType": "Molecular_Function", "coaccessions": [
+{ "elementOf": "GO", "accession": "GO: 0033810"} , { "elementOf": "MC", "accession": "2.3.1.172-RXN"} , 
+{ "elementOf": "EC", "accession": "2.3.1.172"} ], "elementOf": "GO: UNIPROTKB", 
+"value": "malonyl-CoA: pelargonidin-3-O-(6-caffeoyl-beta-D-glucoside)-5-O-beta-D-glucoside 6'''-O-malonyltransferase", "contexts": { } , 
+"pid": "GO: 0033810", "attributes": [{ "value": "true", "attrname": "visible"} , { "value": "70", "attrname": "size"} ], 
+"evidences": ["Imported from database"]} , 
+
+{ "annotation": "[NUCLEOTIDE SEQUENCE [MRNA],  FUNCTION,  CATALYTIC ACTIVITY,  ENZYME REGULATION,  BIOPHYSICOCHEMICAL PROPERTIES,  TISSUE SPECIFICITY,  DEVELOPMENTAL STAGE]", 
+"id": "13", "conames": [{ "isPreferred": "true", "name": "PMID: 11598135"} ], "description": "", "ofType": "Publication", 
+"coaccessions": [{ "elementOf": "DOI", "accession": "10.1074\/JBC.M108444200"} , { "elementOf": "NLM", "accession": "11598135"} ], 
+"elementOf": "NLM: UNIPROTKB", "value": "PMID: 11598135", "contexts": { } , "pid": "11598135", "attributes": [
+{ "value": "[H Suzuki,  T Nakayama,  K Yonekura-Sakakibara,  Y Fukui,  N Nakamura,  M Nakao,  Y Tanaka,  M A Yamaguchi,  T Kusumi,  T Nishino]", "attrname": "AUTHORS"} , 
+{ "value": "true", "attrname": "visible"} , 
+{ "value": "Malonyl-CoA: <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 5-O-glucoside-6\"'-O-malonyltransferase from scarlet sage (Salvia splendens) flowers. Enzyme purification,  gene cloning,  expression,  and characterization.", "attrname": "AbstractHeader"} , 
+{ "value": "[NUCLEOTIDE SEQUENCE [MRNA],  FUNCTION,  CATALYTIC ACTIVITY,  ENZYME REGULATION,  BIOPHYSICOCHEMICAL PROPERTIES,  TISSUE SPECIFICITY,  DEVELOPMENTAL STAGE]", "attrname": "PUB_TYPE"} , 
+{ "value": "The Journal of biological chemistry", "attrname": "JOURNAL_REF"} , { "value": "2001", "attrname": "YEAR"} , 
+{ "value": "[Phylogeny,  Molecular Structure,  <span style=\"background-color: yellow\"><b>Anthocyanin<\/b><\/span>s,  Plant Structures,  Pigmentation,  Salvia,  Molecular Sequence Data,  Acyltransferases,  Amino Acid Sequence]", "attrname": "MeSH"} , { "value": "[<span style=\"background-color: yellow\"><b>Anthocyanin<\/b><\/span>s,  EC 2.3.- Acyltransferases,  EC 2.3.1.- malonyl-CoA <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 5-O-glucoside-6'''-O-malonyltransferase]", "attrname": "Chemical"} , 
+{ "value": "70", "attrname": "size"} , 
+{ "value": "The orange to blue coloration of flowers in nature is,  in most cases,  provided by <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span>s,  a class of plant flavonoids,  many of which are modified by malonyl group(s). However,  the identity of the enzyme catalyzing the malonylation reaction remains to be established. Here,  we describe for the first time the purification,  characterization,  and cDNA cloning of an <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> malonyltransferase from scarlet sage (Salvia splendens) flowers. The purified enzyme (termed Ss5MaT1) was a monomeric 50-kDa protein catalyzing the regiospecific transfer of the malonyl group from malonyl-CoA to the 6\"'-hydroxyl group of the 5-glucosyl moiety of <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span>s. Ss5MaT1 showed a k(cat) value of 7.8 s(-1) at 30 degrees C and pH 7.0 for the malonylation of bisdemalonylsalvianin (pelargonidin 3-(6\"-O-caffeyl-beta-glucopyranoside)-5-beta-glucopyranoside) and K(m) values of 101 microm and 57 microm for bisdemalonylsalvianin and malonyl-CoA,  respectively. p-Coumaric acid,  which mimics an aromatic acyl group linked to the 3-glucosidic moiety of an <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> substrate,  was a competitive inhibitor with respect to the substrate. This strongly suggests that the presence of an aromatic acyl group at the 3-glucosidic moiety of <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> is important for substrate recognition by the enzyme. On the basis of the partial amino acid sequences of the purified enzyme,  we isolated a cDNA encoding Ss5MaT1. Ss5MaT1 consisted of 462 amino acids and shared motifs that are commonly found among members of a versatile plant acyltransferase family,  which was recently shown to include numerous homologs of unknown biochemical functions. Northern blot analysis revealed that the transcripts of Ss5MaT1 were detected in petals,  sepals,  bracts,  and red stems,  in accordance with the pigment accumulation patterns. Phylogenetic analysis suggests that the aliphatic and aromatic acylations of <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span>s are generally catalyzed by subfamily members of the plant acyltransferase family. ", "attrname": "Abstract"} ], 
+"evidences": ["Imported from database"]} , 
+
+{ "annotation": "[MUTAGENESIS OF TYR-45; GLN-150; HIS-166; HIS-167; CYS-168; ASP-171; LYS-258; ARG-301; ASN-315 AND ASP-390,  PROPOSED ENZYME MECHANISM,  ACTIVE SITE]", 
+"id": "14", "conames": [{ "isPreferred": "true", "name": "PMID: 12578391"} ], "description": "", "ofType": "Publication", 
+"coaccessions": [{ "elementOf": "NLM", "accession": "12578391"} , { "elementOf": "DOI", "accession": "10.1021\/BI020618G"} ], 
+"elementOf": "NLM: UNIPROTKB", "value": "PMID: 12578391", "contexts": { } , "pid": "12578391", "attributes": [
+{ "value": "[Hirokazu Suzuki,  Toru Nakayama,  Tokuzo Nishino]", "attrname": "AUTHORS"} , { "value": "true", "attrname": "visible"} , 
+{ "value": "Proposed mechanism and functional amino acid residues of malonyl-CoA: <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 5-O-glucoside-6'''-O-malonyltransferase from flowers of Salvia splendens,  a member of the versatile plant acyltransferase family.", "attrname": "AbstractHeader"} , 
+{ "value": "[MUTAGENESIS OF TYR-45; GLN-150; HIS-166; HIS-167; CYS-168; ASP-171; LYS-258; ARG-301; ASN-315 AND ASP-390,  PROPOSED ENZYME MECHANISM,  ACTIVE SITE]", "attrname": "PUB_TYPE"} , 
+{ "value": "Biochemistry", "attrname": "JOURNAL_REF"} , { "value": "2003", "attrname": "YEAR"} , 
+{ "value": "[<span style=\"background-color: yellow\"><b>Anthocyanin<\/b><\/span>s,  Amino Acids,  Flowers,  Alanine,  Multigene Family,  Hydrogen-Ion Concentration,  Amino Acid Sequence,  Enzyme Inhibitors,  Plant Proteins,  Mutagenesis,  Site-Directed,  Coenzyme A,  Sequence Alignment,  Salvia,  Kinetics,  Molecular Sequence Data,  Acyltransferases,  Sequence Homology,  Amino Acid,  Amino Acid Substitution,  Malonyl Coenzyme A]", "attrname": "MeSH"} , 
+{ "value": "[<span style=\"background-color: yellow\"><b>Anthocyanin<\/b><\/span>s,  Amino Acids,  524-14-1 Malonyl Coenzyme A,  OF5P57N2ZX Alanine,  Enzyme Inhibitors,  EC 2.3.- Acyltransferases,  EC 2.3.1.- malonyl-CoA <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 5-O-glucoside-6'''-O-malonyltransferase,  Plant Proteins,  SAA04E81UX Coenzyme A]", "attrname": "Chemical"} , 
+{ "value": "70", "attrname": "size"} , { "value": "The versatile plant acyltransferase (VPAT) family is a recently identified protein family consisting of acyltransferases involved in secondary metabolism in plants along with numerous homologues with as yet unidentified biochemical functions. Malonyl-CoA: <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 5-O-glucoside-6' \"-O-malonyltransferase of Salvia splendens flowers (Ss5MaT1) is a member of this family that catalyzes the regiospecific transfer of the malonyl group from malonyl-CoA to the 6' \"-hydroxyl group of the 5-glycosyl moiety of <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span>s. To elucidate the mechanism and functional amino acid residues of VPAT family enzymes,  steady-state kinetic analyses and site-directed mutagenesis of Ss5MaT1 guided by sequence comparison studies were carried out. On the basis of the results of product and dead-end inhibition studies as well as sequence comparison studies,  the kinetic mechanism of Ss5MaT1 could be most consistently described in terms of a ternary complex mechanism in which both substrates and the enzyme form a complex before catalysis can occur,  as in the case of chloramphenicol O-acetyltransferase (CAT) and histone acetyltransferase (HAT). Eight polar or ionizable amino acid residues that are invariant among 12 VPAT family enzymes were replaced by alanine,  and the mutant enzymes were kinetically characterized. A significant diminution of the k(cat) value was observed with the substitution of His167 (relative k(cat),  0.02%) and Asp390 (<0.01%),  strongly suggesting that His167 and Asp390 are very important for catalytic activity. The log k(cat) versus pH plots of the Ss5MaT1-catalyzed malonyl transfer suggested that a deprotonated active site group of pK(a) = 7.0 +\/- 0.1 may be involved in the catalytic steps of the \"substrate to product\" conversion in the ternary enzyme-substrate complex. Taking these lines of evidence together with the suggested similarity of the kinetic and catalytic mechanisms of Ss5MaT1 to those of CAT and HAT,  the following Ss5MaT1 mechanism based on general acid\/base catalysis was proposed:  in the ternary complex,  a general base deprotonates the 6' \"-hydroxyl group of the <span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> substrate,  thereby promoting a nucleophilic attack on the carbonyl of the thioester of malonyl-CoA; His167 and Asp390 appear to be involved in the general acid\/base mechanism of Ss5MaT1. ", "attrname": "Abstract"} ], 
+"evidences": ["Imported from database"]} , 
+
+{ "annotation": "Catalysis of the reaction:  malonyl-CoA + an anthocyanidin 3-O-beta-D-glucoside = CoA + an anthocyanidin 3-O-(6-O-malonyl-beta-D-glucoside). ( Reference:  EC: 2.3.1.171 )", 
+"id": "15", "conames": [{ "isPreferred": "false", "name": "Dv3MaT"} , 
+{ "isPreferred": "true", "name": "<span style=\"background-color: yellow\"><b>anthocyanin<\/b><\/span> 6''-O-malonyltransferase activity"} , 
+{ "isPreferred": "true", "name": "malonyl-coenzymeA: anthocyanidin-3-O-beta-D-glucoside 6''-O-malonyltransferase"} , 
+{ "isPreferred": "false", "name": "3MaT"} , 
+{ "isPreferred": "true", "name": "malonyl-CoA: anthocyanidin-3-O-beta-D-glucoside 6''-O-malonyltransferase"} ], "description": "", 
+"ofType": "Molecular_Function", "coaccessions": [{ "elementOf": "MC", "accession": "2.3.1.171-RXN"} , 
+{ "elementOf": "GO", "accession": "GO: 0033809"} , { "elementOf": "EC", "accession": "2.3.1.171"} ], "elementOf": "GO: UNIPROTKB", 
+"value": "malonyl-CoA: anthocyanidin-3-O-beta-D-glucoside 6''-O-malonyltransferase", "contexts": { } , "pid": "GO: 0033809", 
+"attributes": [{ "value": "true", "attrname": "visible"} , { "value": "70", "attrname": "size"} ], 
+"evidences": ["Imported from database"]} ], 
+
+"version": "1.0"} 
+};

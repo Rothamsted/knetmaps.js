@@ -27,9 +27,10 @@
         <script src="javascript/knet-layouts-defaultParams.js"></script>
         <script src="javascript/knet-layouts.js"></script>
         <script src="javascript/knet-menu.js"></script> <!-- KnetMaps menubar -->
-        <script src="javascript/knet-counts-legend.js"></script>
+        <script src="javascript/knet-stats.js"></script>
         <script src="javascript/knet-container.js"></script>
         <script src="javascript/knet-toggleFullScreen.js"></script>
+        <script src="javascript/knet-conceptsLegend.js"></script>
         <script src="javascript/knet-itemInfo.js"></script>
         <script src="javascript/knet-generator.js"></script>
 
@@ -53,13 +54,16 @@
             <div>Select dataset: <select id="dataset_dropdown" onChange="launchNetwork($('#dataset_dropdown').val());">
                     <option value="ara1" title="ara1">Dataset 1</option>
                     <option value="ara2" title="ara2">Dataset 2</option>
-                    <option value="ara5_dormancy" selected="selected" title="ara5_dormancy">Dataset 3</option>
+                    <option value="ara5_dormancy" selected="selected" title="ara5_dormancy">Dataset 3 (dormancy)</option>
                     <option value="ara6_dormancy_flowering" title="ara6_dormancy_flowering">Dataset 4</option>
                     <option value="ara7_dormancy_anthocyanin" title="ara7_dormancy_anthocyanin">Dataset 5</option>
                     <option value="ara8_dormancy_anthocyanin_storage_top10" title="ara8_dormancy_anthocyanin_storage_top10">Dataset 6</option>
                     <option value="ara4" title="ara4">Dataset 7</option>
                     <option value="ara3_eq1_At4g18330" title="ara3_eq1_At4g18330">Dataset 8</option>
-                    <option value="neuroNet_subset" title="neuroNet_subset">NeuroNet_subset</option>
+                    <option value="ara9_dormancy_anthocyanin15_singleJson" title="ara9_dormancy_anthocyanin15_singleJson">Dataset 9 (new)</option>
+                    <option value="neuroNet_subset" title="neuroNet_subset">Dataset 10 (neuroNet)</option>
+                    <option value="iiBug_240217" title="iiBug_240217">Dataset 11 (Human)</option>
+                    <option value="urlAttr" title="urlAttr">Dataset 12 (Human)</option>
                 </select>
             </div><br/>
             <!-- KnetMaps -->
@@ -76,13 +80,15 @@
                 </div>
                 <!-- The core cytoscapeJS container -->
                 <div id="cy"></div><br/>
-                <!-- dynamically updated Legend to show number of shown/ hidden concepts; and by type -->
-				<div id="countsLegend" style="width: 350px; margin: auto;"><span>KnetMaps</span></div>
+                <!-- interactive, dynamic Legend to show all concept of a particular type -->
+				<div id="knetLegend" title="Hover over icons to see corresponding Concept type & click an icon to show all such Concepts connected to visible Concepts in this network"><span>Concepts:</span></div><br/>
+                <!-- dynamically updated Legend to show number of shown/ hidden concepts -->
+				<div id="statsLegend" style="width: 350px; margin: auto;"><span>KnetMaps</span></div>
                 <!-- popup dialog -->
                 <div id="infoDialog"></div>
             </div>
             <!-- Legend -->
-            <div id="networkLegend_container">
+<!--            <div id="networkLegend_container">
                 <table id="networkLegend_frame" cellspacing=1>
                     <tr><td align=center><img src="image_legend/Gene.png"></td>
                         <td align=center><img src="image_legend/Protein.png"></td>
@@ -92,6 +98,7 @@
                         <td align=center><img src="image_legend/Reaction.png"></td>
                         <td align=center><img src="image_legend/QTL.png"></td>
                         <td align=center><img src="image_legend/Publication.png"></td>
+                        <td align=center><img src="image_legend/Disease.png"></td>
                     </tr><tr>
                         <td align=center><font size=1.8px>Gene</font></td>
                         <td align=center><font size=1.8px>Protein</font></td>
@@ -101,6 +108,7 @@
                         <td align=center><font size=1.8px>Reaction</font></td>
                         <td align=center><font size=1.8px>QTL</font></td>
                         <td align=center><font size=1.8px>Publication</font></td>
+                        <td align=center><font size=1.8px>Disease</font></td>
                     </tr><tr>
                         <td align=center></td></tr><tr>
                         <td align=center><img src="image_legend/Phenotype.png"></td>
@@ -111,6 +119,7 @@
                         <td align=center><img src="image_legend/Molecular_function.png"></td>
                         <td align=center><img src="image_legend/Trait.png"></td>
                         <td align=center><img src="image_legend/Enzyme_classification.png"></td>
+                        <td align=center><img src="image_legend/Drug.png"></td>
                     </tr><tr>
                         <td align=center><font size=1.8px>Phenotype</font></td>
                         <td align=center><font size=1.8px>Biol. Process</font></td>
@@ -120,9 +129,10 @@
                         <td align=center><font size=1.8px>Mol. Function</font></td>
                         <td align=center><font size=1.8px>Trait</font></td>
                         <td align=center><font size=1.8px>Enzyme Classification</font></td>
+                        <td align=center><font size=1.8px>Drug</font></td>
                     </tr>
                 </table>
-            </div><br/><br/>
+            </div><br/><br/> -->
             </div>  <!-- content -->
            
        <div class="contact-footer"> 
