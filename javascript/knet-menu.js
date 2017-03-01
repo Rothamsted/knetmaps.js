@@ -34,6 +34,9 @@ function onHover(thisBtn) {
    // Display in a new blank browser tab.
 //   window.open().document.write(exportJson); // for text data
    window.open('data:application/json;' + (window.btoa?'base64,'+btoa(JSON.stringify(exportJson)):JSON.stringify(exportJson))); // for JSON data
+
+   /* TO DO: use FileSaverJS to open directly open file downloader & write to local file. */
+   //
   }
   
   // Export the graph as a .png image and allow users to save it.
