@@ -251,7 +251,7 @@
 //  myLayout.show('east', true); // to unhide (show) and open the pane.
 //  myLayout.slideOpen('east'); // open the (already unhidden) Item Info pane.
 
-  // $("#itemInfo").css("display","block"); // show the Item Infon div
+  // $("#itemInfo").css("display","block"); // show the Item Info div
   var effect = 'slide';
   // Set the options for the effect type chosen
   var options = { direction: 'right' };
