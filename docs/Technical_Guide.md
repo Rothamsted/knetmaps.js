@@ -14,19 +14,19 @@
 A simple way to have **KnetMaps** on your web application (hosted via Apache, Tomcat, etc) is shown in `index.html`, i.e., using the code snippet below. This code in the `<body>` of the `index.html` page will create the KnetMaps menubar, the cytoscapeJS core container, ItemInfo panel and a counts legend:
 ```
 <!-- KnetMaps -->
-   <div id="knet-maps">
-	<div id="itemInfo" class="infoDiv" style="display:none;"><!-- Item Info pane -->
-          <table id="itemInfo_Table" class="infoTable" cellspacing=1>
-	        <thead><th>Item Info:</th><th><button id="btnCloseItemInfoPane" onclick="closeItemInfoPane();">Close</button>
-		</th></thead><tbody></tbody></table>
-         </div>
-         <!-- KnetMaps Menubar -->
-         <div id="knetmaps-menu"></div>
-        <!-- The core cytoscapeJS container -->
-        <div id="cy"></div><br/>
-	<div id="countsLegend"><span>KnetMaps</span></div><!-- legend -->
-        <div id="infoDialog"></div><!-- popup dialog -->
-  </div>
+    <div id="knet-maps">
+	    <div id="knetmaps-menu"></div> <!-- KnetMaps Menubar -->
+		<div id="itemInfo" class="infoDiv" style="display:none;"> <!-- Item Info pane -->
+		    <table id="itemInfo_Table" class="infoTable" cellspacing=1><thead><th>Info box:</th>
+			    <th><input type="image" id="btnCloseItemInfoPane" src="image/close-icon.png" onClick="closeItemInfoPane();"></th>
+	    </thead><tbody></tbody></table></div>
+		<div id="cy"></div> <!-- cytoscapeJS container -->
+		<!-- interactive Legend to show all concepts in current network -->
+		<div id="knetLegend" title="Hover over icons to see corresponding Concept type & click an icon to show all such Concepts connected to visible Concepts in this network"><span>Concepts:</span></div>
+		<!-- dynamically updated Stats to show number of shown/ hidden concepts -->
+		<div id="statsLegend" style="width: 350px; margin: auto;"><span>KnetMaps</span></div>
+		<div id="infoDialog"></div> <!-- popup dialog -->
+    </div>
 ```
 
 In the example page: `index.html`, KnetMaps is launched by default when the page loads using a dataset selected from the dropdown menu and is later invoked whenever users select a new dataset to visualize from the dropdown menu (invoked via the `onchange` event of the dropdown menu). The `launchNetwork(datasetName)` method in `launchNetwork.js` populates the menubar, loads the JSON dataset object and initializes the cytoscapeJS container.
