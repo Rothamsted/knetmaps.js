@@ -14,6 +14,10 @@
 
 * Concept sizes and Relation widths can vary based on user's dataset. **Note:** In QTLNetMiner, these sizes depend upon the concept's importance in accordance with the user's original search query terms.
 
+* **Interactive Legend** that only shows those _conceptTypes_ that are present in the currently visualized network. Clicking on a concept icon shows _connected_ concepts of that type which are linked to all visible concepts within the current network.
+
+* **Stats** displayed underneath the network. These are dynamic and change whenever elements (concepts/ relations) are shown/ hidden.
+
 
 ### KnetMaps menubar
 
