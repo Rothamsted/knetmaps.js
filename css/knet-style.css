@@ -1,5 +1,5 @@
 /* 
-    Last Modified on : 02-Mar-2017
+    Last Modified on : 06-Mar-2017
     Author     : Ajit Singh
     Description: CSS for KnetMaps
 */
@@ -102,7 +102,7 @@
 	    max-height: 100%; /*95%;*/ /*600px;*/ /*400px;*/    /* must be greater than tbody*/
 	    overflow:auto;
 	    margin:0 auto;
-            border: 1px;
+		border: 1px;
        }
 
       div.infoDiv table {
@@ -195,6 +195,7 @@
       padding-bottom: 5px;
       margin-bottom: 5px;
       margin-left: 5px;*/
+      margin-left: 5px;
       background: white;
       font-size: 14px;
       color: #2A2A2A;
