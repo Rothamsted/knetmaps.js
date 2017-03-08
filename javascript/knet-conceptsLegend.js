@@ -8,6 +8,7 @@
              conceptTypes.push(ele.data('conceptType'));
             }
       });
+//      conceptTypes.sort(); // sort alpabetically, fails as "Trait" is displayed as "GWAS"
 //      console.log("\t conceptTypes in this network: "+ conceptTypes +"\n");
 
       var conceptsHashmap= {};
