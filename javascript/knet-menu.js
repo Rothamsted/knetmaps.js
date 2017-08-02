@@ -101,20 +101,26 @@ function onHover(thisBtn) {
    //  var ld= document.getElementById("layouts_dropdown");
    var ld_selected= /*ld.options[ld.selectedIndex].value*/$('#layouts_dropdown').val();
    //console.log("layouts_dropdown selectedOption: "+ ld_selected)
-   if(ld_selected === "Circle_layout") {
+   if(ld_selected === "circle_layout") {
            setCircleLayout(eles);
           }
-   else if(ld_selected === "Cose_layout") {
+   else if(ld_selected === "cose_layout") {
            setCoseLayout(eles);
           }
-   else if(ld_selected === "Cose_Bilkent_layout") {
+   else if(ld_selected === "coseBilkent_layout") {
            setCoseBilkentLayout(eles);
           }
-   else if(ld_selected === "Concentric_layout") {
+   else if(ld_selected === "concentric_layout") {
            setConcentricLayout(eles);
           }
    else if(ld_selected === "ngraph_force_layout") {
            setNgraphForceLayout(eles);
+          }
+   else if(ld_selected === "euler_layout") {
+           setEulerLayout(eles);
+          }
+   else if(ld_selected === "random_layout") {
+           setRandomLayout(eles);
           }
    //console.log("Re-run layout complete...");
   }
