@@ -101,7 +101,7 @@ function onHover(thisBtn) {
    var cy= $('#cy').cytoscape('get'); // now we have a global reference to `cy`
    var selected_elements= cy.$(':visible'); // get only the visible elements.
 
-  // Re-run the graph's layout, but only on the visible elements.
+   // Re-run the graph's layout, but only on the visible elements.
    rerunGraphLayout(selected_elements);
    
    // Reset the graph/ viewport.

@@ -5,9 +5,9 @@ function load_reload_Network(network_json, network_style/*, runNetLayout*/) {
 
 // Initialise a cytoscape container instance on the HTML DOM using JQuery.
 $('#cy').cytoscape({
-//var cy= cytoscape({ //new_2017
+//var cy= cytoscape({ // in cytoscapeJS v3.2.5
   container: document.getElementById('cy')/*$('#cy')*/,
-  //container: $('#cy'), //new_2017
+  //container: $('#cy'), // in cytoscapeJS v3.2.5
 
   style: network_style,
 
