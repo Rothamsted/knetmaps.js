@@ -8,11 +8,11 @@
 
 * **Touch gestures**: KnetMaps can also be used with touch devices. Touch gestures such as tap (click), hold, drag, etc. have been incorporated within KnetMaps to enable interactive exploration of networks.
 
-* **Labels** on concepts and relations are disabled by default. These can however be enabled if the user wants. User’s search query terms in QTLNetMiner, if found in these labels, are _highlighted_ as well.
+* **Labels** on concepts and relations are disabled by default. These can however be enabled if the user wants. User’s search query terms in KnetMiner, if found in these labels, are _highlighted_ as well.
 
-* **Flagged** concepts: Certain concepts are rendered with a double border to highlight their imporantce. **Note:** In QTLNetMiner, this is used to highlight genes selected for visualization in KnetMaps. 
+* **Flagged** concepts: Certain concepts are rendered with a double border to highlight their imporantce. **Note:** In KnetMiner, this is used to highlight genes selected for visualization in KnetMaps. 
 
-* Concept sizes and Relation widths can vary based on user's dataset. **Note:** In QTLNetMiner, these sizes depend upon the concept's importance in accordance with the user's original search query terms.
+* Concept sizes and Relation widths can vary based on user's dataset. **Note:** In KnetMiner, these sizes depend upon the concept's importance in accordance with the user's original search query terms.
 
 * **Interactive Legend** that only shows those _conceptTypes_ that are present in the currently visualized network. Clicking on a concept icon shows _connected_ concepts of that type which are linked to all visible concepts within the current network.
 
