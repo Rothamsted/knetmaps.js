@@ -29,6 +29,7 @@ function onHover(thisBtn) {
  // Export the graph as a JSON object in a new Tab and allow users to save it.
   function exportAsJson() {
    var cy= $('#cy').cytoscape('get'); // now we have a global reference to `cy`
+
    var exportJson= cy.json(); // get JSON object for the network graph.
 
    // Display in a new blank browser tab, e.g, window.open().document.write("text"); // for text data
@@ -44,21 +45,34 @@ function onHover(thisBtn) {
   // Export the graph as a .png image and allow users to save it.
   function exportAsImage() {
    var cy= $('#cy').cytoscape('get'); // now we have a global reference to `cy`
+
    // Export as .png image
    var png64= cy.png(); // .setAttribute('crossOrigin', 'anonymous');
+
    // Display the exported image in a new window.
-   window.open(png64,'Image','width=1200px,height=600px,resizable=1');
+   //window.open(png64, 'Image', 'width=1200px,height=600px,resizable=1'); // Blocked on some browsers
 
    // use FileSaver.js to save using file downloader; fails (creates corrupted png)
    /*cy_image= new Image();
-   cy_image.src=png64;
-   var canvas= document.getElementById('my-canvas'); // use canvas
-   context= canvas.getContext('2d');
-   context.drawImage(cy_image, 0,0); // draw image on canvas
+   cy_image.src= png64;
+   var knet_canvas= document.getElementById('cy'); // use canvas
+   knet_context= knet_canvas.getContext('2d');
+   knet_context.drawImage(cy_image, 0,0); // draw image on canvas
    // convert canvas to Blob & save using FileSaver.js.
-   canvas.toBlob(function(blob) {
-     saveAs(blob, "kNetwork.png");
+   knet_canvas.toBlob(function(blob) {
+     saveAs(knet_blob, "kNetwork.png");
      }, "image/png");*/
+
+   // Use IFrame to open png image in a new browser tab
+   var cy_width= $('#cy').width();
+   var cy_height= $('#cy').height();
+   var knet_iframe_style= "border:1px solid black; top:0px; left:0px; bottom:0px; right:0px; width:"+ cy_width +"; height:"+ cy_height +";";
+   var knet_iframe = '<iframe src="'+ png64 +'" frameborder="0" style="'+ knet_iframe_style +'" allowfullscreen></iframe>';
+   var pngTab= window.open();
+   pngTab.document.open();
+   pngTab.document.write(knet_iframe);
+   pngTab.document.title="kNet_png";
+   pngTab.document.close();
   }
 
   // Remove hidden effect from nodes/ edges, if hidden.
