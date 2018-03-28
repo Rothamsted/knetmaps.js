@@ -42,12 +42,18 @@
 		  else if(conText === "Trait Ontology") {
 			      conText= "TO";
 		      }
+		  else if(conText === "PlantOntologyTerm") {
+			      conText= "PO";
+		      }
 		  else if(conText === "Trait") {
 			      conText= "GWAS";
 		      }
 		  else if(conText === "Enzyme Classification") {
 			      conText= "EC";
 		      }
+	  else if(conText === "Quantitative Trait Locus") {
+		  conText= "QTL";
+		 }
 		  else if(conText === "Protein Domain") {
 			      conText= "Domain";
 		      }
