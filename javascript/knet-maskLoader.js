@@ -1,9 +1,13 @@
- // Network loader (maskloader animation)
- function showNetworkLoader() {
+var KNETMAPS = KNETMAPS || {};
+
+KNETMAPS.MaskLoader = function() {
+
+	var my = function() {};
+	
+	// Network loader (maskloader animation)
+  my.showNetworkLoader = function(target) {
   // Show loader while the Network loads.
-//  $('body').maskLoader({
-//  $('#cy').maskLoader({
-  $('#knet-maps').maskLoader({
+	  $(target).maskLoader({
       // fade effect
       'fade': true,
       'z-index': '999',
@@ -16,15 +20,16 @@
       // If false, you will have to run the "create" function.
       //  Ex: $('body').maskLoader().create(); 
       'autoCreate':true,
-      // displays text alert
+      // displayes text alert
       'textAlert':false
      });
  }
 
- function removeNetworkLoader() {
+ my.removeNetworkLoader = function(target) {
   // Remove Network loader.
-//  var maskloader = $('body').maskLoader();
-//  var maskloader = $('#cy').maskLoader();
-  var maskloader = $('#knet-maps').maskLoader();
+  var maskloader = $(target).maskLoader();
   maskloader.destroy();
  }
+
+ return my;
+};

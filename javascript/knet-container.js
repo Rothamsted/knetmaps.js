@@ -1,20 +1,23 @@
-function load_reload_Network(network_json, network_style/*, runNetLayout*/) {
+var KNETMAPS = KNETMAPS || {};
 
-//console.log("style: "+ JSON.stringify(network_style, null, 4));
-//console.log("load_reload_Network: elements: "+ JSON.stringify(network_json, null, 4));
+KNETMAPS.Container = function() {
+	
+
+	var stats = KNETMAPS.Stats();
+	var iteminfo = KNETMAPS.ItemInfo();
+
+	var my = function() {};
+	
+my.load_reload_Network = function(network_json, network_style) {
 
 // Initialise a cytoscape container instance on the HTML DOM using JQuery.
-$('#cy').cytoscape({
-//var cy= cytoscape({ // in cytoscapeJS v3.2.5
+var cy = cytoscape({
   container: document.getElementById('cy')/*$('#cy')*/,
-  //container: $('#cy'), // in cytoscapeJS v3.2.5
-
   style: network_style,
-
   // Using the JSON data to create the nodes.
   elements: network_json,
-  
 //  layout: /*defaultNetworkLayout*/ coseNetworkLayout, // layout of the Network
+
   // these options hide parts of the graph during interaction such as panning, dragging, etc. to enable faster rendering for larger graphs.
 //  hideLabelsOnViewport: true,
 //  hideEdgesOnViewport: true,
@@ -51,16 +54,13 @@ $('#cy').cytoscape({
   motionBlur: true,
 
   ready: function() {
-   //if(runNetLayout===true) {
-    //  setDefaultLayout(); // set default Layout
-      rerunLayout(); // reset current layout.
-     //}
+	  KNETMAPS.Menu().rerunLayout(); // reset current layout.
    window.cy= this;
   }
 });
 
 // Get the cytoscape instance as a Javascript object from JQuery.
-var cy= $('#cy').cytoscape('get'); // now we have a global reference to `cy`
+//var cy= $('#cy').cytoscape('get'); // now we have a global reference to `cy`
 
 // cy.boxSelectionEnabled(true); // enable box selection (highlight & select multiple elements for moving via mouse click and drag).
 cy.boxSelectionEnabled(false); // to disable box selection & hence allow Panning, i.e., dragging the entire graph.
@@ -138,7 +138,7 @@ cy.boxSelectionEnabled(false); // to disable box selection & hence allow Panning
  * e.g, cy.elements('node').qtip({ }); or cy.elements('edge').qtip({ }); */
 cy.elements().qtip({
   content: function() {
-      var qtipMsg= "";
+     var qtipMsg= "";
      try {
       if(this.isNode()) {
          qtipMsg= "<b>Concept:</b> "+ this.data('value') +"<br/><b>Type:</b> "+ this.data('conceptType');
@@ -182,7 +182,8 @@ cy.elements().qtip({
              }
       }
       catch(err) { info= "Selected element is neither a Concept nor a Relation"; }
-    showItemInfo(thisElement);
+    console.log(info);
+    iteminfo.showItemInfo(thisElement);
    });
 // cxttap - normalised right click or 2-finger tap event.
 
@@ -200,10 +201,10 @@ cy.elements().qtip({
          content: 'Show Info',
          select: function() {
              // Show Item Info Pane.
-             openItemInfoPane();
+        	 iteminfo.openItemInfoPane();
 
              // Display Item Info.
-             showItemInfo(this);
+        	 iteminfo.showItemInfo(this);
             }
         },
             
@@ -211,9 +212,9 @@ cy.elements().qtip({
          content: 'Show Links',
          select: function() {
              if(this.isNode()) {
-                showLinks(this);
-  			    // Refresh network legend.
-                updateCyLegend();
+            	 iteminfo.showLinks(this);
+                // Refresh network legend.
+                stats.updateKnetStats();
                }
            }
         },
@@ -224,8 +225,8 @@ cy.elements().qtip({
              //this.hide(); // hide the selected 'node' or 'edge' element.
              this.removeClass('ShowEle');
              this.addClass('HideEle');
-			 // Refresh network legend.
-             updateCyLegend();
+             // Refresh network legend.
+             stats.updateKnetStats();
             }
         },
 
@@ -259,31 +260,9 @@ cy.elements().qtip({
                // rerunLayout();
                }
             // Refresh network Stats.
-            updateKnetStats();
+            stats.updateKnetStats();
            }
         },
-
-        /*{
-         content: 'Show Selections',
-         select: function() {
-             $("#infoDialog").dialog(); // initialize a dialog box.
-             // Display details of all the selected elements: nodes & edges.
-             var selections= "";
-             cy.nodes().forEach(function( ele ) {
-                if(ele.selected()) {
-                   selections += ele.data('conceptType') +" : "+ ele.data('value') +" , PID: "+ ele.data('pid') + "<br/><br/>";
-                  }
-             });
-
-             cy.edges().forEach(function( ele ) {
-                if(ele.selected()) {
-                   selections += "Relation: "+ ele.data('label') +" , From: "+ ele.data('source') +" , To: "+ ele.data('target') +"<br/>";
-                  }
-             });
-             console.log("ShowSelections (Shift+click): selections= "+ selections);
-             $("#infoDialog").html(selections);
-            }
-        },*/
 
         {
          content: 'Label on/ off by Type',
@@ -299,24 +278,7 @@ cy.elements().qtip({
                 eleType= 'label';
                 elements= cy.edges(); // fetch all the edges.
                }
-        //     console.log("Toggle Label on/ off by type: "+ thisElementType);
 
-           /*  if(this.isNode() || this.isEdge()) {
-                if(this.style('text-opacity') === '0') {
-                   elements.forEach(function( ele ) {
-                    if(ele.data(eleType) === thisElementType) {
-                       ele.style({'text-opacity': '1'}); // show the concept/ relation Label.
-                      }
-                   });
-                  }
-                  else {
-                   elements.forEach(function( ele ) {
-                    if(ele.data(eleType) === thisElementType) {
-                       ele.style({'text-opacity': '0'}); // hide the concept/ relation Label.
-                      }
-                   });
-                  }
-               }*/
                 if(this.hasClass("LabelOff")) {  // show the concept/ relation Label.
                    elements.forEach(function( ele ) {
                     if(ele.data(eleType) === thisElementType) { // for same concept or relation types
@@ -343,12 +305,6 @@ cy.elements().qtip({
         {
          content: 'Label on/ off',
          select: function() {
-           /*  if(this.style('text-opacity') === '0') {
-                this.style({'text-opacity': '1'}); // show the concept/ relation Label.
-               }
-               else {
-                this.style({'text-opacity': '0'}); // hide the concept/ relation Label.
-               }*/
              if(this.hasClass("LabelOff")) {  // show the concept/ relation Label.
                 this.removeClass("LabelOff");
                 this.addClass("LabelOn");
@@ -381,3 +337,6 @@ cy.cxtmenu(contextMenu); // set Context Menu for all the core elements.
   });
 
 }
+
+return my;
+};

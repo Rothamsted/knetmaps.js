@@ -1,42 +1,20 @@
 <html>
     <head>
-        <link href="css/index-style.css" rel="stylesheet" /> <!-- page stylesheet -->
-        <link href="css/knet-style.css" rel="stylesheet" /> <!-- KnetMaps stylesheet -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
-        <link href="css/maskloader.css" rel="stylesheet">
+        <link href="css_demo/index-style.css" rel="stylesheet" /> <!-- demo page css -->
+        <link href="dist/css/knetmaps.css" rel="stylesheet" /> <!-- KnetMaps css -->
+		
         <link href="https://fonts.googleapis.com/css?family=Kanit|Play" rel="stylesheet">
-        <!-- favicon added -->
-        <link rel="shortcut icon" href="image/favicon.ico" >
+        <link rel="shortcut icon" href="image/favicon.ico" > <!-- favicon added -->
 
         <meta charset=utf-8 />
-        <script src="libs/jquery-1.11.2.min.js"></script>
-        <script src="libs/cytoscapejs_2.4.0/cytoscape.min.js"></script>
-        <script src="libs/jquery-ui.js"></script>
-        <script src="libs/cytoscape-cxtmenu.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/jquery.qtip.min.js"></script>
-        <script src="libs/cytoscape-qtip.js"></script>
-        <script src="libs/jquery.maskloader.js"></script>
-        <script src="libs/FileSaver.min.js"></script>
-        <!-- Layouts -->
-        <script src="libs/cose_bilkent/cytoscape-cose-bilkent.js"></script>
-        <script src="libs/ngraph_forceLayout/cytoscape-ngraph.forcelayout.js"></script>
+        <script src="dist/js/knetmaps-lib.js"></script> <!-- KnetMaps libs (with jQuery) -->
+		
         <!-- URL mappings config file used for generating url's in Item Info table -->
         <script type="text/javascript" src="config/url_mappings.json"></script>
 		
-		<!-- KnetMaps code -->
-        <script src="javascript/knet-maskLoader.js"></script>
-        <script src="javascript/knet-layouts-defaultParams.js"></script>
-        <script src="javascript/knet-layouts.js"></script>
-        <script src="javascript/knet-menu.js"></script> <!-- KnetMaps menubar -->
-        <script src="javascript/knet-stats.js"></script> <!-- Network stats -->
-        <script src="javascript/knet-container.js"></script>
-        <script src="javascript/knet-toggleFullScreen.js"></script>
-        <script src="javascript/knet-conceptsLegend.js"></script> <!-- dynamic, interactive ConceptsLegend -->
-        <script src="javascript/knet-itemInfo.js"></script>
-        <script src="javascript/knet-generator.js"></script>
+        <script src="dist/js/knetmaps.js"></script> <!-- KnetMaps -->
 
-	<!-- test page js -->
-        <script src="js/launchNetwork.js"></script>
+        <script src="js/launchNetwork.js"></script> <!-- demo page js -->
 
         <title>KnetMaps.js demo</title>
     </head>
