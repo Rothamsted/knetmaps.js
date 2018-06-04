@@ -16,7 +16,7 @@ function launchNetwork(jsonFileName) {
 	
 	 // Include this file's contents on the page at runtime using jQuery and a callback function.
      jQuery.getScript(data, function() {
-	   knetmaps.draw('#knet-maps', data.graph);
+	   knetmaps.drawRaw('#knet-maps', data.graph);
 	  });
     }
     catch(err) {
