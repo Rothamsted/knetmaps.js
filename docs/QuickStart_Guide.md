@@ -43,4 +43,4 @@ After which you should see the `dist/` subfolder appear, containing further `img
 
 6. Now, simply open your `index.html` web page in any browser to visualize the network.
 
-**Note:** This example assumes that your network is encoded in two global variables, as per the `sampleFiles/ara2.json` script that was included. If you wish to load the network from elsewhere, you will need to obtain it as a block of Javascript code that defines the two variables, then use `drawRaw()` instead of `draw()` and pass the code block as a second parameter.
+**Note:** This example assumes that your network is encoded in two global variables, as per the `sampleFiles/ara2.json` script that was included. If you wish to load the network from elsewhere, you will need to obtain it as a block of Javascript code that defines the two variables, then use `drawRaw()` instead of `draw()` (*both* found in `js_demo/launchNetwork` example code and in `knetmaps/js/..generator.js script` and pass the code block as a second parameter.
