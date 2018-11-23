@@ -1,0 +1,5 @@
+Example <b>Arabidopsis</b> knowledge network showing gene <b>BRG1</b> linked to <b>flowering time</b> phenotype, along with a wealth of 
+<i>publication</i> information. The network can be explored further by <i>right-clicking</i> a node/edge to use the <i>context menu</i> 
+to view further item information or by using the <i>interactive legend</i> to add nodes of different types to the visible sub-network. 
+For example, clicking the <b>SNP</b> icon in the legend adds <i>4 SNP nodes</i> to the visible network which are <i>arabidopsis SNP's 
+linked to various agronomic <b>traits</b></i>, that can be similarly added to the visible sub-network.

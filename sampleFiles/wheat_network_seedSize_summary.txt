@@ -1,0 +1,6 @@
+Example <b>Wheat</b> knowledge network showing 2 genes (displayed as <i>blue triangle-shaped nodes</i> with <i>double borders</i>) linked 
+to the increased <b>seed size</b> phenotype (represented as <i>green squares</i>), via <i>homology</i> inferred from <i>Arabidopsis</i>. 
+The link to the trait <b>seed size</b> (<i>green pentagon</i>) was a novel <i>cooccurs_with</i> edge added by <b><i>text mining</i></b> 
+the relevant publication (<i>orange squares</i>) abstracts. The network can be explored further by <i>right-clicking</i> a node/edge to 
+use the <i>context menu</i> to view further item information or by using the <i>interactive legend</i> to add nodes of different types to 
+the visible sub-network.

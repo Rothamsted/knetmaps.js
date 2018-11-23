@@ -1,0 +1,4 @@
+Example <b>Arabidopsis</b> knowledge network showing genes <b>WOX10, MAP70-2 and FUC95A</b> linked to <b>seed dormancy</b>, by novel 
+<i>Trait</i> edges added via <b>text mining</b> relevant publication data (<b>abstracts</b>). The network can be explored further by 
+<i>right-clicking</i> a node/edge to use the <i>context menu</i> to view further item information or by using the <i>interactive legend</i> 
+to add nodes of different types (such as publications, biological processes, trait ontology <i>terms</i> or SNPs) to the visible network. 

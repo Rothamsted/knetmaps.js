@@ -19,7 +19,19 @@ body {
 	padding-top: 10px;
    }
       
-#networkLegend_frame {
+#dataset-description { 
+    width: 95%;
+	border: 1px dashed grey;
+	font-size:18px;
+   }
+
+#dataset-desc { 
+    margin-top: 0px;
+	padding-top: 10px;
+	display: inline-block;
+   }
+
+   #networkLegend_frame {
     border: 1px solid gray; 
     padding: 10px; 
     border-radius: 6px;

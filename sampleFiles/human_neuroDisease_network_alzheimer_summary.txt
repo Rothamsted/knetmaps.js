@@ -1,0 +1,4 @@
+Example <b>Human neurological disease</b> network showing <b>APOE</b> gene linked to <b>Alzheimer's disease</b>, with new 
+<i><b>Disease</b> and <b>Drug</b></i> concept types. The network can be explored further by <i>right-clicking</i> a node/edge to use the 
+<i>context menu</i> to view further item information or by using the <i>interactive legend</i> to add nodes of different types (such as 
+<i>publications, biological processes, molecular functions or cellular composition</i>) to the visible sub-network. 

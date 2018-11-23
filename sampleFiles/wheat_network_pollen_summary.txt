@@ -1,0 +1,5 @@
+Example <b>Wheat</b> knowledge network showing <b>COBL4</b> genes <i>on chromosomes 5A and 5B</i> linked to <b>pollination stages</b>, 
+via new <i><b>co-expression</b></i> data (visualised using <i>brown arrow-shaped nodes</i>) and related <i>Plant Ontology</i> information.
+The network can be explored further by <i>right-clicking</i> a node/edge to use the <i>context menu</i> to view further item information 
+or by using the <i>interactive legend</i> to add nodes of different types (such as <i>publications, SNPs or SNPEffect</i>) to the visible 
+sub-network. 
