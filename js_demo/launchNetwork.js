@@ -10,7 +10,7 @@
 };
 
 function launchNetwork(jsonFileName) {
-	var data= "sampleFiles/"+ jsonFileName +".js";
+	var data= "sampleFiles/"+ jsonFileName +".json";
 	//console.log("launchNetwork>> dataset: "+ data);
 	var datasetDescription_text= "sampleFiles/"+ jsonFileName +"_summary.txt";
     try {
