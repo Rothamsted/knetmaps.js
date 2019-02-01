@@ -27,25 +27,14 @@
  
  <div id="content">
             <div>Select dataset: <select id="dataset_dropdown" onChange="launchNetwork($('#dataset_dropdown').val());">
-                    <option value="ara1" title="ara1">Dataset 1</option>
-                    <option value="ara2" title="ara2">Dataset 2</option>
-                    <option value="ara5_dormancy" title="ara5_dormancy">Dataset 3 (dormancy)</option>
-                    <option value="ara6_dormancy_flowering" title="ara6_dormancy_flowering">Dataset 4</option>
-                    <option value="ara7_dormancy_anthocyanin" title="ara7_dormancy_anthocyanin">Dataset 5</option>
-                    <option value="ara8_dormancy_anthocyanin_storage_top10" title="ara8_dormancy_anthocyanin_storage_top10">Dataset 6</option>
-                    <option value="ara4" title="ara4">Dataset 7</option>
-                    <option value="ara3_eq1_At4g18330" title="ara3_eq1_At4g18330">Dataset 8</option>
-                    <option value="ara9_dormancy_anthocyanin15_singleJson" title="ara9_dormancy_anthocyanin15_singleJson">Dataset 9 (new)</option>
-                    <option value="neuroNet_subset" title="neuroNet_subset">Human Dataset 10 (neuroNet)</option>
-                    <option value="iiBug_240217" title="iiBug_240217">Human Dataset 11</option>
-                    <option value="urlAttr" title="urlAttr">Human Dataset 12</option>
-                    <option value="humanDis_exprData" title="humanDis_exprData">Human Dataset 13 (Expression)</option>
-                    <option value="human_evidenceECO" title="human_evidenceECO">Human Dataset 14 (ECO)</option>
-                    <option value="fungi_FG1" title="fungi_FG1">F.graminearum Dataset 15</option>
-                    <option value="ara10_showShapes" selected="selected" title="ara10_showShapes">Dataset 16</option>
-                    <option value="wheat_pollen" title="wheat_pollen">Dataset 17 (Pollen)</option>
+                    <option value="wheat_network_seedSize" selected="selected" title="Wheat (seed size)">Wheat (seed size)</option>
+                    <option value="wheat_network_pollen" title="Wheat (pollen)">Wheat (pollen)</option>
+                    <option value="human_neuroDisease_network_alzheimer" title="Human (alzheimer)">Human (alzheimer)</option>
+                    <option value="arabidopsis_network_flowering" title="Arabidopsis (flowering time)">Arabidopsis (flowering time)</option>
+                    <option value="arabidopsis_network_seedDormancy" title="Arabidopsis (seed dormancy)">Arabidopsis (seed dormancy)</option>
                 </select>
             </div><br/>
+            <div id="dataset-description"></div><br/>
             <!-- KnetMaps -->
             <div id="knet-maps">
                 <!-- KnetMaps Menubar -->
