@@ -48,4 +48,6 @@ npm install
 
 **Note:** This example assumes that your network is encoded in two global variables, as per the `sampleFiles/ara2.json` script that was included. If you wish to load the network from elsewhere, you will need to obtain it as a block of Javascript code that defines the two variables, then use `drawRaw()` instead of `draw()` (*both* found in `js_demo/launchNetwork` example code and in `knetmaps/js/..generator.js script` and pass the code block as a second parameter.
 
+
+
 **IMP:** If `bower` install throws npm error, add: `npm config set unsafe-perm true` before doing: `npm install bower gulp -g`.
