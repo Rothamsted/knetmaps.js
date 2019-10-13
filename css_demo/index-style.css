@@ -64,12 +64,28 @@ body {
 .contact-footer {
 	background-color:#2A2A2A;
 	color:white;
-	padding-bottom:10px;
-	padding-top:25px;
+	/*padding-bottom:10px;*/
+	/*padding-top:25px;*/
+	width:100%;
 	}
 .contact-footer p {
 	font-size:12px;
 	color:white;
+	}
+.left-footer {
+	float:left;
+	width:50%;
+	display:inline;
+	}
+.left-footer p {
+	font-size:12px;
+	color:white;
+	}
+.right-footer {
+	float:right;
+	width:50%;
+	display:inline;
+	padding-top:15px;
 	}
 
 .knetminer-logo {
@@ -80,5 +96,6 @@ body {
 	
 	}
 #text-logo {
-	text-align:center;
+	/*text-align:center;*/
+	font-size:19px;
 	}
