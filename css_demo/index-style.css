@@ -70,7 +70,7 @@ body {
 	}
 .left-footer {
 	float:left;
-	width:28%;
+	width:30%;
 	display:inline;
 	}
 .center-footer {
@@ -83,7 +83,7 @@ body {
 	float:right;
 	width:28%;
 	display:inline;
-	padding-top:20px;
+	padding-bottom:5px;
 	}
 
 .knetminer-logo {
