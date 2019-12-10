@@ -67,7 +67,6 @@ KNETMAPS.ConceptsLegend = function () {
 
         knetLegend = knetLegend + "</div></div>";
         $('#knetLegend').html(knetLegend); // update knetLegend
-		console.log("update knetLegend...");
     }
 
     my.conNameFormat = function (conType) {
