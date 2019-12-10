@@ -5,7 +5,7 @@ KNETMAPS.Menu = function() {
 	var iteminfo = KNETMAPS.ItemInfo();
 	var container = KNETMAPS.Container();
 	var stats = KNETMAPS.Stats();
-	var legend = KNETMAPS.ConceptsLegend();
+	var conceptLegend = KNETMAPS.ConceptsLegend();
 	var generator = KNETMAPS.Generator();
 
 	var my=function() {};
@@ -139,6 +139,8 @@ KNETMAPS.Menu = function() {
 
    // Refresh network legend.
    stats.updateKnetStats();
+   // Update the stats legend
+   conceptLegend.populateConceptLegend();
   }
   
   // Re-run the entire graph's layout.
@@ -301,7 +303,7 @@ KNETMAPS.Menu = function() {
 	// reload KnetMaps with the new network
 	//container.load_reload_Network(graphJSON, /*currentStylesheet_json*/ JSON.parse(eles_styles), true);
 	container.load_reload_Network(eles_jsons, eles_styles, true);
-	eval('stats.updateKnetStats(); legend.populateConceptLegend();');
+	eval('stats.updateKnetStats(); conceptLegend.populateConceptLegend();');
   }
   
   return my;
