@@ -71,9 +71,10 @@ KNETMAPS.Menu = function() {
    //saveAs(kNet_json_Blob, knet_name);
    
    console.log("knetSave_response: "+ knetSave_response); // test
-   // POST to knetspace: /api/v1/networks/
-   // TODO
-  }
+
+   // ToDo: POST to knetspace API via /api/v1/networks/
+   // 
+  };
   
  // generate pure JSON to export from KnetMaps for graphJSON and metadata
  my.filterJsonToExport = function(cy, exportJson) {
@@ -99,26 +100,20 @@ KNETMAPS.Menu = function() {
    
    var json_response= '{"graphJSON":'+ JSON.stringify(exportJson) + ', "allGraphData":' + JSON.stringify(metaJSON) +'}';
    return json_response;
-  }
+  };
   
  // fetch graphSummary from KnetMiner server API.
  my.getGraphDBSummary = function() {
-   var graphSummary= null; //'';
+   var graphSummary= null;
    //if(api_url != null || api_url != undefined) {
    if(typeof api_url !== "undefined") {
-        $.post({
-            url: api_url + '/dataSource',
-            timeout: 1000000,
-            headers: {
-                "Accept": "application/json; charset=utf-8",
-                "Content-Type": "application/json; charset=utf-8"
-            },
-            datatype: "json",
-        })
-            .fail(function (errorlog) { console.log("An error has ocurred " + errorlog); })
-            .success(function (data) {
-                graphSummary= JSON.parse(data).dataSource;
-            });
+	    var summary_url= api_url + '/dataSource';
+        $.get(summary_url).done(function (data) {
+            console.dir(data);//test backend api rsponse
+            graphSummary= data.dataSource;//JSON.parse(data).dataSource;
+            console.log("graphSummary: "+ graphSummary);
+            //console.log("graphSummary.provider: "+ graphSummary.provider);
+           });
      }
  /*  else {
      var dummyText= '{"dataSource":{"speciesTaxid":"","speciesName":"","dbVersion":null,"dbDateCreated":"","sourceOrganization":"","provider":""}}';
@@ -126,7 +121,7 @@ KNETMAPS.Menu = function() {
     }*/
     
     return graphSummary;
-  }
+  };
   
   // Export the graph as a .png image and allow users to save it.
  my.exportAsImage = function() {
@@ -144,7 +139,7 @@ KNETMAPS.Menu = function() {
   // Export the network thumbnail.
   my.exportThumbnail = function() {
    var png64 = cy.png({
-                    "scale" : 0.8,
+                    "scale" : 6/*0.8*/,
                     "output" : 'base64'}); // .setAttribute('crossOrigin', 'anonymous');
                 
    return png64.replace("data:image/png;base64,", "");
@@ -295,7 +290,7 @@ KNETMAPS.Menu = function() {
 
  // Import a saved network into KnetMaps.
  my.importJson = function() {
-   // open file dialog
+   // open file dialog, hidden by default for openKnetFile
    $("#openNetworkFile").trigger("click");
   }
   
