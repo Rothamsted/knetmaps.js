@@ -20,7 +20,7 @@ function launchNetwork(jsonFileName) {
 		 var eles_jsons= data.graph.graphJSON.elements;
 		 var eles_styles= data.graph.graphJSON.style;
 		 var metadata_json= data.graph.allGraphData;
-		 knetmaps.draw('#knet-maps', eles_jsons, metadata_json, eles_styles);
+		 knetmaps.draw('#knet-maps', eles_jsons, metadata_json, eles_styles, null);
 		 
 		 // add dataset description for end-users.
 		 $("#dataset-description").html('<p id="dataset-desc"></p>'); // TODO
@@ -28,7 +28,7 @@ function launchNetwork(jsonFileName) {
 		}).fail(function() { // failed: as this is a KnetMiner JSON with JS vars.
 			// Include file's contents on the page at runtime using jQuery & a callback function.
 			jQuery.getScript(graphData, function() {
-				knetmaps.drawRaw('#knet-maps', graphData.graph);
+				knetmaps.drawRaw('#knet-maps', graphData.graph, null);
 			});
 			
 			// add dataset description for end-users.

@@ -21,64 +21,120 @@ KNETMAPS.Menu = function() {
  my.popupItemInfo = function() {
 	 iteminfo.openItemInfoPane();
 	 iteminfo.showItemInfo(this);
- }
+ };
 
    // Go to Help docs.
  my.openKnetHelpPage = function() {
    var helpURL = 'https://github.com/Rothamsted/knetmaps.js/wiki/KnetMaps.js';
    window.open(helpURL, '_blank');
-  }
+  };
 
   // Reset: Re-position the network graph.
  my.resetGraph = function() {
    $('#cy').cytoscape('get').reset().fit(); // reset the graph's zooming & panning properties.
-  }
+  };
   
   // Export the graph as a JSON object in a new Tab and allow users to save it.
- my.exportAsJson = function() {
+ my.exportAsJson = function(networkId) {
    var cy= $('#cy').cytoscape('get'); // now we have a global reference to `cy`
 
    var exportJson= cy.json(); // full graphJSON
    
    var exportedJson= my.filterJsonToExport(cy, exportJson); // the final "graph" to export
    var thumbnail_image= my.exportThumbnail(); // fetch knetwork thumbnail as well.
-   // fetch graphSummary from KnetMiner server API.
-   var api_graphSummary= my.getGraphDBSummary();
-
-   // compose knetwork metaData below (with name, date, etc.)
-   var knet_name= "myKnetwork.json";
    // fetch total node & edge count for this knetwork.
    var totalNodes= cy.$(':visible').nodes().size();
    var totalEdges= cy.$(':visible').edges().size();
+   // formatted date: yyyy-mm-dd hh:mm (mm: January=0)
    var currentDate= new Date();
-   var knet_date= String(currentDate.getDate()).padStart(2, '0') + '/' + String(currentDate.getMonth() + 1).padStart(2, '0') + '/' + 
-        currentDate.getFullYear() +' '+ currentDate.getHours() +':'+ ('0'+currentDate.getMinutes()).slice(-2); // formatted date (mm: January=0)
+   var knet_date= currentDate.getFullYear() +'-'+ String(currentDate.getMonth() + 1).padStart(2, '0') +'-'+ String(currentDate.getDate()).padStart(2, '0') 
+           +' '+ currentDate.getHours() +':'+ ('0'+currentDate.getMinutes()).slice(-2);
    
-   // compose knet_metaData with the above fields.
-   var knetwork_metaData= '"name":"'+ knet_name +'", "dateCreated":"'+ knet_date +'", "numNodes":'+ totalNodes +', "numEdges":'+ totalEdges;
-   // add api_graphSummary to the above as well, if exists.
-   if(api_graphSummary !== null) {
-     knetwork_metaData= knetwork_metaData +', "speciesTaxid":"'+ api_graphSummary.speciesTaxid +'", "speciesName":"'+ 
-             api_graphSummary.speciesName +'", "dbVersion":'+ api_graphSummary.dbVersion +', "dbDateCreated":"'+ api_graphSummary.dbDateCreated
-             +'", "sourceOrganization":"'+ api_graphSummary.sourceOrganization +'", "provider":"'+ api_graphSummary.provider +'"';
-    }
-   knetwork_metaData= '{'+ knetwork_metaData +'}';
-   /* final knetwork response JSON with metadata, thumbnail & the knetwork itself. */
-   var knetSave_response= '{"metaData":'+ knetwork_metaData +', "graph":'+ exportedJson +', "image":"'+ thumbnail_image +'"}';
-   
-   // use FileSaver.js to save using file downloader (disable in production/demo).
-   //var kNet_json_Blob= new Blob([knetSave_response], {type: 'application/javascript;charset=utf-8'});
-   //saveAs(kNet_json_Blob, knet_name);
-   
-   console.log("knetSave_response: "+ knetSave_response); // test
+   //console.log("networkId: "+ networkId); // test
+   var knet_name= null, apiGraphSummary= null;
+   if(networkId === "null") { // for a new knetwork, generate a name and back-end summary_json
+      knet_name= "myKnetwork.json";
+      // fetch graphSummary from KnetMiner server API.
+      apiGraphSummary= my.getGraphDBSummary();
+     }
 
-   // ToDo: POST to knetspace API via /api/v1/networks/
-   // 
+   // add api_graphSummary to the above as well, if exists.
+   var speciesTaxid= null, speciesName= null, dbVersion= null, dbDateCreated= null, sourceOrganization= null, provider= null;
+   if(apiGraphSummary !== null && apiGraphSummary.size > 0) {
+      speciesTaxid= apiGraphSummary.get("speciesTaxid");
+      speciesName= apiGraphSummary.get("speciesName");
+      dbVersion= apiGraphSummary.get("dbVersion");
+      dbDateCreated= apiGraphSummary.get("dbDateCreated");
+      sourceOrganization= apiGraphSummary.get("sourceOrganization");
+      provider= apiGraphSummary.get("provider");
+      //console.log(speciesTaxid +","+ speciesName +","+ dbVersion +","+ dbDateCreated +","+ sourceOrganization +","+ provider); // test
+     }
+
+   // POST to knetspace via /api/v1/networks/
+   //var knetspace_api_host= "http://babvs72.rothamsted.ac.uk:8000"; //or "http://localhost:8000";
+   var knetspace_api_host= ""; // relative domain
+   // ToDo: add/use fixed knetspace_api_host url from main POM for post/patch.
+   if(networkId === "null") {
+      //if(typeof api_url !== "undefined") { // if it's within knetminer (DISABLED: as it breaks genepage api)
+      // POST a new knetwork to knetspace with name, date_created, apiGraphSummary fields plus this graph, image, numNodes, numEdges.
+      $.ajax({
+            type: 'POST',
+            url: knetspace_api_host + '/api/v1/networks/',
+            timeout: 1000000,
+            headers: {
+                "Accept": "application/json; charset=utf-8",
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            datatype: "json",
+            data: JSON.stringify({
+                name: knet_name,
+                dateCreated: knet_date,
+                numNodes: totalNodes,
+                numEdges: totalEdges,
+                graph: JSON.parse(exportedJson),
+                image: thumbnail_image,
+                speciesTaxid: speciesTaxid,
+                speciesName: speciesName,
+                dbVersion: dbVersion,
+                dbDateCreated: dbDateCreated,
+                sourceOrganization: sourceOrganization,
+                provider: provider
+            })
+        })
+            .fail(function (errorlog) { console.log("POST error: " + errorlog); })
+            .success(function (data) { 
+                console.log("POST response: "+ data);
+        });
+      //}
+   }
+   else { // PATCH existing networkId with updated graph, image, numNodes, numEdges, dateModified.
+      $.ajax({
+            type: 'PATCH',
+            url: knetspace_api_host + '/api/v1/networks/' + networkId + '/',
+            timeout: 1000000,
+            headers: {
+                "Accept": "application/json; charset=utf-8",
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            datatype: "json",
+            data: JSON.stringify({
+                dateModified: knet_date,
+                numNodes: totalNodes,
+                numEdges: totalEdges,
+                graph: JSON.parse(exportedJson),
+                image: thumbnail_image
+            })
+        })
+            .fail(function (errorlog) { console.log("PATCH error: " + errorlog); })
+            .success(function (data) { 
+                console.log("PATCH response: "+ data);
+        });
+   }
+   
   };
   
  // generate pure JSON to export from KnetMaps for graphJSON and metadata
  my.filterJsonToExport = function(cy, exportJson) {
-   
    var elesToRetain= []; // to streamline content exported in exportJson (graphJSON) & metaJSON (allGraphData).
    cy.$(':visible').forEach(function (ele) { elesToRetain.push(ele.id()); });
    
@@ -104,22 +160,24 @@ KNETMAPS.Menu = function() {
   
  // fetch graphSummary from KnetMiner server API.
  my.getGraphDBSummary = function() {
-   var graphSummary= null;
-   //if(api_url != null || api_url != undefined) {
+   var graphSummary= new Map();
    if(typeof api_url !== "undefined") {
-	    var summary_url= api_url + '/dataSource';
-        $.get(summary_url).done(function (data) {
-            console.dir(data);//test backend api rsponse
-            graphSummary= data.dataSource;//JSON.parse(data).dataSource;
-            console.log("graphSummary: "+ graphSummary);
-            //console.log("graphSummary.provider: "+ graphSummary.provider);
-           });
+        $.ajax({
+            async: false,
+            type: 'GET',
+            url: api_url + '/dataSource',
+            success: function (data) {
+                var api_response= data.dataSource.replace(/\"/g,"").trim().split(",");
+                api_response.forEach(function(val) {
+                    var values= val.split(":");
+                    var k= values[0].trim();
+                    var v= values[1].trim();
+                    if(k === "dbDateCreated") { v= values[1] +":"+ values[2]; }
+                    graphSummary.set(k, v);
+                });
+           }
+       });
      }
- /*  else {
-     var dummyText= '{"dataSource":{"speciesTaxid":"","speciesName":"","dbVersion":null,"dbDateCreated":"","sourceOrganization":"","provider":""}}';
-     graphSummary= JSON.parse(dummyText).dataSource;
-    }*/
-    
     return graphSummary;
   };
   
