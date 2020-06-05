@@ -1,11 +1,27 @@
+@font-face {
+  font-family: 'Nexa';
+  /*src: url('../fonts/*.otf');*/
+  src: url('../fonts/Fontfabric - Nexa Regular.otf');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nexa';
+  /*src: url('../fonts/*.otf');*/
+  src: url('../fonts/Fontfabric - Nexa Regular Italic.otf');
+  font-style: italic;
+}
+
 body {
-	background-color:#f2f2f2;
-	font-family: 'Play', sans-serif;
+	background-color:#F4F5F7;
+    /*font-family: 'Play', sans-serif;*/
+    font-family: 'Nexa Regular',sans-serif;
+    font-size:16px;
 	min-width:960px;
 	margin:0;
 	}
 #content {
-	padding-bottom:30px;
+	padding-bottom:60px;
 	margin:auto;
 	width: 80%;
 	
@@ -41,7 +57,7 @@ body {
 	display:block;
 	height:51px;
 	box-shadow: 0 1px 5px;
-	background-color:#2A2A2A;
+	background-color:#121212/*#2A2A2A*/;
 	margin-bottom:40px;
 	width:100%;
 	}
@@ -58,11 +74,12 @@ body {
 		padding-right: 30px;
 		}
 	.nav a:hover{
-		color: darkorange;
+		color:#FF74B7/*#51CE7B*/;
+		/*color:darkorange;*/
 		}
 	/*Footer*/
 .contact-footer {
-	background-color:#2A2A2A;
+	background-color:#121212/*#2A2A2A*/;
 	color:white;
 	padding-top:5px;
 	padding-bottom:5px;
