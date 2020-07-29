@@ -1,89 +1,112 @@
 <html>
-    <head>
-        <link href="css_demo/index-style.css" rel="stylesheet" /> <!-- demo page css -->
-        <link href="dist/css/knetmaps.css" rel="stylesheet" /> <!-- KnetMaps css -->
-		
-        <link href="https://fonts.googleapis.com/css?family=Kanit|Play" rel="stylesheet">
-        <link rel="shortcut icon" href="image/KnetMaps200.png" > <!-- favicon added -->
 
-        <meta charset=utf-8 />
-        <script src="dist/js/knetmaps-lib.min.js"></script> <!-- KnetMaps libs (with jQuery) -->
-		
-        <script src="dist/js/knetmaps.min.js"></script> <!-- KnetMaps -->
+<head>
+    <link href="css_demo/index-style.css" rel="stylesheet" /> <!-- demo page css -->
+    <link href="dist/css/knetmaps.css" rel="stylesheet" /> <!-- KnetMaps css -->
 
-        <script src="js_demo/launchNetwork.js"></script> <!-- demo page js -->
+    <link href="https://fonts.googleapis.com/css?family=Kanit|Play" rel="stylesheet">
+    <link rel="shortcut icon" href="image/KnetMaps200.png"> <!-- favicon added -->
 
-        <title>KnetMaps.js demo</title>
-    </head>
- 
-    <body>
+    <meta charset=utf-8 />
+    <script src="dist/js/knetmaps-lib.min.js"></script> <!-- KnetMaps libs (with jQuery) -->
+
+    <script src="dist/js/knetmaps.min.js"></script> <!-- KnetMaps -->
+
+    <script src="js_demo/launchNetwork.js"></script> <!-- demo page js -->
+
+    <title>KnetMaps.js demo</title>
+</head>
+
+<body>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-	   <a target="_blank" href="https://knetminer.org"><img class="logo-top" src="image/KnetMaps_onblack_color.svg" alt="Logo" height="45" style="padding-top:3px; padding-bottom:2px; padding-left:12px;"></a>   
-       <ul class="nav navbar-nav" id="top">
-          <li>
-		    <a target="_blank" href="https://www.biorxiv.org/content/10.1101/2020.04.02.017004v2">Cite Us</a>
-            <a target="_blank" href="http://knetminer.rothamsted.ac.uk/KnetMiner/KnetMiner_Tutorial-v3.1.pdf">User Guide</a>
-		    <a target="_blank" href="https://f1000research.com/articles/7-1651/v1">KnetMaps.js</a>
-		  </li>
-    </ul>
- 	</nav>  <!-- end navbar -->
- 
- <div id="content">
-            <div>Select dataset: <select id="dataset_dropdown" onChange="launchNetwork($('#dataset_dropdown').val());">
-                    <option value="wheat_network_seedSize" selected="selected" title="Wheat (seed size)">Wheat (seed size)</option>
-                    <option value="wheat_network_pollen" title="Wheat (pollen)">Wheat (pollen)</option>
-                    <option value="human_neuroDisease_network_alzheimer" title="Human (alzheimer)">Human (alzheimer)</option>
-                    <option value="arabidopsis_network_flowering" title="Arabidopsis (flowering time)">Arabidopsis (flowering time)</option>
-                    <option value="arabidopsis_network_seedDormancy" title="Arabidopsis (seed dormancy)">Arabidopsis (seed dormancy)</option>
-                    <option value="knetspace_jsons/myKnetwork" title="Wheat (knetspace)">Wheat (knetspace)</option>
-                    <option value="knetspace_jsons/myKnetwork_small" title="Wheat 2 (knetspace)">Wheat 2 (knetspace)</option>
-                    <option value="knetspace_jsons/myKnetwork_human" title="Human (knetspace)">Human (knetspace)</option>
-                </select>
-            </div><br/>
-            <div id="dataset-description"></div><br/>
-            <!-- KnetMaps -->
-            <div id="knet-maps">
-                <!-- KnetMaps Menubar -->
-                <div id="knetmaps-menu"></div>
-			    <div id="itemInfo" class="infoDiv" style="display:none;"><!-- Item Info pane -->
-                    <table id="itemInfo_Table" class="infoTable" cellspacing=1>
-                        <thead><th>Info box:</th>
-                            <!-- <th><button id="btnCloseItemInfoPane" onclick="closeItemInfoPane();">Close</button></th> -->
-                            <th><input type="image" id="btnCloseItemInfoPane" src="image/close-icon.png" onClick="closeItemInfoPane();"></th>
-                        </thead><tbody></tbody></table>
-                </div>
-                <!-- The core cytoscapeJS container -->
-                <div id="cy"></div>
-                <!-- interactive, dynamic Legend to show all concept of a particular type -->
-				<div id="knetLegend" title="Hover over icons to see corresponding Concept type & click an icon to show all such Concepts connected to visible Concepts in this network"><span>Concepts:</span></div>
-                <!-- dynamically updated Legend to show number of shown/ hidden concepts -->
-				<div id="statsLegend" style="width: 350px; margin: auto;"><span>KnetMaps</span></div>
-                <!-- popup dialog -->
-                <div id="infoDialog"></div>
-            </div>
-            </div>  <!-- content -->
-           
-    <!---   <div class="contact-footer">
-	      <ul style="overflow:hidden;margin-bottom: 0px;">
-		     <li class="left-footer">
-			   <a target="_blank" title="Rothamsted Research" href="http://www.rothamsted.ac.uk/" class="logos"><img src="image/rothamsted_logo.png" width="80" height="80"/></a>
-			   <a target="_blank" title="BBSRC" href="http://www.bbsrc.ac.uk/" class="logos"><img class="bbsrc-logo" src="image/bbsrc_logo.png"/></a>
-			 </li>
-		     <li class="center-footer">
-			   <a target="_blank" title="KnetMiner" href="https://knetminer.org" class="logos"><img src="image/logo-regular.png" height="90"/></a>
-			 </li>
-			 <li class="right-footer">
-			   <ul class="nav navbar-nav" id="bottom">
-			     <li>
-				   <p id="footer-text">Powered by <a target="_blank" href="https://f1000research.com/articles/7-1651/v1" style="color:darkOrange">KnetMaps.js</a></p>
-				   <a target="_blank" href="https://www.npmjs.com/package/knetmaps">NPM</a>
-				   <a target="_blank" href="https://github.com/Rothamsted/knetmaps.js/blob/master/LICENSE">License</a>
-				   <a target="_blank" href="https://twitter.com/knetminer">Twitter</a>
-				 </li>
-			   </ul>
-			 </li>
-		  </ul>
-       </div> -->
-    </body>
-</html>
+        <a target="_blank" href="https://knetminer.org"><img class="logo-top" src="image/KnetMaps_onblack_color.svg"
+                alt="Logo" height="45" style="padding-top:3px; padding-bottom:2px; padding-left:12px;"></a>
+        <ul class="nav navbar-nav" id="top">
+            <li>
+                <a target="_blank" href="https://www.biorxiv.org/content/10.1101/2020.04.02.017004v2">Cite Us</a>
+                <a target="_blank" href="http://knetminer.rothamsted.ac.uk/KnetMiner/KnetMiner_Tutorial-v3.1.pdf">User
+                    Guide</a>
+                <a target="_blank" href="https://f1000research.com/articles/7-1651/v1">KnetMaps.js</a>
+            </li>
+        </ul>
+    </nav> <!-- end navbar -->
 
+    <div id="content">
+        <div>Select dataset:
+            <select id="dataset_dropdown" onChange="launchNetwork($('#dataset_dropdown').val());">
+                <option value="wheat_network_seedSize" selected="selected" title="Wheat (seed size)">Wheat (seed size)
+                </option>
+                <option value="wheat_network_pollen" title="Wheat (pollen)">Wheat (pollen)</option>
+                <option value="human_neuroDisease_network_alzheimer" title="Human (alzheimer)">Human (alzheimer)
+                </option>
+                <option value="arabidopsis_network_flowering" title="Arabidopsis (flowering time)">Arabidopsis
+                    (flowering time)</option>
+                <option value="arabidopsis_network_seedDormancy" title="Arabidopsis (seed dormancy)">Arabidopsis (seed
+                    dormancy)</option>
+                <option value="knetspace_jsons/myKnetwork" title="Wheat (knetspace)">Wheat (knetspace)</option>
+                <option value="knetspace_jsons/myKnetwork_small" title="Wheat 2 (knetspace)">Wheat 2 (knetspace)
+                </option>
+                <option value="knetspace_jsons/myKnetwork_human" title="Human (knetspace)">Human (knetspace)</option>
+            </select>
+        </div><br />
+        <div id="dataset-description"></div><br />
+        <!-- KnetMaps -->
+        <div id="knet-maps">
+            <!-- KnetMaps Menubar -->
+            <div id="knetmaps-menu"></div>
+            <div id="itemInfo" class="infoDiv" style="display:none;">
+                <!-- Item Info pane -->
+                <table id="itemInfo_Table" class="infoTable" cellspacing=1>
+                    <thead>
+                        <th>Info box:</th>
+                        <!-- <th><button id="btnCloseItemInfoPane" onclick="closeItemInfoPane();">Close</button></th> -->
+                        <th><input type="image" id="btnCloseItemInfoPane" src="image/close-icon.png"
+                                onClick="closeItemInfoPane();"></th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <!-- The core cytoscapeJS container -->
+            <div id="cy"></div>
+            <!-- interactive, dynamic Legend to show all concept of a particular type -->
+            <div id="knetLegend"
+                title="Hover over icons to see corresponding Concept type & click an icon to show all such Concepts connected to visible Concepts in this network">
+                <span>Concepts:</span>
+            </div>
+            <!-- dynamically updated Legend to show number of shown/ hidden concepts -->
+            <div id="statsLegend" style="width: 350px; margin: auto;"><span>KnetMaps</span></div>
+            <!-- popup dialog -->
+            <div id="infoDialog"></div>
+        </div>
+    </div> <!-- content -->
+
+    <!-- <div class="contact-footer">
+        <ul style="overflow:hidden;margin-bottom: 0px;">
+            <li class="left-footer">
+                <a target="_blank" title="Rothamsted Research" href="http://www.rothamsted.ac.uk/" class="logos"><img
+                        src="image/rothamsted_logo.png" width="80" height="80" /></a>
+                <a target="_blank" title="BBSRC" href="http://www.bbsrc.ac.uk/" class="logos"><img class="bbsrc-logo"
+                        src="image/bbsrc_logo.png" /></a>
+            </li>
+            <li class="center-footer">
+                <a target="_blank" title="KnetMiner" href="https://knetminer.org" class="logos"><img
+                        src="image/logo-regular.png" height="90" /></a>
+            </li>
+            <li class="right-footer">
+                <ul class="nav navbar-nav" id="bottom">
+                    <li>
+                        <p id="footer-text">Powered by <a target="_blank"
+                                href="https://f1000research.com/articles/7-1651/v1"
+                                style="color:darkOrange">KnetMaps.js</a></p>
+                        <a target="_blank" href="https://www.npmjs.com/package/knetmaps">NPM</a>
+                        <a target="_blank"
+                            href="https://github.com/Rothamsted/knetmaps.js/blob/master/LICENSE">License</a>
+                        <a target="_blank" href="https://twitter.com/knetminer">Twitter</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div> -->
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<svg width="47" height="47" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="47" height="47" fill="#E5E5E5"/>
+<g id="03_Knetspace_Network_opened" clip-path="url(#clip0)">
+<rect width="1920" height="1080" transform="translate(-1334 -1002)" fill="white"/>
+<g id="Legend">
+<g id="Legend_2">
+<g id="Arrow_left">
+<g id="Ellipse 68" filter="url(#filter0_d)">
+<circle cx="23.5" cy="23.5" r="22.5" transform="rotate(-180 23.5 23.5)" fill="white"/>
+<circle cx="23.5" cy="23.5" r="22" transform="rotate(-180 23.5 23.5)" stroke="#6F7F8F" stroke-opacity="0.25"/>
+</g>
+<path id="Arrow 5" d="M31.3536 24.3536C31.5488 24.1583 31.5488 23.8417 31.3536 23.6464L28.1716 20.4645C27.9763 20.2692 27.6597 20.2692 27.4645 20.4645C27.2692 20.6597 27.2692 20.9763 27.4645 21.1716L30.2929 24L27.4645 26.8284C27.2692 27.0237 27.2692 27.3403 27.4645 27.5355C27.6597 27.7308 27.9763 27.7308 28.1716 27.5355L31.3536 24.3536ZM16 24.5L31 24.5L31 23.5L16 23.5L16 24.5Z" fill="#121212"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_d" x="0" y="0" width="47" height="47" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="0.5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+<clipPath id="clip0">
+<rect width="1920" height="1080" fill="white" transform="translate(-1334 -1002)"/>
+</clipPath>
+</defs>
+</svg>

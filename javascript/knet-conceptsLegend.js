@@ -2,13 +2,15 @@ var KNETMAPS = KNETMAPS || {};
 KNETMAPS.ConceptsLegend = function () {
 
     var stats = KNETMAPS.Stats();
-    var my = function () {};
+    var my = function () { };
     my.conName = function (conText) {
         // Map the concept names to corresponding legend context names
-        map = {"Biological_Process": "BioProc", "Molecular_Function": "MolFunc",
+        map = {
+            "Biological_Process": "BioProc", "Molecular_Function": "MolFunc",
             "Cellular_Component": "CellComp", "Trait Ontology": "TO",
             "PlantOntologyTerm": "PO", "Enzyme Classification": "EC",
-            "Quantitative Trait Locus": "QTL", "Protein Domain": "Domain"};
+            "Quantitative Trait Locus": "QTL", "Protein Domain": "Domain"
+        };
         result = map[conText];
         // If result is not null, return result, else return conText
         return result != null ? result : conText;
@@ -24,7 +26,7 @@ KNETMAPS.ConceptsLegend = function () {
                 conceptTypes.push(ele.data('conceptType'));
             }
         });
-//      conceptTypes.sort(); // sort alpabetically, fails as "Trait" is displayed as "GWAS"
+        //      conceptTypes.sort(); // sort alpabetically, fails as "Trait" is displayed as "GWAS"
 
         var conceptsHashmap = {};
         conceptTypes.forEach(function (conType, index) {
@@ -44,7 +46,7 @@ KNETMAPS.ConceptsLegend = function () {
         });
 
         // update knetLegend.
-        var knetLegend = '<div class="knetInteractiveLegend"><div class="knetLegend_row">' + '<div class="knetLegend_cell"><b>Interactive Legend:</b></div>';
+        var knetLegend = '<div class="knetInteractiveLegend"><div class="knetLegend_row">' + '<image src="image/previewLegendBtn.svg" class="pagiBtn" id="previous" class="current">';
         // Show concept Type icons (with total count displayed alongside).
         for (var con in conceptsHashmap) { // Iterate through the Concept Classes
 
@@ -52,21 +54,48 @@ KNETMAPS.ConceptsLegend = function () {
             var conText = KNETMAPS.ConceptsLegend().conName(con);
             var conID = KNETMAPS.ConceptsLegend().conNameFormat(con);
             var collections = KNETMAPS.ConceptsLegend().nodeClassesOnGraph(cy, conID),
-                    hiddenEdges = collections.hiddenEdges,
-                    hiddenNodes = collections.hiddenNodes,
-                    currently_visibleNodes = collections.visibleNodes;
+                hiddenEdges = collections.hiddenEdges,
+                hiddenNodes = collections.hiddenNodes,
+                currently_visibleNodes = collections.visibleNodes;
             var edge_count = $(hiddenNodes.edgesWith(currently_visibleNodes)).length;
             if (edge_count == 0 && hiddenEdges >= 0) {
                 knetLegend = knetLegend + '<div class="knetLegend_cell"><input type="submit" value="" id="' + con.replace(/ /g, '_') + '" title="Show or remove all ' + con.replace(/_/g, ' ') + '(s)" class="knetCon_' + con.replace(/ /g, '_') + " opacity_class" + '" style="vertical-align:middle" ontouchmove="KNETMAPS.ConceptsLegend().hideConnectedByType(this.id);" ondblclick="KNETMAPS.ConceptsLegend().hideConnectedByType(this.id);" onclick="KNETMAPS.ConceptsLegend().showConnectedByType(this.id);">' +
-                        '<span class="icon_caption">' + conceptsHashmap[con] + '<br>' + conText + '</span></div>';
+                    '<span class="icon_caption">' + conceptsHashmap[con] + '<br>' + conText + '</span></div>';
             } else {
                 knetLegend = knetLegend + '<div class="knetLegend_cell"><input type="submit" value="" id="' + con.replace(/ /g, '_') + '" title="Show or remove all ' + con.replace(/_/g, ' ') + '(s)" class="knetCon_' + con.replace(/ /g, '_') + '" style="vertical-align:middle" ontouchmove="KNETMAPS.ConceptsLegend().hideConnectedByType(this.id);" ondblclick="KNETMAPS.ConceptsLegend().hideConnectedByType(this.id);" onclick="KNETMAPS.ConceptsLegend().showConnectedByType(this.id);">' +
-                        '<span class="icon_caption">' + conceptsHashmap[con] + '<br>' + conText + '</span></div>';
+                    '<span class="icon_caption">' + conceptsHashmap[con] + '<br>' + conText + '</span></div>';
             }
         }
 
-        knetLegend = knetLegend + "</div></div>";
+        knetLegend = knetLegend + '<image src="image/nextLegendBtn.svg" class="pagiBtn" id="next"></div></div>';
         $('#knetLegend').html(knetLegend); // update knetLegend
+
+        pageSize = 8;
+        var i = 1;
+        showPage = function (page) {
+            $(".knetLegend_cell").hide();
+            $(".knetLegend_cell").each(function (n) {
+                if (n >= pageSize * (page - 1) && n < pageSize * page)
+                    $(this).show();
+            });
+        }
+
+        showPage(i);
+
+        $("#previous").click(function () {
+            $("#next").removeClass("current");
+            $(this).addClass("current");
+            if (i != 1) {
+                showPage(--i);
+            }
+        });
+        $("#next").click(function () {
+            $("#previous").removeClass("current");
+            $(this).addClass("current");
+            if (i < ($('.knetLegend_cell').length) / 8) {
+                showPage(++i);
+            }
+        });
     }
 
     my.conNameFormat = function (conType) {
@@ -84,7 +113,7 @@ KNETMAPS.ConceptsLegend = function () {
     my.nodeClassesOnGraph = function (cy, conType) {
         // Obtain all hidden and currently visible nodes on the graph based upon the class they contain
         var visibleNodes_ofSameType = cy.collection(), hiddenNodes_ofSameType = visibleNodes_ofSameType,
-                currently_visibleNodes = visibleNodes_ofSameType, currently_hiddenNodes = visibleNodes_ofSameType;
+            currently_visibleNodes = visibleNodes_ofSameType, currently_hiddenNodes = visibleNodes_ofSameType;
         var conText = KNETMAPS.ConceptsLegend().conName(conType);
 
         // Filter by the type clicked by the user
@@ -111,8 +140,10 @@ KNETMAPS.ConceptsLegend = function () {
         // Obtain all the count of all of the concepts within the graph of this type
         var totConcepts = $(visibleNodes_ofSameType).length + $(hiddenNodes_ofSameType).length;
         var hiddenEdges = $(hiddenNodes_ofSameType.edgesWith(currently_hiddenNodes)).length;
-        return {hiddenNodes: hiddenNodes_ofSameType, visibleNodes: currently_visibleNodes,
-            visibleOfSameType: visibleNodes_ofSameType, total: totConcepts, text: conText, hiddenEdges: hiddenEdges};
+        return {
+            hiddenNodes: hiddenNodes_ofSameType, visibleNodes: currently_visibleNodes,
+            visibleOfSameType: visibleNodes_ofSameType, total: totConcepts, text: conText, hiddenEdges: hiddenEdges
+        };
     }
 
     my.conceptCount = function (cy, conType, conText, totConcepts) {
@@ -146,11 +177,11 @@ KNETMAPS.ConceptsLegend = function () {
         var conID = KNETMAPS.ConceptsLegend().conNameFormat(conType);
         console.log("ID is: " + conID);
         var collections = KNETMAPS.ConceptsLegend().nodeClassesOnGraph(cy, conID),
-                hiddenNodes_ofSameType = collections.hiddenNodes,
-                currently_visibleNodes = collections.visibleNodes,
-                conText = collections.text,
-                totConcepts = collections.total,
-                hiddenEdges = collections.hiddenEdges;
+            hiddenNodes_ofSameType = collections.hiddenNodes,
+            currently_visibleNodes = collections.visibleNodes,
+            conText = collections.text,
+            totConcepts = collections.total,
+            hiddenEdges = collections.hiddenEdges;
         $('#' + conID.replace(/ /g, '_')).removeClass('opacity_class');
 
         // end here
@@ -167,7 +198,7 @@ KNETMAPS.ConceptsLegend = function () {
             KNETMAPS.ConceptsLegend().populateConceptLegend();
             $('#infoDialog').html('<font color="red">' + "Can't show more  " + conText + " concept nodes. Please check your graph.</font>").show();
             $('#' + conID.replace(/ /g, '_')).addClass('opacity_class');
-            
+
         }
 
         stats.updateKnetStats(); // Refresh network Stats.
@@ -182,10 +213,10 @@ KNETMAPS.ConceptsLegend = function () {
         var conID = KNETMAPS.ConceptsLegend().conNameFormat(conType);
         // Define the visible nodes of the same type as a Cytoscape collection
         var collections = KNETMAPS.ConceptsLegend().nodeClassesOnGraph(cy, conID),
-                visibleNodes_ofSameType = collections.visibleOfSameType,
-                currently_visibleNodes = collections.visibleNodes,
-                conText = collections.text,
-                totConcepts = collections.total;
+            visibleNodes_ofSameType = collections.visibleOfSameType,
+            currently_visibleNodes = collections.visibleNodes,
+            conText = collections.text,
+            totConcepts = collections.total;
         $('#' + conID.replace(/_/g, ' ')).removeClass('opacity_class');
 
 
