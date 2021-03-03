@@ -394,3 +394,12 @@ While `Cose` layout uses a wider range of complex parameters which can be set as
 - Note: Our test environment uses `node 10.21.0, npm 6.1.0 , bower 1.8.8, gulp 3.9.1`. 
 
 **Note:** As of last check, [Node.js 10.7.0](https://nodejs.org/download/release/v10.7.0/) can be downloaded with npm 6.1.0 , which works well with KnetMaps/KnetMiner.
+
+Testing on local PC's is easy and can be done using any lightweight servers like `jetty`, `apache`, `tomcat`, etc. `Python3` users can easily install `SimpleHTTPServer` via `pip` and test with that, e.g., on Windows via:
+
+	pip install SimpleHTTPServer
+	
+	cd D:/<path-to-knetmaps-repo>/ #where our `index.html` is located
+	
+	python -m http.server 9000 #app should be up on http://localhost:9000/index.html
+	
