@@ -139,17 +139,17 @@ KNETMAPS.Generator = function() {
           //'line-color': 'data(relationColor)', // e.g., 'grey',
           'line-color': function(rel) {
                     var linecolor= rel.data('relationColor'); // default
-					// new: 3 edge cases
-					if(rel.data('label') === "xref") { linecolor='darkGrey'; }
-					if(rel.data('label') === "associated_with") { linecolor='darkGrey'; }
-					if(rel.data('label') === "occurs_in") { linecolor='orange'; }
+                    // new: 3 edge cases
+		    if(rel.data('label') === "xref") { linecolor='darkGrey'; }
+		    if(rel.data('label') === "associated_with") { linecolor='darkGrey'; }
+		    if(rel.data('label') === "occurs_in") { linecolor='orange'; }
                     return linecolor;
                    },
           //'line-style': 'solid', // 'solid' (or 'dotted', 'dashed')
           'line-style': function(rel) {
                     var linestyle= 'solid'; // default
-					// use dotted line for type: cooccurs_with, occurs_in, regulates, has_similar_sequence.
-					var special_edges= [ "cooccurs_with", "occurs_in", "regulates", "has_similar_sequence" ];
+		    // use dotted line for type: cooccurs_with, occurs_in, regulates, has_similar_sequence.
+		    var special_edges= [ "cooccurs_with", "occurs_in", "regulates", "has_similar_sequence" ];
                     if(special_edges.includes(rel.data('label'))) { linestyle='dashed'; }
                     return linestyle;
                    },
