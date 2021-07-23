@@ -148,8 +148,8 @@ KNETMAPS.Generator = function() {
           //'line-style': 'solid', // 'solid' (or 'dotted', 'dashed')
           'line-style': function(rel) {
                     var linestyle= 'solid'; // default
-		    // use dotted line for type: cooccurs_with, occurs_in, regulates, has_similar_sequence.
-		    var special_edges= [ "cooccurs_with", "occurs_in", "regulates", "has_similar_sequence" ];
+		    // use dashed line for type: cooccurs_with, occurs_in, regulates, has_similar_sequence, enriched_for.
+		    var special_edges= [ "cooccurs_with", "occurs_in", "regulates", "has_similar_sequence", "enriched_for" ];
                     if(special_edges.includes(rel.data('label'))) { linestyle='dashed'; }
                     return linestyle;
                    },
