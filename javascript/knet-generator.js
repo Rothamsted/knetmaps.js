@@ -311,23 +311,21 @@ $(function() { // on dom ready
 	
 	// get all gene taxID's and make a list[] of them
 	cy.nodes().forEach(function( conc ) {
-       if(conc.data('conceptType') === "Gene") {
-		  var this_taxid="";
-		  for(var i=0; i<metadata_json.ondexmetadata.concepts.length;i++) {
-			  // if matching concept ID found, traverse attributes to get TAXID
-              if(conc.data('id') === metadata_json.ondexmetadata.concepts[i].id) {
-                 for(var j=0; j<metadata_json.ondexmetadata.concepts[i].attributes.length; j++) {
-                     if((metadata_json.ondexmetadata.concepts[i].attributes[j].attrname === "TAXID") || (metadata_json.ondexmetadata.concepts[i].attributes[j].attrnameName === "TX")) {
-						 this_taxid= metadata_json.ondexmetadata.concepts[i].attributes[j].value;
-						 // store unique taxID in list[]
-						 if(all_taxids.indexOf(this_taxid) === -1) {
-						    all_taxids.push(this_taxid);
-						   }
-                        }
-                    }
-			  }
-		  }
-         }
+        if(conc.data('conceptType') === "Gene") {
+	   var this_taxid="";
+	   for(var i=0; i<metadata_json.ondexmetadata.concepts.length;i++) {
+	       // if matching concept ID found, traverse attributes to get TAXID
+               if(conc.data('id') === metadata_json.ondexmetadata.concepts[i].id) {
+                  for(var j=0; j<metadata_json.ondexmetadata.concepts[i].attributes.length; j++) {
+                      if((metadata_json.ondexmetadata.concepts[i].attributes[j].attrname === "TAXID") || (metadata_json.ondexmetadata.concepts[i].attributes[j].attrnameName === "TX")) {
+			  this_taxid= metadata_json.ondexmetadata.concepts[i].attributes[j].value;
+			  // store unique taxID in list[]
+			  if(all_taxids.indexOf(this_taxid) === -1) { all_taxids.push(this_taxid); }
+			 }
+                     }
+		 }
+	     }
+           }
 	  });
 	  
 	//console.log("all_taxids: "+ all_taxids);
@@ -342,27 +340,27 @@ $(function() { // on dom ready
 	   }
 	
 	// now change label color for genes accordingly
-	cy.nodes().forEach(function( conc ) {
+     cy.nodes().forEach(function( conc ) {
        if(conc.data('conceptType') === "Gene") {
-		  var this_taxid="";
-		  // fetch TAXID again
-		  for(var i=0; i<metadata_json.ondexmetadata.concepts.length;i++) {
+	  var this_taxid="";
+	  // fetch TAXID again
+	  for(var i=0; i<metadata_json.ondexmetadata.concepts.length;i++) {
               if(conc.data('id') === metadata_json.ondexmetadata.concepts[i].id) {
                  for(var j=0; j<metadata_json.ondexmetadata.concepts[i].attributes.length; j++) {
                      if((metadata_json.ondexmetadata.concepts[i].attributes[j].attrname === "TAXID") || (metadata_json.ondexmetadata.concepts[i].attributes[j].attrnameName === "TX")) {
-						 this_taxid= metadata_json.ondexmetadata.concepts[i].attributes[j].value;
+			 this_taxid= metadata_json.ondexmetadata.concepts[i].attributes[j].value;
                         }
                     }
-		        }
-		     }
-			 
-		  // get color (which shade of blue) from map
-		  var genelabel_color= genes_taxid.get(this_taxid);
-		  // set new label blue color/shade accordingly
-		  conc.data('conceptTextBGcolor',genelabel_color);
-		  conc.css({ 'text-background-opacity': '1' });
+		 }
 	     }
-	});
+	       
+	  // get color (which shade of blue) from map
+	  var genelabel_color= genes_taxid.get(this_taxid);
+	  // set new label blue color/shade accordingly
+	  conc.data('conceptTextBGcolor',genelabel_color);
+	  conc.css({ 'text-background-opacity': '1' });
+	 }
+      });
  }
  
  return my;
