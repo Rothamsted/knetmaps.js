@@ -67,6 +67,7 @@ input.knetCon_Cellular_Component { border: none; width:22px; height:22px; backgr
 input.knetCon_CoExpCluster { border: none; width:22px; height:22px; background:url("../img/CoExpCluster.png") }
 input.knetCon_CoExpStudy { border: none; width:22px; height:22px; background:url("../img/CoExpStudy.png") }
 input.knetCon_Compound { border: none; width:22px; height:22px; background:url("../img/Compound.png") }
+input.knetCon_Comp { border: none; width:22px; height:22px; background:url("../img/Compound.png") }
 input.knetCon_DGES { border: none; width:22px; height:22px; background:url("../img/DGES.png") }
 input.knetCon_Disease { border: none; width:22px; height:22px; background:url("../img/Disease.png") }
 input.knetCon_Drug { border: none; width:22px; height:22px; background:url("../img/Drug.png") }
