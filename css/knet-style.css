@@ -28,9 +28,9 @@
   border-width : 5px;
   border-radius : /*15*/5px;
   /*padding : 30px;*/
-  background-color: white;
+  background-color: #FFF;
   box-sizing : border-box;
-  z-index: 2; 
+  z-index: 2;
  }
 
  #knetmaps-menu {
