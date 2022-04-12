@@ -3,36 +3,26 @@
   "version": "2.2.1-SNAPSHOT",
   "license": "MIT",
   "description": "Interactive network visualization tool for intuitive exploratory analysis of heterogeneous knowledge graphs",
-  "main": "knetmaps.js", 
-  "unpkg": "kentmaps.js", 
+  "main": "knetmaps.js",
+  "unpkg": "kentmaps.js",
   "engines": {
-    "node":">=11.15"
+    "node": ">=11.15"
   },
-  "files":[
+  "files": [
     "dist"
   ],
   "homepage": "http://knetminer.rothamsted.ac.uk/KnetMaps/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Rothamsted/knetmaps.js"
+    "url": "git+https://github.com/Rothamsted/knetmaps.js.git"
   },
   "bugs": {
     "url": "https://github.com/Rothamsted/knetmaps.js/issues"
   },
-  "author": {
-    "name": "Ajit Singh",
-    "email": "ajit.singh@rothamsted.ac.uk",
-    "url": "https://www.rothamsted.ac.uk/our-people/ajit-singh"
-  },
+  "author": "Ajit Singh",
   "contributors": [
-    {
-      "name": "Joseph Hearnshaw",
-      "email": ""
-    },
-    {
-      "name": "Dr. Keywan Hassani-Pak",
-      "email": "keywan.hassani-pak@rothamsted.ac.uk"
-    }
+    "Joseph Hearnshaw",
+    "Dr. Keywan Hassani-Pak <keywan.hassani-pak@rothamsted.ac.uk>"
   ],
   "keywords": [
     "network",
@@ -47,8 +37,7 @@
     "biojs"
   ],
   "directories": {
-    "doc": "docs",
-    "test": "test"
+    "doc": "docs"
   },
   "dependencies": {
     "bower": "^1.8.8",
