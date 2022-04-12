@@ -35,11 +35,7 @@ async function cleanDist(){
 };
 
 // *** CSS Compilation ***
-
-// gulp.task('copy-css',
-//  series(cleanDist), 
-
- async function copyCss() {
+async function copyCss() {
   return src(config.css)
   	.pipe(concat('knetmaps.css'))
     .pipe(dest(config.outputCss, {overwrite : true}));
@@ -48,7 +44,6 @@ async function cleanDist(){
 
 
 // *** JS copying ***
-// gulp.task('copy-js'
 async function copyJs() {
 	  return src(config.js)
 	  	.pipe(concat('knetmaps.js'))
@@ -59,7 +54,6 @@ async function copyJs() {
 };
 
 //*** Lib copying ***
-// gulp.task('copy-libs', 
 async function copyLibs() {
 	  return src(config.libs)
 	  	.pipe(concat('knetmaps-lib.js'))
@@ -81,14 +75,12 @@ async function copyLibs() {
 };
 
 //*** Fonts copying ***
-// gulp.task('copy-fonts', 
 async function copyFonts() {
 	  return src(config.fonts)
 	    .pipe(dest(config.outputFonts, {overwrite : true}));
 }
 
 //*** Image copying ***
-// gulp.task('copy-images', 
 async function copyImages() {
 	  return src(config.images)
 	    .pipe(dest(config.outputImages, {overwrite : true}));
@@ -111,9 +103,3 @@ var dev= series(
 
 exports.optimise =dev
 exports.default = task('default',series('help'))
-
-
-
-// gulp.task('optimise', series('copy-fonts','copy-css','copy-js','copy-libs-nojquery','copy-libs','copy-images'));
-
-////////////
