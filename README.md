@@ -1,3 +1,8 @@
+# !!! TODO: This README needs updates !!!
+We're upgrading this package, removing Bower, upgrading dependencies
+versions, etc, we still need to update this README and docs/ to reflect this. This
+note will be removed once this is done.
+
 # KnetMaps.js
 Interactive network visualisation tool for exploration of heterogeneous biological knowledge graphs.
 
