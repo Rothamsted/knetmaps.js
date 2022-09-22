@@ -66,7 +66,7 @@ async function copyLibs() {
 //*** Lib copying ***
  async function copyLibsNoJquery(){
 	  return src(config.libs)
-	  	.pipe(ignore.exclude('jquery-1.11.2.min.js'))
+	  	.pipe(ignore.exclude('jquery-*.js'))
 	  	.pipe(concat('knetmaps-lib-nojquery.js'))
 	    .pipe(dest(config.outputJs, {overwrite : true}))
 	  	.pipe(rename('knetmaps-lib-nojquery.min.js'))
