@@ -8,7 +8,7 @@
         var settings = $.extend({
             'fade': true,
             'z-index': '999',
-            'background': 'black',
+            'background': 'white',
             'opacity': '0.6',
             'position': 'absolute',
             'imgLoader': false,
@@ -19,7 +19,7 @@
         var el = $(this);
 
         var fade = settings.fade;
-
+        
         var imgLoader = settings.imgLoader;
 
         var autoCreate = settings.autoCreate;
@@ -42,7 +42,7 @@
         if(settings.textAlert){
             var textAlert = $('<div class="mask-loader text-alert '+ additionalClass +'"><div class="textalert">'+settings.textAlert+'</div></div>');
         }
-
+               
 
         maskLoaderEl.css(settings);
 
@@ -61,7 +61,7 @@
             textAlert.css({
                 'position':'fixed'
             });
-
+            
         } else {
             maskLoaderEl.css({
                 'width': el.width() - 2,
@@ -101,7 +101,7 @@
                     $(this).prepend(imgLoaderEl.clone());
                     $(this).prepend(maskLoaderEl.clone());
 
-
+                    
                     if (fade) {
                         $(this).find('.mask-loader').fadeIn('slow');
                     }
@@ -111,15 +111,15 @@
             },
             destroy: function () {
                 el.each(function () {
-
+                   
                     if (fade) {
                         $(this).find('.mask-loader').fadeOut('slow', function () {
                             $(this).remove();
                         });
-
+                        
                     } else {
                         $(this).find('.mask-loader').remove();
-
+                        
                     }
 
                 });
@@ -166,19 +166,19 @@
 
     $(document).ajaxError(function(e, jqXHR, ajaxOptions, error){
         if(maskLoaderObjects.hasOwnProperty('element')){
-            maskLoaderObjects.maskLoader.destroy();
+            maskLoaderObjects.maskLoader.destroy();   
         }
     });
 
     $(document).ajaxComplete(function(e, jqXHR, ajaxOptions){
         if(maskLoaderObjects.hasOwnProperty('element')){
-            maskLoaderObjects.maskLoader.destroy();
+            maskLoaderObjects.maskLoader.destroy();   
         }
     });
 
     $(document).ajaxStop(function(){
         if(maskLoaderObjects.hasOwnProperty('element')){
-            maskLoaderObjects.maskLoader.destroy();
+            maskLoaderObjects.maskLoader.destroy();   
         }
     });
 

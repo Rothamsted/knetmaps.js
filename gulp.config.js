@@ -15,7 +15,7 @@ module.exports = function () {
     images: ['./image/*.png','./image/*.ico','./image/*.svg','./image_legend/*.png','./css/*.gif','./css/*.svg'],
     fonts: ['./fonts/*.otf','./fonts/Licenses/*.html'],
     libs: [  // ordering is important
-    	'./libs/jquery-1.11.2.min.js',
+    	'./libs/jquery.min.js',
     	'./libs/jquery*.js',
     	'./libs/FileSaver.min.js',
     	'./libs/cytoscape.min.js',

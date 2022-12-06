@@ -1,3 +1,25 @@
+/*!
+Copyright (c) The Cytoscape Consortium
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the “Software”), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
 ;(function( $, $$ ){ 'use strict';
 
   var isObject = function(o){
@@ -10,6 +32,24 @@
 
   var isNumber = function(o){
     return o != null && typeof o === 'number';
+  };
+
+  var isString = function(o){
+    return o != null && typeof o === 'string';
+  };
+
+  var isUndef = function(o){
+    return o === undefined;
+  };
+
+  var wrap = function(obj, target) {
+    if( isFunction(obj) ) {
+      return function(event, api){
+        return obj.apply( target, [event, api] );
+      };
+    } else {
+      return obj;
+    }
   };
 
   var throttle = function(func, wait, options) {
@@ -137,6 +177,11 @@
     var $qtipContainer = $('<div></div>');
     var viewportDebounceRate = 250;
 
+    $qtipContainer.css({
+      'z-index': -1,
+      'position': 'absolute'
+    });
+
     function generateOpts( target, passedOpts ){
       var qtip = target.scratch().qtip;
       var opts = $.extend( {}, passedOpts );
@@ -162,14 +207,10 @@
       adjust.method = adjust.method || 'flip';
       adjust.mouse = false;
 
-      if( adjust.cyAdjustToEleBB === undefined ){
-        adjust.cyAdjustToEleBB = true;
-      }
-
       // default show event
       opts.show = opts.show || {};
 
-      if( !opts.show.event ){
+      if( isUndef(opts.show.event) ){
         opts.show.event = 'tap';
       }
 
@@ -177,29 +218,69 @@
       opts.hide = opts.hide || {};
       opts.hide.cyViewport = opts.hide.cyViewport === undefined ? true : opts.hide.cyViewport;
 
-      if( !opts.hide.event ){
+      if( isUndef(opts.hide.event) ){
         opts.hide.event = 'unfocus';
       }
 
       // so multiple qtips can exist at once (only works on recent qtip2 versions)
       opts.overwrite = false;
 
-      var content;
       if( opts.content ){
-        if( isFunction(opts.content) ){
-          content = opts.content;
-        } else if( opts.content.text && isFunction(opts.content.text) ){
-          content = opts.content.text;
-        }
-
-        if( content ){
-          opts.content = function(event, api){
-            return content.apply( target, [event, api] );
+        if ( isFunction(opts.content) || isString(opts.content) ){
+          opts.content = wrap( opts.content, target );
+        } else {
+          opts.content = {
+            text: wrap( opts.content.text, target ),
+            title: wrap( opts.content.title, target )
           };
         }
       }
 
       return opts;
+    }
+
+    function updatePosition(ele, qtip, evt){
+      var e = evt;
+      var isCy = isFunction( ele.pan );
+      var isEle = !isCy;
+      var isNode = isEle && ele.isNode();
+      var cy = isCy ? ele : ele.cy();
+      var cOff = cy.container().getBoundingClientRect();
+      var pos = isNode ? ele.renderedPosition() : ( e ? e.cyRenderedPosition : undefined );
+      if( !pos || pos.x == null || isNaN(pos.x) ){ return; }
+
+      var bb = isNode ? ele.renderedBoundingBox({
+        includeNodes: true,
+        includeEdges: false,
+        includeLabels: false,
+        includeShadows: false
+      }) : {
+        x1: pos.x - 1,
+        x2: pos.x + 1,
+        w: 3,
+        y1: pos.y - 1,
+        y2: pos.y + 1,
+        h: 3
+      };
+
+      if( qtip.$domEle.parent().length === 0 ){
+        qtip.$domEle.appendTo(document.body);
+      }
+
+      qtip.$domEle.css({
+        'width': bb.w,
+        'height': bb.h,
+        'top': bb.y1 + cOff.top + window.pageYOffset,
+        'left': bb.x1 + cOff.left + window.pageXOffset,
+        'position': 'absolute',
+        'pointer-events': 'none',
+        'background': 'red',
+        'z-index': 99999999,
+        'opacity': 0.5,
+        'visibility': 'hidden'
+      });
+
+      qtip.api.set('position.target', qtip.$domEle);
     }
 
     $$('collection', 'qtip', function( passedOpts ){
@@ -211,58 +292,24 @@
         return this.scratch().qtip.api;
       }
 
-      eles.each(function(i, ele){
+      eles.each(function(ele, i){
+        // Perform 2.x and 1.x backwards compatibility check
+        if(isNumber(ele)){
+          ele = i;
+        }
         var scratch = ele.scratch();
         var qtip = scratch.qtip = scratch.qtip || {};
         var opts = generateOpts( ele, passedOpts );
         var adjNums = opts.position.adjust;
 
-
         qtip.$domEle.qtip( opts );
         var qtipApi = qtip.api = qtip.$domEle.qtip('api'); // save api ref
         qtip.$domEle.removeData('qtip'); // remove qtip dom/api ref to be safe
 
-        var updatePosition = function(e){
-          var cOff = container.getBoundingClientRect();
-          var pos = ele.renderedPosition() || ( e ? e.cyRenderedPosition : undefined );
-          if( !pos || pos.x == null || isNaN(pos.x) ){ return; }
-
-          if( opts.position.adjust.cyAdjustToEleBB && ele.isNode() ){
-            var my = opts.position.my.toLowerCase();
-            var at = opts.position.at.toLowerCase();
-            var z = cy.zoom();
-            var w = ele.outerWidth() * z;
-            var h = ele.outerHeight() * z;
-
-            if( at.match('top') ){
-              pos.y -= h/2;
-            } else if( at.match('bottom') ){
-              pos.y += h/2;
-            }
-
-            if( at.match('left') ){
-              pos.x -= w/2;
-            } else if( at.match('right') ){
-              pos.x += w/2;
-            }
-
-            if( isNumber(adjNums.x) ){
-              pos.x += adjNums.x;
-            }
-
-            if( isNumber(adjNums.y) ){
-              pos.y += adjNums.y;
-            }
-          }
-
-          qtipApi.set('position.adjust.x', cOff.left + pos.x + window.pageXOffset);
-          qtipApi.set('position.adjust.y', cOff.top + pos.y + window.pageYOffset);
-        };
-        updatePosition();
+        updatePosition(ele, qtip);
 
         ele.on( opts.show.event, function(e){
-          updatePosition(e);
-
+          updatePosition(ele, qtip, e);
           qtipApi.show();
         } );
 
@@ -278,7 +325,7 @@
 
         if( opts.position.adjust.cyViewport ){
           cy.on('pan zoom', debounce(function(e){
-            updatePosition(e);
+            updatePosition(ele, qtip, e);
 
             qtipApi.reposition();
           }, viewportDebounceRate, { trailing: true }) );
@@ -307,18 +354,9 @@
       var qtipApi = qtip.api = qtip.$domEle.qtip('api'); // save api ref
       qtip.$domEle.removeData('qtip'); // remove qtip dom/api ref to be safe
 
-      var updatePosition = function(e){
-        var cOff = container.getBoundingClientRect();
-        var pos = e.cyRenderedPosition;
-        if( !pos || pos.x == null || isNaN(pos.x) ){ return; }
-
-        qtipApi.set('position.adjust.x', cOff.left + pos.x + window.pageXOffset);
-        qtipApi.set('position.adjust.y', cOff.top + pos.y + window.pageYOffset);
-      };
-
       cy.on( opts.show.event, function(e){
         if( !opts.show.cyBgOnly || (opts.show.cyBgOnly && e.cyTarget === cy) ){
-          updatePosition(e);
+          updatePosition(cy, qtip, e);
 
           qtipApi.show();
         }
@@ -343,10 +381,19 @@
   }
 
   if( typeof module !== 'undefined' && module.exports ){ // expose as a commonjs module
-    module.exports = register;
-  }
+    module.exports = function( cytoscape ){
+      var oldJq = window.jQuery;
+      var old$ = window.$;
 
-  if( typeof define !== 'undefined' && define.amd ){ // expose as an amd/requirejs module
+      var jQuery = window.jQuery = window.$ = require('jquery'); // qtip requires global jquery
+      var qtip = require('qtip2');
+
+      register( cytoscape, jQuery );
+
+      window.jQuery = oldJq;
+      window.$ = old$;
+    };
+  } else if( typeof define !== 'undefined' && define.amd ){ // expose as an amd/requirejs module
     define('cytoscape-qtip', function(){
       return register;
     });
