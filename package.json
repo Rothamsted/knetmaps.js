@@ -53,7 +53,7 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-batch": "^1.0.5",
     "gulp-concat": "^2.3.1",
-    "gulp-connect": "^2.3.1",
+    "gulp-connect": "^5.7.0",
     "gulp-csso": "^1.0.1",
     "gulp-if": "^2.0.0",
     "gulp-ignore": "^2.0.2",
