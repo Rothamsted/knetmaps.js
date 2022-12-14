@@ -8,12 +8,8 @@ module.exports = {
        app: './javascripts/main.js'
    },
    plugins:[
-    
     new CopyPlugin(
-
     moduleAssets.map(singlemodule => {
-        return {from:path.resolve(__dirname,`./node_modules/${singlemodule}`),to: path.resolve(__dirname, './libs')}
-    })
-
-    )],
+        return {from:path.resolve(__dirname,`./node_modules/${singlemodule}`),to: path.resolve(__dirname, './src/lib')}
+    }))],
 }

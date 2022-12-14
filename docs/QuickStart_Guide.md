@@ -26,6 +26,7 @@ npm install
 <head>
     <link href="css/knetmaps.css" rel="stylesheet" /> <!-- KnetMaps stylesheet -->
     <script src="js/knetmaps-lib.min.js"></script> <!-- KnetMaps dependencies -->
+     <script src="js/knetmaps-lib-nojquery.min.js></script> <!-- KnetMaps dependencies without jquery  -->
     <script src="js/knetmaps.min.js"></script> <!-- KnetMaps source code -->    
     <script src="sampleFiles/ara2.json"></script> <!-- JSON dataset for static example -->
     <title>KnetMaps.js demo</title>

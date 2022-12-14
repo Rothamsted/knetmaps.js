@@ -4,3 +4,4 @@ bower_components/
 .project
 .DS_Store
 .settings
+src/lib

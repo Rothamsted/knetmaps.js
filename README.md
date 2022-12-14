@@ -1,7 +1,3 @@
-# !!! TODO: This README needs updates !!!
-We're upgrading this package, removing Bower, upgrading dependencies
-versions, etc, we still need to update this README and docs/ to reflect this. This
-note will be removed once this is done.
 
 # KnetMaps.js
 Interactive network visualisation tool for exploration of heterogeneous biological knowledge graphs.
@@ -19,13 +15,11 @@ KnetMaps **paper** at https://f1000research.com/articles/7-1651/v1.
 ### For dev users: To build/package and test locally:
 - Install Node.js (https://nodejs.org/en/download/) & NPM
 - Install Git (https://git-scm.com/)
-- Install bower: `npm install -g bower@1.8.8` (optional)
-- Install gulp: `npm install -g gulp@3.9.1`
-- To build: `gulp optimise`
-- Also, downgrade npm (if errors arise): `npm install -g npm@6.1.0`
-- Note: Make sure you use `Node v10.21.0` as new versions fail with gulp 3 (need gulp 4 which KnetMaps does not support)
-- Note: Our test environment uses `node 10.21.0, npm 6.1.0 , bower 1.8.8, gulp 3.9.1`. 
-**Note:** As of last check, [Node.js 10.7.0](https://nodejs.org/download/release/v10.7.0/) can be downloaded with npm 6.1.0 , which works well with KnetMaps/KnetMiner.
+- Install npm dependencies: `npm install`
+- To build: `npm run build`
+- Note: Make sure  `Node version >= v12 `
+- Note: Our test environment uses `node 12.22.12 and npm 8.10.0`. 
+
 
 Testing on local PC's is easy and can be done using any lightweight servers like `jetty`, `apache`, `tomcat`, etc. 
 `Python3` users can easily install `SimpleHTTPServer` via `pip` and test with that, e.g., on Windows via:

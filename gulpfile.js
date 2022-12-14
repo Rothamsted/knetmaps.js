@@ -9,12 +9,8 @@ var { src, dest, series, task } = require('gulp'),
 	concat = require('gulp-concat'),
 	rename = require('gulp-rename'),
 	ignore = require('gulp-ignore'),
-	runSequence = require('run-sequence'),
 	$ = require('gulp-load-plugins')({ lazy: true }),
-	config = require('./gulp.config')(), 
-	webpack = require('webpack'), 
-    webpackConfig = require("./webpack.config");
-
+	config = require('./gulp.config')();
 // *** Code analysis ***
 async function vet() {
 	$.util.log('Running static code analysis.');
@@ -32,24 +28,10 @@ function clean(path) {
 	return del(path);
 }
 
-async function cleanDist() {
+async function cleanDist(cb) {
 	await clean('./dist/*');
+	cb()
 };
-
-async function cleanLibs() {
-	await clean('./libs/*');
-};
-
-// copying node_modules with webpack 
-async function fetchModules(cb){
-    $.util.log('copying node modules to lib folder')
-       webpack(webpackConfig, (err, stats)=> {
-      if(err){
-        return reject(err)
-      }
-      cb()
-    })
-}
 
 // *** CSS Compilation ***
 async function copyCss() {
@@ -58,7 +40,6 @@ async function copyCss() {
 		.pipe(dest(config.outputCss, { overwrite: true }));
 
 }
-
 
 // *** JS copying ***
 async function copyJs() {
@@ -103,8 +84,6 @@ async function copyImages() {
 		.pipe(dest(config.outputImages, { overwrite: true }));
 }
 
-
-
 // create a default task and just log a message
 task('help', $.taskListing)
 
@@ -113,5 +92,4 @@ var dev = series(cleanDist,copyCss,
 	copyLibsNoJquery,
 	copyFonts,copyImages);
 exports.optimise = dev
-exports.fetchLibs = series(cleanLibs,fetchModules);
 exports.default = task('default', series('help'))

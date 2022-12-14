@@ -7,19 +7,19 @@ module.exports = function () {
 
     // all the source files
     css: [ // ordering is important
-    	'./css/knet-style.css',
-    	'./css/jquery.qtip.min.css',
-    	'./css/maskloader.css'
+    	'./src/css/knet-style.css',
+    	'./src/css/jquery.qtip.min.css',
+    	'./src/css/maskloader.css'
     	],
-    js: ['./javascript/*.js','./config/url_mappings.js'],
-    images: ['./image/*.png','./image/*.ico','./image/*.svg','./image_legend/*.png','./css/*.gif','./css/*.svg'],
+    js: ['./src/js/*.js','./config/url_mappings.js'],
+    images: ['./image/*.png','./image/*.ico','./image/*.svg','./image_legend/*.png','./src/css/*.gif','./src/css/*.svg'],
     fonts: ['./fonts/*.otf','./fonts/Licenses/*.html'],
     libs: [  // ordering is important
-    	'./libs/jquery.min.js',
-    	'./libs/jquery*.js',
-    	'./libs/FileSaver.min.js',
-    	'./libs/cytoscape.min.js',
-    	'./libs/cytoscape-*.js'
+    	'./src/lib/jquery.min.js',
+    	'./src/lib/jquery*.js',
+    	'./src/lib/FileSaver.min.js',
+    	'./src/lib/cytoscape.min.js',
+    	'./src/lib/cytoscape-*.js'
     	],
 
     // the development output
@@ -28,6 +28,10 @@ module.exports = function () {
     outputImages: './dist/img',
     outputCss: './dist/css',
     outputJs: './dist/js',
+
+    // html source files
+    html: './src/*.html',
+
 
   };
 
