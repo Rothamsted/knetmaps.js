@@ -4,6 +4,9 @@
 
 ## Current version
 * **TODO: things to be re-arranged, between master, the '202204_upgrades' branch and knetmaps-plus**, See [these notes](https://github.com/Rothamsted/knetmaps.js/issues/36#issuecomment-1441909066).
+* Bugfix for [#737, SNP/SNPEffect selected together][10]
+
+[10]: https://github.com/Rothamsted/knetminer/issues/737
 
 ## 2.2.1-RC.1
 * Many changes to 2.x, including:

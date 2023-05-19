@@ -1,0 +1,1 @@
+Test network, downloaded from Knetminer/Poaceae, to debug and verify https://github.com/Rothamsted/knetminer/issues/737
