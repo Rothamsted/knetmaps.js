@@ -158,7 +158,7 @@ KNETMAPS.ConceptsLegend = function () {
         // get all cytoscape elements via jQuery 
         var cy = $('#cy').cytoscape('get');
         var conID = KNETMAPS.ConceptsLegend().conNameFormat(conType);
-        console.debug ( "ID is", conID );
+        console.log("Showing Concept Type #", conID);
         var collections = KNETMAPS.ConceptsLegend().nodeClassesOnGraph(cy, conID),
                 hiddenNodes_ofSameType = collections.hiddenNodes,
                 currently_visibleNodes = collections.visibleNodes,
@@ -192,7 +192,7 @@ KNETMAPS.ConceptsLegend = function () {
     }
 
     my.hideConnectedByType = function (conType) {
-        console.debug ("Toggling ", conType, "visible" ); 
+        console.debug ("Toggling ", conType, " visible" ); 
         $('#infoDialog').html("");
         // get all cytoscape elements via jQuery 
         var cy = $('#cy').cytoscape('get');
