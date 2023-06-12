@@ -1,6 +1,6 @@
 {
   "name": "knetmaps",
-  "version": "2.2.1-SNAPSHOT",
+  "version": "2.2.1",
   "license": "MIT",
   "description": "Interactive network visualization tool for intuitive exploratory analysis of heterogeneous knowledge graphs",
   "main": "knetmaps.js",
@@ -31,7 +31,6 @@
     "node",
     "npm",
     "nodejs",
-    "bower",
     "gulp",
     "cytoscapejs",
     "biojs"
@@ -40,7 +39,6 @@
     "doc": "docs"
   },
   "dependencies": {
-    "bower": "^1.8.8",
     "node": "^11.5.0",
     "yargs-parser": "^2.4.1"
   },
